@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071b1b">
+<title>کاتەکانی بانگ | نوری ئیمان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#071b1b;
+--panel:#102a27;
+--green:#43c69a;
+--gold:#dfbd78;
+--text:#f4f4ed;
+--muted:#a4b8ad;
+--border:rgba(255,255,255,.09);
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:radial-gradient(ellipse at 20% 0%,rgba(67,198,154,.13),transparent 40%),var(--bg);
+color:var(--text);
+font-family:'Noto Sans Arabic',sans-serif;
+}
+
+header{
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+
+.logo{
+width:46px;
+height:46px;
+border-radius:15px;
+background:linear-gradient(135deg,#43c69a,#176c55);
+display:grid;
+place-items:center;
+color:#06251b;
+font-size:24px;
+}
+
+.brand small{
+display:block;
+color:var(--muted);
+font-size:11px;
+}
+
+a.home{
+color:var(--gold);
+text-decoration:none;
+border:1px solid var(--border);
+padding:10px 14px;
+border-radius:11px;
+font-size:12px;
+}
+
+/* HERO IMAGE */
+
+main{
+max-width:950px;
+margin:25px auto 60px;
+padding:0 17px;
+}
+
+.hero{
+position:relative;
+min-height:310px;
+border-radius:25px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+margin-bottom:25px;
+border:1px solid #dfbd7850;
+background:#102a27;
+}
+
+.hero img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+inset:0;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+180deg,
+rgba(3,17,16,.35),
+rgba(3,17,16,.88)
+);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:35px 15px;
+}
+
+.hero-icon{
+font-size:48px;
+margin-bottom:8px;
+filter:drop-shadow(0 0 12px #dfbd78);
+}
+
+.hero h1{
+font-size:34px;
+color:var(--gold);
+margin:8px;
+text-shadow:0 3px 15px #000;
+}
+
+.hero p{
+font-size:13px;
+color:#f1eee4;
+line-height:2.2;
+max-width:600px;
+margin:auto;
+}
+
+.hero-line{
+width:120px;
+height:2px;
+margin:18px auto;
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+/* PANELS */
+
+.panel{
+background:linear-gradient(145deg,#12312c,#0c2421);
+border:1px solid var(--border);
+border-radius:19px;
+padding:22px;
+margin-bottom:18px;
+box-shadow:0 12px 30px #0003;
+}
+
+.controls{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:12px;
+}
+
+label{
+display:block;
+color:var(--muted);
+font-size:12px;
+margin-bottom:8px;
+}
+
+select{
+width:100%;
+padding:13px;
+border-radius:11px;
+background:#091f1c;
+color:white;
+border:1px solid var(--border);
+font-family:inherit;
+outline:none;
+}
+
+select:focus{
+border-color:var(--gold);
+}
+
+.date{
+text-align:center;
+margin:20px 0 6px;
+color:var(--gold);
+font-size:17px;
+}
+
+.greg{
+text-align:center;
+color:var(--muted);
+font-size:12px;
+}
+
+/* KAABA IMAGE */
+
+.kaaba-banner{
+position:relative;
+height:160px;
+border-radius:15px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.kaaba-banner img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.kaaba-banner::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(90deg,rgba(3,20,17,.2),rgba(3,20,17,.8));
+}
+
+.kaaba-text{
+position:absolute;
+z-index:2;
+top:50%;
+right:20px;
+transform:translateY(-50%);
+}
+
+.kaaba-text h3{
+color:var(--gold);
+font-size:21px;
+margin:0 0 8px;
+}
+
+.kaaba-text p{
+font-size:12px;
+color:white;
+margin:0;
+}
+
+/* NEXT PRAYER */
+
+.next{
+margin:15px 0 20px;
+padding:22px;
+text-align:center;
+border-radius:15px;
+background:linear-gradient(120deg,rgba(67,198,154,.14),rgba(223,189,120,.08));
+border:1px solid rgba(67,198,154,.2);
+}
+
+.next small{color:var(--muted);font-size:12px}
+
+.next h2{
+color:var(--green);
+font-size:25px;
+margin:9px;
+}
+
+#nextTime{
+font-size:27px;
+color:var(--gold);
+direction:ltr;
+}
+
+/* PRAYER TIMES */
+
+.times{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:11px;
+}
+
+.time{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+background:#0b2420;
+border:1px solid var(--border);
+border-radius:13px;
+padding:16px;
+transition:.3s;
+}
+
+.time:hover{
+border-color:var(--gold);
+transform:translateY(-3px);
+}
+
+.time.active{
+border-color:var(--green);
+background:rgba(67,198,154,.12);
+box-shadow:0 0 15px #43c69a20;
+}
+
+.time-name{font-size:14px}
+
+.time small{
+display:block;
+color:var(--muted);
+font-size:10px;
+margin-top:4px;
+}
+
+.time strong{
+direction:ltr;
+color:var(--gold);
+font-size:20px;
+}
+
+.status{
+padding:13px;
+background:rgba(255,255,255,.04);
+border-radius:11px;
+color:var(--muted);
+font-size:12px;
+line-height:2;
+margin-top:14px;
+}
+
+button{
+font-family:inherit;
+cursor:pointer;
+}
+
+.refresh{
+width:100%;
+padding:14px;
+border:0;
+border-radius:11px;
+background:linear-gradient(100deg,#43c69a,#8cdbb2);
+color:#06251b;
+font-weight:800;
+margin-top:15px;
+font-size:14px;
+transition:.3s;
+}
+
+.refresh:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 20px #43c69a35;
+}
+
+.note{
+color:var(--muted);
+font-size:11px;
+line-height:2;
+margin-top:15px;
+}
+
+.dua{
+text-align:center;
+padding:25px 15px;
+border:1px solid #dfbd7840;
+border-radius:18px;
+background:linear-gradient(145deg,#102b27,#0a201e);
+margin-top:20px;
+}
+
+.dua .arabic{
+color:var(--gold);
+font-size:23px;
+line-height:2;
+}
+
+.dua p{
+color:var(--muted);
+font-size:12px;
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:25px;
+color:var(--muted);
+font-size:11px;
+}
+
+@media(max-width:650px){
+.controls{grid-template-columns:1fr}
+.times{grid-template-columns:1fr}
+.panel{padding:16px}
+.hero{min-height:260px}
+.hero h1{font-size:27px}
+.kaaba-banner{height:140px}
+.kaaba-text h3{font-size:17px}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header>
+<div class="brand">
+<div class="logo">☪</div>
+<div>
+<strong>نوری ئیمان</strong>
+<small>کاتەکانی نوێژ</small>
+</div>
+</div>
+<a class="home" href="index.html">⌂ سەرەتا</a>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<img
+src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1600&q=90"
+alt="وێنەی مزگەوت"
+>
+
+<div class="hero-content">
+<div class="hero-icon"></div>
+<h1>کاتەکانی بانگ</h1>
+<div class="hero-line"></div>
+<p>
+لەگەڵ کاتی نوێژەکانت بە. کاتی بانگی پێنج نوێژەکە
+بۆ شارەکانی کوردستان بە وردی ببینە.
+</p>
+</div>
+
+</section>
+
+<!-- CITY SETTINGS -->
+
+<section class="panel">
+
+<div class="controls">
+
+<div>
+<label for="city">شار هەڵبژێرە</label>
+<select id="city">
+<option value="sulaymaniyah">سلێمانی</option>
+<option value="erbil">هەولێر</option>
+<option value="duhok">دهۆک</option>
+<option value="halabja">هەڵەبجە</option>
+<option value="kirkuk">کەرکووک</option>
+<option value="zakho">زاخۆ</option>
+<option value="ranya">ڕانیە</option>
+<option value="kalar">کەلار</option>
+<option value="akre">ئاکرێ</option>
+<option value="chamchamal">چەمچەماڵ</option>
+</select>
+</div>
+
+<div>
+<label for="method">شێوازی هەژمارکردن</label>
+<select id="method">
+<option value="3">Muslim World League</option>
+<option value="1">کراچی</option>
+<option value="5">میسر</option>
+<option value="13">Diyanet - تورکیا</option>
+<option value="0">جعفەری</option>
+</select>
+</div>
+
+<div>
+<label for="school">هەژمارکردنی عەسر</label>
+<select id="school">
+<option value="0">شافعی</option>
+<option value="1">حەنەفی</option>
+</select>
+</div>
+
+</div>
+
+<div class="date" id="hijriDate">...</div>
+<div class="greg" id="gregDate">...</div>
+
+</section>
+
+<!-- PRAYER TIMES -->
+
+<section class="panel">
+
+<div class="kaaba-banner">
+<img
+src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=90"
+alt="کەعبەی پیرۆز"
+>
+<div class="kaaba-text">
+<h3>بە ئارامی دڵت نوێژ بکە</h3>
+<p>نوێژ ڕووناکی دڵ و ڕێگای ئیمانە</p>
+</div>
+</div>
+
+<div class="next">
+<small>نوێژی داهاتوو</small>
+<h2 id="nextName">...</h2>
+<div id="nextTime">--:--</div>
+</div>
+
+<div class="times" id="times">
+<div class="time">چاوەڕێ بکە...</div>
+</div>
+
+<div class="status" id="status">
+کاتەکانی نوێژ وەردەگیرێن...
+</div>
+
+<button class="refresh" id="refresh">
+⟳ نوێکردنەوەی کاتەکان
+</button>
+
+<div class="note">
+تێبینی: کاتەکان بە پێی شوێنی شار و شێوازی هەژمارکردنی هەڵبژێردراوە. بۆ گونجاندنی تەواو لەگەڵ مزگەوتەکەت، کاتەکان لەگەڵ خشتەی فەرمیی ناوچەکەت بەراورد بکە.
+</div>
+
+</section>
+
+<section class="dua">
+<div class="arabic">
+إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا
+</div>
+<p>سورەتی نیساء، ئایەتی ١٠٣</p>
+</section>
+
+</main>
+
+<footer>
+✦ نوری ئیمان © 2026
+</footer>
+
+<script>
+
+const cities={
+sulaymaniyah:{name:'سلێمانی',lat:35.5613,lon:45.4300},
+erbil:{name:'هەولێر',lat:36.1901,lon:44.0091},
+duhok:{name:'دهۆک',lat:36.8671,lon:42.9507},
+halabja:{name:'هەڵەبجە',lat:35.1778,lon:45.9861},
+kirkuk:{name:'کەرکووک',lat:35.4681,lon:44.3922},
+zakho:{name:'زاخۆ',lat:37.1487,lon:42.6853},
+ranya:{name:'ڕانیە',lat:36.2550,lon:44.8830},
+kalar:{name:'کەلار',lat:34.6270,lon:45.3230},
+akre:{name:'ئاکرێ',lat:36.7400,lon:43.8950},
+chamchamal:{name:'چەمچەماڵ',lat:35.5300,lon:44.8300}
+};
+
+const prayerNames={
+Fajr:'بەیانی',
+Sunrise:'هەڵاتنی خۆر',
+Dhuhr:'نیوەڕۆ',
+Asr:'عەسر',
+Maghrib:'مەغریب',
+Isha:'عیشا'
+};
+
+const $=id=>document.getElementById(id);
+
+function todayString(){
+const d=new Date();
+return String(d.getDate()).padStart(2,'0')+'-'+
+String(d.getMonth()+1).padStart(2,'0')+'-'+d.getFullYear();
+}
+
+function cleanTime(t){
+return (t||'--:--').split(' ')[0].slice(0,5);
+}
+
+function minutes(t){
+const p=cleanTime(t).split(':').map(Number);
+return p[0]*60+p[1];
+}
+
+function render(data){
+
+const timings=data.timings;
+const hijri=data.date.hijri;
+
+$('hijriDate').textContent=
+hijri.day+' '+hijri.month.ar+' '+hijri.year+' کۆچی';
+
+$('gregDate').textContent=
+data.date.readable+' — '+cities[$('city').value].name;
+
+const keys=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
+
+const now=new Date();
+const nowMinutes=now.getHours()*60+now.getMinutes();
+
+let next=null;
+
+for(const key of ['Fajr','Dhuhr','Asr','Maghrib','Isha']){
+if(minutes(timings[key])>nowMinutes){
+next=key;
+break;
+}
+}
+
+const boxes=keys.map(key=>{
+const active=key===next;
+
+return `<div class="time ${active?'active':''}">
+<div>
+<div class="time-name">${prayerNames[key]}</div>
+<small>${key==='Sunrise'?'کاتی هەڵاتنی خۆر':'کاتی نوێژ'}</small>
+</div>
+<strong>${cleanTime(timings[key])}</strong>
+</div>`;
+}).join('');
+
+$('times').innerHTML=boxes;
+
+if(next){
+$('nextName').textContent=prayerNames[next];
+$('nextTime').textContent=cleanTime(timings[next]);
+}else{
+$('nextName').textContent='نوێژی بەیانیی سبەی';
+$('nextTime').textContent=cleanTime(timings.Fajr);
+}
+
+$('status').textContent=
+'کاتەکان بە سەرکەوتوویی وەرگیران. شاری '+
+cities[$('city').value].name+
+' — شێوازی هەژمارکردن: '+
+$('method').selectedOptions[0].text;
+
+}
+
+async function loadTimes(){
+
+const city=cities[$('city').value];
+
+$('status').textContent='کاتەکانی نوێژ وەردەگیرێن...';
+
+$('times').innerHTML=
+'<div class="time">تکایە چاوەڕێ بکە...</div>';
+
+const method=$('method').value;
+const school=$('school').value;
+
+const url=`https://api.aladhan.com/v1/timings/${todayString()}?latitude=${city.lat}&longitude=${city.lon}&method=${method}&school=${school}&timezonestring=Asia/Baghdad`;
+
+try{
+
+const response=await fetch(url);
+
+if(!response.ok)throw new Error('API error');
+
+const json=await response.json();
+
+if(json.code!==200)throw new Error('Invalid response');
+
+render(json.data);
+
+}catch(e){
+
+$('status').textContent=
+'نەتوانرا کاتەکان وەربگیرێن. ئینتەرنێت بپشکنە و دووبارە هەوڵ بدە.';
+
+$('times').innerHTML='';
+
+}
+
+}
+
+$('city').addEventListener('change',loadTimes);
+$('method').addEventListener('change',loadTimes);
+$('school').addEventListener('change',loadTimes);
+$('refresh').addEventListener('click',loadTimes);
+
+loadTimes();
+
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b1b">
+<title>جۆرەکانی نوێژ و ئادابەکانی | نوری ئیمان</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#071b1b;
+  --bg2:#0b2926;
+  --card:#102f2b;
+  --gold:#d9b66b;
+  --gold2:#f0d99c;
+  --text:#f5f1e8;
+  --muted:#b8c8bf;
+  --border:rgba(217,182,107,.22);
+  --green:#1d5949;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:'Noto Sans Arabic',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:2;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1160px,92%);margin:auto}
+
+/* سەرپەڕە */
+header{
+  background:rgba(7,27,27,.96);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(14px);
+}
+.nav{
+  min-height:72px;display:flex;align-items:center;
+  justify-content:space-between;gap:15px;
+}
+.logo{color:var(--gold2);font-size:23px;font-weight:800}
+.logo span{color:white}
+.nav a.back{
+  border:1px solid var(--border);border-radius:30px;
+  padding:7px 18px;color:var(--gold2);font-size:13px;
+}
+
+/* بەشی سەرەکی */
+.hero{
+  min-height:440px;display:flex;align-items:center;
+  text-align:center;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(29,89,73,.55),transparent 60%),
+    linear-gradient(135deg,#102f2b,#061715 70%);
+  border-bottom:1px solid var(--border);
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border:1px solid rgba(217,182,107,.15);
+  width:280px;height:280px;transform:rotate(45deg);
+  border-radius:45px;pointer-events:none;
+}
+.hero:before{top:-180px;right:-100px}
+.hero:after{bottom:-210px;left:-100px}
+.hero-content{
+  max-width:850px;margin:auto;padding:75px 15px;
+  position:relative;z-index:1;
+}
+.hero .small{color:var(--gold2);letter-spacing:2px;font-size:13px}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.6;margin:15px 0;color:white}
+.hero h1 span{color:var(--gold2)}
+.hero p{color:#e1e8df;max-width:700px;margin:auto;font-size:16px}
+.hero-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{
+  display:inline-block;padding:10px 24px;border-radius:30px;
+  background:var(--gold);color:#10221c;font-weight:800;
+  font-size:14px;transition:.3s;
+}
+.btn:hover{transform:translateY(-3px)}
+.btn.outline{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
+
+section{padding:65px 0}
+.section-heading{text-align:center;margin-bottom:35px}
+.section-heading .eyebrow{color:var(--gold);font-size:13px;font-weight:700}
+.section-heading h2{font-size:clamp(25px,4vw,35px);margin:8px 0}
+.section-heading p{color:var(--muted);font-size:14px;max-width:700px;margin:auto}
+
+.intro-card{
+  background:linear-gradient(135deg,#123b32,#0b2825);
+  border:1px solid var(--border);border-radius:20px;
+  padding:25px;margin-bottom:30px;
+}
+.intro-card h3{color:var(--gold2);margin-bottom:10px}
+.intro-card p{color:var(--muted);font-size:14px}
+
+/* کارتەکانی نوێژ */
+.prayer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prayer-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:18px;overflow:hidden;transition:.3s;
+}
+.prayer-card:hover{transform:translateY(-6px);border-color:var(--gold)}
+
+/* وێنەی SVG */
+.artwork{
+  height:190px;position:relative;overflow:hidden;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#17483c,#091e1b);
+  border-bottom:1px solid var(--border);
+}
+.artwork:before,.artwork:after{
+  content:"";position:absolute;border:1px solid rgba(240,217,156,.22);
+  border-radius:50%;width:210px;height:210px;
+}
+.artwork:after{width:160px;height:160px}
+.artwork svg{
+  width:125px;height:125px;position:relative;z-index:2;
+  filter:drop-shadow(0 8px 15px rgba(0,0,0,.3));
+}
+.artwork .art-label{
+  position:absolute;bottom:12px;right:15px;left:15px;
+  text-align:center;color:var(--gold2);font-size:13px;
+  font-weight:700;z-index:3;
+}
+.art-mosque{background:linear-gradient(145deg,#17483c,#091e1b)}
+.art-quran{background:linear-gradient(145deg,#41351e,#132a25)}
+.art-night{background:linear-gradient(145deg,#172e51,#091b27)}
+.art-kaaba{background:linear-gradient(145deg,#3d3020,#101e1b)}
+.art-moon{background:linear-gradient(145deg,#263d54,#0a1c27)}
+.art-prayer{background:linear-gradient(145deg,#284638,#0b201b)}
+.art-light{background:linear-gradient(145deg,#4a3b22,#17291f)}
+.art-green{background:linear-gradient(145deg,#1b5140,#09231d)}
+
+.card-content{padding:20px}
+.card-top{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:8px;margin-bottom:10px;
+}
+.card-content h3{color:var(--gold2);font-size:18px}
+.tag{
+  background:rgba(217,182,107,.13);color:var(--gold2);
+  border:1px solid var(--border);border-radius:20px;
+  padding:3px 10px;font-size:11px;white-space:nowrap;
+}
+.card-content p{color:var(--muted);font-size:13px;margin-bottom:12px}
+.card-content h4{color:var(--gold);font-size:13px;margin:10px 0 3px}
+.card-content .detail{color:#e3e9e1;font-size:13px}
+
+.quote{
+  background:linear-gradient(135deg,#153e33,#0b2925);
+  border:1px solid var(--border);border-radius:20px;
+  padding:30px;text-align:center;margin-top:35px;
+}
+.quote .arabic{color:var(--gold2);font-size:25px;line-height:2;margin-bottom:12px}
+.quote p{color:var(--muted);font-size:13px}
+
+/* ئادابەکان */
+.adab-section{
+  background:#0a2422;border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.adab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.adab-card{
+  background:#102f2b;padding:23px;
+  border:1px solid var(--border);border-radius:17px;
+  transition:.3s;
+}
+.adab-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.adab-icon{
+  width:48px;height:48px;display:grid;place-items:center;
+  background:rgba(217,182,107,.12);color:var(--gold2);
+  border-radius:14px;font-size:23px;margin-bottom:12px;
+}
+.adab-card h3{color:var(--gold2);font-size:16px;margin-bottom:7px}
+.adab-card p{color:var(--muted);font-size:13px}
+
+/* هەنگاوەکان */
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.step{
+  display:flex;gap:15px;align-items:flex-start;
+  padding:18px;border:1px solid var(--border);
+  border-radius:15px;background:var(--card);
+}
+.step-number{
+  min-width:35px;height:35px;border-radius:50%;
+  background:var(--gold);color:#14271f;
+  display:grid;place-items:center;font-weight:800;
+}
+.step h3{color:var(--gold2);font-size:15px}
+.step p{color:var(--muted);font-size:13px}
+.warning{
+  border-right:4px solid var(--gold);
+  background:rgba(217,182,107,.08);padding:20px;
+  border-radius:10px;margin-top:25px;color:var(--muted);font-size:13px;
+}
+
+/* سەرچاوەکان */
+.sources{
+  background:var(--card);border:1px solid var(--border);
+  padding:25px;border-radius:18px;
+}
+.sources h3{color:var(--gold2);margin-bottom:12px}
+.sources li{color:var(--muted);font-size:13px;margin:8px 20px 8px 0}
+.sources a{color:var(--gold2);text-decoration:underline}
+footer{
+  text-align:center;padding:30px 15px;background:#041311;
+  color:var(--muted);font-size:13px;
+}
+footer strong{color:var(--gold2)}
+
+@media(max-width:900px){
+  .prayer-grid{grid-template-columns:repeat(2,1fr)}
+  .adab-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .prayer-grid,.adab-grid,.steps{grid-template-columns:1fr}
+  .hero{min-height:390px}
+  .hero p{font-size:14px}
+  section{padding:48px 0}
+  .artwork{height:210px}
+  .logo{font-size:19px}
+  .nav a.back{font-size:11px;padding:6px 12px}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">نوری <span>ئیمان</span></a>
+    <a href="index.html" class="back">← گەڕانەوە بۆ سەرەتا</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="small">بە ناوی خوای بەخشندە و میهرەبان</div>
+    <h1>جۆرەکانی <span>نوێژ</span><br>و ئادابەکانی</h1>
+    <p>
+      نوێژ پەیوەندییەکی پیرۆزە لە نێوان بەندە و پەروەردگاری.
+      لەم پەڕەیەدا فێری جۆرەکانی نوێژ، کاتی ئەنجامدانیان
+      و ئەو ئادابانە دەبیت کە جوانی و تەواوی نوێژ زیاد دەکەن.
+    </p>
+    <div class="hero-buttons">
+      <a href="#types" class="btn">جۆرەکانی نوێژ</a>
+      <a href="#adab" class="btn outline">ئادابەکانی نوێژ</a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<section id="types">
+<div class="container">
+  <div class="section-heading">
+    <div class="eyebrow">فێربوونی نوێژ</div>
+    <h2>جۆرەکانی نوێژ</h2>
+    <p>نوێژ لە ڕووی حوکم و شێوازی ئەنجامدانەوە جۆری جیاوازی هەیە.</p>
+  </div>
+
+  <div class="intro-card">
+    <h3>نوێژ چییە؟</h3>
+    <p>
+      نوێژ عیبادەتێکی گرنگە کە بە وتە و کردارە تایبەتەکان دەکرێت،
+      بە تەکبیر دەست پێدەکات و بە سەلامدان کۆتایی دێت.
+      نوێژی پێنج کات لەسەر هەر موسڵمانێکی باڵغ و عاقڵ واجبە،
+      بە پێی مەرج و ڕێنماییەکانی شەرع.
+    </p>
+  </div>
+
+  <div class="prayer-grid">
+
+    <!-- ١ -->
+    <article class="prayer-card">
+      <div class="artwork art-mosque">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 132V76L80 39L135 76V132H25Z" fill="#D9B66B" opacity=".2" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M57 132V103C57 90 67 81 80 81C93 81 103 90 103 103V132" fill="#D9B66B" opacity=".35" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M17 132H143M80 20V39M72 29H88" stroke="#F0D99C" stroke-width="4" stroke-linecap="round"/>
+          <path d="M36 76V45H47V68M124 76V45H113V68" stroke="#F0D99C" stroke-width="4"/>
+          <circle cx="80" cy="18" r="5" fill="#F0D99C"/>
+        </svg>
+        <span class="art-label">نوێژی پێنج کات</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>١. نوێژی پێنج کات</h3><span class="tag">فەرز</span></div>
+        <p>ئەو پێنج نوێژەیە کە لە ڕۆژ و شەودا لەسەر موسڵمان واجبن و بنەمایەکی گرنگی ئیسلامن.</p>
+        <h4>کات و ژمارەی ڕکعەت</h4>
+        <div class="detail">
+          فەجر: ٢ ڕکعەتی فەرز.<br>
+          نیوەڕۆ: ٤ ڕکعەتی فەرز.<br>
+          عەسر: ٤ ڕکعەتی فەرز.<br>
+          مەغریب: ٣ ڕکعەتی فەرز.<br>
+          عیشا: ٤ ڕکعەتی فەرز.
+        </div>
+        <h4>تێبینی</h4>
+        <div class="detail">کاتی هەر نوێژێک دیاریکراوە؛ پێویستە لە کاتی خۆیدا ئەنجام بدرێت.</div>
+      </div>
+    </article>
+
+    <!-- ٢ -->
+    <article class="prayer-card">
+      <div class="artwork art-green">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 132H140M32 132V88L80 54L128 88V132" stroke="#F0D99C" stroke-width="4" fill="#D9B66B" fill-opacity=".13"/>
+          <path d="M61 132V108C61 96 69 88 80 88C91 88 99 96 99 108V132" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M43 86V54H52V80M117 86V54H108V80" stroke="#F0D99C" stroke-width="4"/>
+          <path d="M80 25V54M72 37H88" stroke="#F0D99C" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="80" cy="22" r="5" fill="#F0D99C"/>
+        </svg>
+        <span class="art-label">کۆبوونەوەی جومعە</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>٢. نوێژی جومعە</h3><span class="tag">فەرز</span></div>
+        <p>نوێژێکی کۆمەڵایەتییە کە ڕۆژی جومعە لە کاتی نوێژی نیوەڕۆ، دوای دوو وتاری جومعە ئەنجام دەدرێت.</p>
+        <h4>ژمارەی ڕکعەت</h4>
+        <div class="detail">دوو ڕکعەتی فەرز بە کۆمەڵ.</div>
+        <h4>کێ لەسەری واجبە؟</h4>
+        <div class="detail">بە گشتی لەسەر پیاوی موسڵمانی باڵغ و عاقڵ و نیشتەجێ واجبە، بە پێی مەرجەکانی فقه. بۆ ژنان فەرز نییە، بەڵام ئەگەر بەشداری بکەن نوێژەکەیان دروستە.</div>
+      </div>
+    </article>
+
+    <!-- ٣ -->
+    <article class="prayer-card">
+      <div class="artwork art-quran">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 52Q53 37 80 54Q107 37 132 52V119Q105 106 80 124Q55 106 28 119V52Z" fill="#D9B66B" fill-opacity=".2" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M80 55V124M39 66Q56 60 69 69M39 80Q56 74 69 83M91 69Q105 60 121 66M91 83Q105 74 121 80" stroke="#F0D99C" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M19 126Q51 113 80 132Q109 113 141 126" stroke="#F0D99C" stroke-width="3"/>
+        </svg>
+        <span class="art-label">سوننەتی ڕواتبە</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>٣. نوێژی سوننەتی ڕواتبە</h3><span class="tag">سوننەت</span></div>
+        <p>ئەو نوێژانەن کە پێغەمبەر ﷺ لەگەڵ نوێژە فەرزەکاندا بەردەوام ئەنجامی داون.</p>
+        <h4>ژمارەی ناسراو</h4>
+        <div class="detail">لە فەرموودەیەکی سەحیحی موسلیمدا ١٢ ڕکعەتی سوننەتی ڕواتبە باس کراوە: ٤ پێش نیوەڕۆ، ٢ دوای نیوەڕۆ، ٢ دوای مەغریب، ٢ دوای عیشا و ٢ پێش فەجر.</div>
+        <h4>سوود</h4>
+        <div class="detail">هۆکارێکە بۆ نزیکبوونەوە لە خوا و تەواوکردنی کەموکوڕییەکانی نوێژی فەرز.</div>
+      </div>
+    </article>
+
+    <!-- ٤ -->
+    <article class="prayer-card">
+      <div class="artwork art-night">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M112 24C83 32 70 64 82 91C94 118 124 125 145 109C132 139 91 147 62 127C28 104 27 57 57 31C73 17 94 16 112 24Z" fill="#F0D99C"/>
+          <path d="M24 132H136M40 132V113L80 91L120 113V132" stroke="#F0D99C" stroke-width="3" fill="#D9B66B" fill-opacity=".15"/>
+          <circle cx="35" cy="42" r="3" fill="#F0D99C"/><circle cx="52" cy="25" r="2" fill="#F0D99C"/><circle cx="129" cy="55" r="3" fill="#F0D99C"/>
+        </svg>
+        <span class="art-label">نوێژی نەفل</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>٤. نوێژی نەفل</h3><span class="tag">خۆبەخش</span></div>
+        <p>نوێژێکی زیادەیە کە موسڵمان بە ئارەزووی خۆی بۆ نزیکبوونەوە لە خوای گەورە ئەنجامی دەدات.</p>
+        <h4>کاتی ئەنجامدان</h4>
+        <div class="detail">لە کاتە ڕێگەپێدراوەکاندا دەکرێت؛ بەڵام هەندێک کاتی قەدەغەکراو هەیە کە پێویستە فێری ببیت.</div>
+        <h4>ژمارەی ڕکعەت</h4>
+        <div class="detail">ژمارەیەکی دیاریکراوی نییە؛ بە پێی جۆری نوێژ و ڕێنمایی شەرعە.</div>
+      </div>
+    </article>
+
+    <!-- ٥ -->
+    <article class="prayer-card">
+      <div class="artwork art-light">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="49" stroke="#F0D99C" stroke-width="3" stroke-dasharray="5 7"/>
+          <circle cx="80" cy="80" r="35" stroke="#D9B66B" stroke-width="8" opacity=".35"/>
+          <path d="M80 45V115M45 80H115M55 55L105 105M105 55L55 105" stroke="#F0D99C" stroke-width="2" opacity=".6"/>
+          <circle cx="80" cy="80" r="12" fill="#F0D99C"/>
+        </svg>
+        <span class="art-label">نوێژی ویتڕ</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>٥. نوێژی ویتڕ</h3><span class="tag">سوننەت</span></div>
+        <p>نوێژێکی تاک ڕکعەتییە کە لە دوای نوێژی عیشاوە تا پێش بانگی فەجر ئەنجام دەدرێت.</p>
+        <h4>ژمارەی ڕکعەت</h4>
+        <div class="detail">کەمترینەکەی لە زۆرێک لە مەزهەبەکاندا یەک ڕکعەتە؛ ژمارە و شێوازی ئەنجامدانی لە مەزهەبەکاندا جیاوازی هەیە.</div>
+        <h4>کاتی باشتر</h4>
+        <div class="detail">کۆتایی شەو بۆ ئەو کەسەی دڵنیایە هەڵدەستێت؛ ئەگەر نا، پێش خەوتن ئەنجامی بدات.</div>
+      </div>
+    </article>
+
+    <!-- ٦ -->
+    <article class="prayer-card">
+      <div class="artwork art-night">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M112 20C89 29 78 53 87 76C96 99 119 108 140 98C128 124 97 137 70 124C38 109 27 72 44 43C58 20 87 12 112 20Z" fill="#F0D99C"/>
+          <path d="M20 132H140M45 132V113L80 91L115 113V132" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M80 91V68M73 77H87" stroke="#F0D99C" stroke-width="3"/>
+          <circle cx="34" cy="40" r="3" fill="#F0D99C"/><circle cx="127" cy="48" r="2" fill="#F0D99C"/>
+        </svg>
+        <span class="art-label">نوێژی تەراویح</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>٦. نوێژی تەراویح</h3><span class="tag">سوننەت</span></div>
+        <p>نوێژێکی شەوانەی مانگی ڕەمەزانە کە دوای نوێژی عیشا و پێش ویتڕ ئەنجام دەدرێت.</p>
+        <h4>شێوازی ئەنجامدان</h4>
+        <div class="detail">بە دوو ڕکعەت دوو ڕکعەت دەکرێت و دەتوانرێت بە کۆمەڵ یان بە تاکەکەسی ئەنجام بدرێت.</div>
+        <h4>ئامانج</h4>
+        <div class="detail">زیادکردنی عیبادەت، خوێندنەوەی قورئان و زیاتر نزیکبوونەوە لە خوا.</div>
+      </div>
+    </article>
+
+    <!-- ٧ -->
+    <article class="prayer-card">
+      <div class="artwork art-mosque">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 132V78L80 43L130 78V132H30Z" fill="#D9B66B" fill-opacity=".2" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M60 132V103C60 91 69 82 80 82C91 82 100 91 100 103V132" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M17 132H143M80 23V43M72 32H88" stroke="#F0D99C" stroke-width="4"/>
+          <path d="M40 78V52H49V72M120 78V52H111V72" stroke="#F0D99C" stroke-width="3"/>
+        </svg>
+        <span class="art-label">تەحیەتی مەسجید</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>٧. تەحیەتی مەسجید</h3><span class="tag">سوننەت</span></div>
+        <p>دوو ڕکعەت نوێژە کە موسڵمان کاتێک دەچێتە مزگەوت پێش دانیشتن ئەنجامی دەدات.</p>
+        <h4>ژمارەی ڕکعەت</h4>
+        <div class="detail">دوو ڕکعەت.</div>
+        <h4>فەرمودە</h4>
+        <div class="detail">پێغەمبەر ﷺ فەرموویەتی: کاتێک یەکێکتان چووە مزگەوت، پێش ئەوەی دابنیشێت دوو ڕکعەت نوێژ بکات.</div>
+      </div>
+    </article>
+
+    <!-- ٨ -->
+    <article class="prayer-card">
+      <div class="artwork art-quran">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M80 25C64 43 43 48 43 78C43 105 60 126 80 136C100 126 117 105 117 78C117 48 96 43 80 25Z" stroke="#F0D99C" stroke-width="3" fill="#D9B66B" fill-opacity=".16"/>
+          <path d="M80 48V112M62 68H98M62 86H98" stroke="#F0D99C" stroke-width="3" stroke-linecap="round"/>
+          <path d="M68 120L80 132L92 120" stroke="#F0D99C" stroke-width="3"/>
+        </svg>
+        <span class="art-label">نوێژی جەنازە</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>٨. نوێژی جەنازە</h3><span class="tag">فەرزی کیفایە</span></div>
+        <p>نوێژێکە بۆ داوای لێخۆشبوون و بەزەیی بۆ موسڵمانی مردوو.</p>
+        <h4>شێوازی ئەنجامدان</h4>
+        <div class="detail">چوار تەکبیرە؛ ڕکوع و سوژدەی تێدا نییە. دوای تەکبیرەکان حەمد، سەڵاوات، دوعا بۆ مردوو و سەلامدان ئەنجام دەدرێت، بە پێی ڕێنمایی فقه.</div>
+        <h4>حوکم</h4>
+        <div class="detail">فەرزی کیفایە؛ ئەگەر ژمارەیەک ئەنجامی بدەن، ئەرکەکە لە ئەوانی دیکە لادەبرێت.</div>
+      </div>
+    </article>
+
+    <!-- ٩ -->
+    <article class="prayer-card">
+      <div class="artwork art-light">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M42 49L80 29L118 49V112L80 132L42 112V49Z" fill="#D9B66B" fill-opacity=".2" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M42 49L80 69L118 49M80 69V132" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M61 59L80 49L99 59" stroke="#F0D99C" stroke-width="2"/>
+          <path d="M58 89H102M58 101H102" stroke="#F0D99C" stroke-width="2" opacity=".6"/>
+        </svg>
+        <span class="art-label">نوێژی عید</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>٩. نوێژی عید</h3><span class="tag">نوێژی کۆمەڵ</span></div>
+        <p>نوێژی عیدی فیتڕ و قوربانە؛ موسڵمانان لە ڕۆژی عیددا بە کۆمەڵ کۆدەبنەوە بۆ نوێژ و گوێگرتن لە وتار.</p>
+        <h4>ژمارەی ڕکعەت</h4>
+        <div class="detail">دوو ڕکعەتە و تەکبیرە زیادەکان و شێوازی ئەنجامدانی لە مەزهەبەکاندا جیاوازی هەیە.</div>
+        <h4>کات</h4>
+        <div class="detail">لە دوای هەڵاتنی خۆر و بەرزبوونەوەی تا پێش نیوەڕۆ.</div>
+      </div>
+    </article>
+
+    <!-- ١٠ -->
+    <article class="prayer-card">
+      <div class="artwork art-moon">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="49" stroke="#F0D99C" stroke-width="2" stroke-dasharray="4 6"/>
+          <circle cx="80" cy="80" r="30" fill="#D9B66B" fill-opacity=".2" stroke="#F0D99C" stroke-width="3"/>
+          <path d="M80 50V110M50 80H110" stroke="#F0D99C" stroke-width="3"/>
+          <circle cx="80" cy="80" r="8" fill="#F0D99C"/>
+          <path d="M28 31L34 37M132 31L126 37M28 129L34 123M132 129L126 123" stroke="#F0D99C" stroke-width="3"/>
+        </svg>
+        <span class="art-label">کەسوف و خوسوف</span>
+      </div>
+      <div class="card-content">
+        <div class="card-top"><h3>١٠. نوێژی کەسوف و خوسوف</h3><span class="tag">سوننەت</span></div>
+        <p>نوێژی کەسوف بۆ گرتنی خۆر و خوسوف بۆ گرتنی مانگە. موسڵمانان لەو کاتانەدا نوێژ و دوعا دەکەن.</p>
+        <h4>شێوازی ئەنجامدان</h4>
+        <div class="detail">لە فەرموودەی سەحیحەوە شێوازی دوو ڕکعەت بە دوو ڕکوع لە هەر ڕکعەتێکدا هاتووە.</div>
+        <h4>کات</h4>
+        <div class="detail">لە دەستپێکی گرتنی خۆر یان مانگ تا کۆتایی گرتنەکە.</div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="quote">
+    <div class="arabic">إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا</div>
+    <p>بەڕاستی نوێژ لەسەر باوەڕداران فەرزێکی کات‌دیاریکراوە.<br>سورەتی نیسا، ئایەتی ١٠٣</p>
+  </div>
+</div>
+</section>
+
+<section class="adab-section" id="adab">
+<div class="container">
+  <div class="section-heading">
+    <div class="eyebrow">ڕەوشتی عیبادەت</div>
+    <h2>ئاداب و ڕێساکانی نوێژ</h2>
+    <p>نوێژ تەنها جووڵەی جەستە نییە؛ پێویستی بە دڵی ئامادە، ئارامی و ڕێزگرتن لە بەرامبەر خوای گەورە هەیە.</p>
+  </div>
+
+  <div class="adab-grid">
+    <div class="adab-card"><div class="adab-icon">🧼</div><h3>١. پاکوخاوێنی</h3><p>جەستە، جل و شوێنی نوێژ پاک بێت و دەستنوێژت هەبێت. ئەگەر پێویست بوو، غوسڵیش ئەنجام بدە.</p></div>
+    <div class="adab-card"><div class="adab-icon">🧭</div><h3>٢. ڕووبەڕووی قیبلە</h3><p>بە توانای خۆت ڕووبەڕووی کەعبە بوەستە و ئاراستەی قیبلە دیاری بکە.</p></div>
+    <div class="adab-card"><div class="adab-icon">🤍</div><h3>٣. نیەت و دڵپاکی</h3><p>نیەت لە دڵدایە؛ مەبەستت ئەو نوێژە بێت کە بۆ خوای گەورە ئەنجامی دەدەیت. پێویست ناکات بە زۆر نیەت بە زمان بڵێیت.</p></div>
+    <div class="adab-card"><div class="adab-icon">🧘</div><h3>٤. ئارامی و وەقار</h3><p>لە نوێژدا پەلە مەکە؛ لە ڕکوع و سوژدە و هەموو جووڵەکاندا ئارام بگرە و هەر بەشێک بە تەمأنینە ئەنجام بدە.</p></div>
+    <div class="adab-card"><div class="adab-icon">👁️</div><h3>٥. سەرنج لە نوێژ</h3><p>دڵ و بیرت لە نوێژدا ئامادە بکە؛ سەیری شتی بێ پێویست مەکە و خۆت بە شتەکانی دەوروبەرت سەرقاڵ مەکە.</p></div>
+    <div class="adab-card"><div class="adab-icon">👕</div><h3>٦. جل و بەرگی شایستە</h3><p>بە جلێکی پاک و داپۆشراو نوێژ بکە؛ لەبەرچاوگرتنی مەرجەکانی داپۆشینی عەورەت بەپێی ڕێنمایی شەرع.</p></div>
+    <div class="adab-card"><div class="adab-icon">📵</div><h3>٧. دوورکەوتنەوە لە سەرقاڵی</h3><p>مۆبایل و شتەکانی تر بێدەنگ بکە؛ لە قسەکردن و جووڵەی بێ پێویست دوور بکەوە.</p></div>
+    <div class="adab-card"><div class="adab-icon">🕌</div><h3>٨. ڕێزگرتن لە مزگەوت</h3><p>بە ڕەوشتی جوان بچۆرە ناو مزگەوت، دەنگت بەرز مەکە، ڕیزی نوێژ بە ڕێکخراوی بگرە و ئازاری کەسانی تر مەدە.</p></div>
+    <div class="adab-card"><div class="adab-icon">📖</div><h3>٩. خوێندنەوەی بە وریایی</h3><p>فاتحە و سورەتەکان بە دروستی و بە ئارامی بخوێنەوە، واتای ئەوەی دەیخوێنیتەوە لەبەرچاو بگرە.</p></div>
+    <div class="adab-card"><div class="adab-icon">⏰</div><h3>١٠. پاراستنی کاتی نوێژ</h3><p>نوێژە فەرزەکان لە کاتی دیاریکراوی خۆیاندا ئەنجام بدە و بێ هۆکاری شەرعی دواخەری مەکە.</p></div>
+    <div class="adab-card"><div class="adab-icon">🤲</div><h3>١١. دوعا و زیکر</h3><p>دوای نوێژ زیکر و دوعای ڕەوا بکە؛ سوپاسی خوای گەورە بکە و داوای لێخۆشبوون و ڕێنمایی بکە.</p></div>
+    <div class="adab-card"><div class="adab-icon">🌿</div><h3>١٢. پاکی و ڕێکخستنی شوێن</h3><p>شوێنی نوێژ پاک و ئارام بێت؛ ڕێز لە مافی کەسانی تر بگرە و ڕێگری لە ئازاردانیان مەکە.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="steps">
+<div class="container">
+  <div class="section-heading">
+    <div class="eyebrow">ڕێنمایی کرداری</div>
+    <h2>پێش نوێژ چی بکەین؟</h2>
+    <p>ئەم خاڵانە یارمەتیت دەدەن بە شێوەیەکی ڕێکخراو ئامادەی نوێژ بیت.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step"><div class="step-number">١</div><div><h3>دڵنیابوون لە پاکی</h3><p>پاکی جەستە و جل و شوێنی نوێژ بپشکنە.</p></div></div>
+    <div class="step"><div class="step-number">٢</div><div><h3>دەستنوێژگرتن</h3><p>دەستنوێژ بە شێوازی دروست و بە تەواوی بگرە.</p></div></div>
+    <div class="step"><div class="step-number">٣</div><div><h3>دڵنیابوون لە کات</h3><p>دڵنیا ببە کاتی نوێژەکە هاتووە.</p></div></div>
+    <div class="step"><div class="step-number">٤</div><div><h3>ڕووبەڕووی قیبلە</h3><p>ڕووبەڕووی کەعبە بوەستە، ئەگەر توانایت هەیە.</p></div></div>
+    <div class="step"><div class="step-number">٥</div><div><h3>نیەت لە دڵدا</h3><p>بزانە کام نوێژ دەکەیت و بە دڵ بۆ خوا نیەت بکە.</p></div></div>
+    <div class="step"><div class="step-number">٦</div><div><h3>دەستپێکردن بە تەکبیر</h3><p>بە وتنی «الله أكبر» نوێژەکەت دەست پێبکە.</p></div></div>
+  </div>
+
+  <div class="warning">
+    <strong>تێبینی گرنگ:</strong>
+    هەندێک وردەکاریی نوێژ، وەک ژمارەی تەکبیرە زیادەکان،
+    هەندێک شێوازی ویتڕ و حوکمی هەندێک نوێژی نافلە،
+    لە نێوان مەزهەبە فقهییەکاندا جیاوازی هەیە.
+    ئەم پەڕەیە بۆ فێربوونی گشتییە؛ بۆ فێربوونی وردی شێوازی
+    نوێژ بە پێی مەزهەبی خۆت، سەرچاوەیەکی فقهیی متمانەپێکراو
+    یان مامۆستایەکی زانا بپرسە.
+  </div>
+</div>
+</section>
+
+<section id="sources">
+<div class="container">
+  <div class="section-heading">
+    <div class="eyebrow">سەرچاوەی زانستی</div>
+    <h2>ئایەت و فەرمودەکان</h2>
+    <p>بۆ ئەوەی زانیارییەکان پشت بە سەرچاوەی دروست ببەستن.</p>
+  </div>
+
+  <div class="sources">
+    <h3>سەرچاوەکانی قورئان و سوننەت</h3>
+    <ul>
+      <li>ئایەتی ١٠٣ی سورەتی نیسا – فەرزبوونی نوێژ لە کاتە دیاریکراوەکاندا.
+        <a href="https://quran.com/4/103" target="_blank" rel="noopener">بینینی ئایەت</a>
+      </li>
+      <li>ئایەتی ٤٥ی سورەتی عەنکەبوت – کاریگەری نوێژ لە دوورکەوتنەوە لە خراپە.
+        <a href="https://quran.com/29/45" target="_blank" rel="noopener">بینینی ئایەت</a>
+      </li>
+      <li>فەرمودەی سوننەتی ڕواتبەکان لە سەحیحی موسلیم.
+        <a href="https://sunnah.com/search?q=twelve+rak%27ahs" target="_blank" rel="noopener">گەڕان لە فەرمودەکان</a>
+      </li>
+      <li>فەرمودەی تەحیەتی مەسجید.
+        <a href="https://sunnah.com/search?q=when+one+of+you+enters+the+mosque" target="_blank" rel="noopener">گەڕان لە فەرمودەکان</a>
+      </li>
+      <li>فەرمودەی نوێژی شەو دوو ڕکعەت دوو ڕکعەت.
+        <a href="https://sunnah.com/search?q=prayer+at+night+is+two+by+two" target="_blank" rel="noopener">گەڕان لە فەرمودەکان</a>
+      </li>
+      <li>فەرمودەکانی نوێژی کەسوف.
+        <a href="https://sunnah.com/search?q=eclipse+prayer" target="_blank" rel="noopener">گەڕان لە فەرمودەکان</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <strong>نوری ئیمان</strong>
+  <p>بە زانست و باوەڕ، ڕێگای ڕاست ڕوون دەبێتەوە.</p>
+ 
+</footer>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

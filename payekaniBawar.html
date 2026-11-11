@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="پێنج پایەکانی ئیسلام و شەش پایەکانی باوەڕ - نوری ئیمان">
+<title>پایەکانی ئیسلام و باوەڕ | نوری ئیمان</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#061b1b;
+  --bg2:#092725;
+  --card:#0d302d;
+  --gold:#e5bd68;
+  --gold2:#f7dfa2;
+  --white:#f8f5eb;
+  --muted:#c1d0c9;
+  --border:rgba(229,189,104,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans Arabic",Tahoma,sans-serif;
+  background:radial-gradient(ellipse at top,#17463b 0%,transparent 48%),var(--bg);
+  color:var(--white);
+  line-height:2;
+}
+a{color:inherit}
+.site-header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(4,24,23,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding:14px 5%;
+}
+.nav{
+  max-width:1200px;margin:auto;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:15px;flex-wrap:wrap;
+}
+.brand{
+  text-decoration:none;color:var(--gold);
+  font-size:24px;font-weight:800;
+}
+.brand small{display:block;color:var(--muted);font-size:11px;font-weight:400}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap}
+.nav-links a{
+  text-decoration:none;color:var(--muted);
+  padding:7px 13px;border-radius:9px;font-size:13px;
+  transition:.25s;
+}
+.nav-links a:hover{background:#153a34;color:var(--gold)}
+.container{width:min(1150px,92%);margin:auto}
+
+/* Hero */
+.hero{
+  min-height:440px;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+  margin:28px auto 45px;border:1px solid var(--border);
+  border-radius:25px;
+  background:
+    linear-gradient(90deg,rgba(3,25,23,.83),rgba(3,25,23,.48)),
+    url("https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+.hero-content{padding:55px 20px;max-width:850px}
+.hero-symbol{font-size:50px;color:var(--gold);line-height:1.5}
+.eyebrow{
+  display:inline-block;padding:5px 17px;
+  border:1px solid var(--border);border-radius:30px;
+  color:var(--gold2);font-size:13px;
+  background:rgba(229,189,104,.08);
+}
+.hero h1{
+  color:var(--gold2);font-size:clamp(30px,5vw,49px);
+  margin:17px 0 10px;line-height:1.7;
+}
+.hero p{color:#f0eee5;font-size:15px;max-width:650px;margin:auto}
+.hero-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+.hero-buttons a{
+  text-decoration:none;padding:10px 21px;border-radius:10px;
+  font-size:13px;font-weight:700;transition:.25s;
+}
+.btn-gold{background:var(--gold);color:#10241d}
+.btn-outline{border:1px solid var(--gold);color:var(--gold2)}
+.hero-buttons a:hover{transform:translateY(-3px)}
+
+/* Intro */
+.intro{
+  background:linear-gradient(120deg,#123d35,#102a2a);
+  border:1px solid var(--border);
+  border-right:4px solid var(--gold);
+  padding:20px 24px;border-radius:15px;margin-bottom:45px;
+}
+.intro h2{color:var(--gold);font-size:19px;margin-bottom:7px}
+.intro p{font-size:14px;color:#dce7df}
+
+/* Section */
+.section{margin:50px 0 60px;scroll-margin-top:100px}
+.section-heading{text-align:center;margin-bottom:28px}
+.section-heading .symbol{font-size:37px;color:var(--gold)}
+.section-heading h2{
+  font-size:clamp(25px,4vw,34px);
+  color:var(--gold2);margin:4px 0 8px;
+}
+.section-heading p{color:var(--muted);font-size:14px}
+.heading-line{
+  width:100px;height:2px;background:var(--gold);
+  margin:15px auto 0;border-radius:5px;
+}
+
+/* Cards */
+.cards{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
+}
+.card{
+  background:linear-gradient(155deg,#123b35,#092523);
+  border:1px solid var(--border);
+  border-radius:19px;overflow:hidden;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold);
+  box-shadow:0 14px 35px rgba(0,0,0,.25);
+}
+.card-image{height:205px;position:relative;overflow:hidden;background:#173a33}
+.card-image img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;transition:transform .5s;
+}
+.card:hover .card-image img{transform:scale(1.06)}
+.card-number{
+  position:absolute;top:13px;right:13px;
+  width:43px;height:43px;border-radius:50%;
+  display:grid;place-items:center;
+  color:#16251b;background:linear-gradient(135deg,#ffe6a4,#c99c45);
+  font-size:20px;font-weight:800;
+  border:2px solid rgba(255,255,255,.35);
+}
+.card-body{padding:19px 20px 23px}
+.card h3{color:var(--gold2);font-size:19px;margin-bottom:9px}
+.card p{color:#d1ddd7;font-size:13px;line-height:2.15}
+.card .detail{
+  border-top:1px solid var(--border);
+  margin-top:13px;padding-top:11px;
+  color:var(--muted);font-size:12px;
+}
+.card .detail strong{color:var(--gold)}
+.arabic{
+  color:var(--gold2);font-size:21px;
+  text-align:center;margin:12px 0;line-height:2;
+}
+
+/* Divider between sections */
+.section-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:60px 0;
+}
+
+/* Hadith */
+.hadith{
+  margin:55px 0;
+  padding:35px 25px;text-align:center;
+  border:1px solid var(--border);border-radius:20px;
+  background:linear-gradient(135deg,#123b34,#092321);
+}
+.hadith .icon{font-size:36px;color:var(--gold)}
+.hadith h2{color:var(--gold);font-size:22px;margin:8px 0}
+.hadith .arabic{font-size:clamp(20px,3vw,27px);line-height:2.2}
+.hadith p{color:var(--muted);font-size:13px}
+.hadith strong{color:var(--gold2)}
+
+/* Summary */
+.summary{
+  border:1px solid var(--border);border-radius:20px;
+  padding:28px;text-align:center;margin:45px 0;
+  background:rgba(229,189,104,.06);
+}
+.summary h2{color:var(--gold);font-size:22px;margin-bottom:12px}
+.summary p{color:var(--muted);font-size:14px}
+.summary strong{color:var(--gold2)}
+.back-button{
+  display:inline-block;margin-top:22px;
+  padding:10px 23px;border-radius:10px;
+  background:var(--gold);color:#10241d;
+  font-weight:800;text-decoration:none;transition:.25s;
+}
+.back-button:hover{background:var(--gold2);transform:translateY(-3px)}
+footer{
+  margin-top:55px;padding:28px 15px;
+  text-align:center;border-top:1px solid var(--border);
+  color:var(--muted);font-size:13px;
+}
+footer strong{color:var(--gold);font-size:18px}
+
+@media(max-width:850px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero{min-height:390px}
+}
+@media(max-width:560px){
+  .cards{grid-template-columns:1fr}
+  .card-image{height:220px}
+  .nav{justify-content:center}
+  .nav-links{justify-content:center}
+  .nav-links a{font-size:12px;padding:6px 9px}
+  .hero{min-height:370px;margin-top:18px}
+  .hero-content{padding:40px 15px}
+  .intro{padding:17px}
+  .section{margin:40px 0}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      نوری ئیمان
+      <small>ڕووناکی بۆ دڵ و گیان</small>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">⌂ سەرەکی</a>
+      <a href="#islam">پایەکانی ئیسلام</a>
+      <a href="#iman">پایەکانی باوەڕ</a>
+      <a href="prayer.html">فێربوونی نوێژ</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-symbol">۞</div>
+    <span class="eyebrow">زانیاریی ئایینی · نوری ئیمان</span>
+    <h1>پایەکانی ئیسلام و باوەڕ</h1>
+    <p>
+      دوو بنەمای گرنگی ئایینی پیرۆزی ئیسلام؛
+      فێربوونی پایەکانی ئیسلام و شەش پایەکانی باوەڕ
+      هەنگاوێکی گرنگە بۆ ناسینی ئایینەکەمان.
+    </p>
+    <div class="hero-buttons">
+      <a class="btn-gold" href="#islam">پێنج پایەکانی ئیسلام</a>
+      <a class="btn-outline" href="#iman">شەش پایەکانی باوەڕ</a>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <h2>✦ جیاوازی نێوان ئیسلام و باوەڕ</h2>
+  <p>
+    پایەکانی ئیسلام پەیوەندییان بە کردار و عیبادەتە سەرەکییەکانەوە هەیە،
+    بەڵام پایەکانی باوەڕ پەیوەندییان بەو بنەمایانەوە هەیە کە موسڵمان
+    لە دڵەوە باوەڕیان پێ دەهێنێت.
+  </p>
+</section>
+
+<!-- FIVE PILLARS OF ISLAM -->
+<section class="section" id="islam">
+  <div class="section-heading">
+    <div class="symbol">☾</div>
+    <h2>پێنج پایەکانی ئیسلام</h2>
+    <p>پێنج بنەمای سەرەکیی ئیسلام</p>
+    <div class="heading-line"></div>
+  </div>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=900&q=85"
+             alt="مزگەوت و شوێنی عیبادەت" loading="lazy">
+        <span class="card-number">١</span>
+      </div>
+      <div class="card-body">
+        <h3>شەهادەت</h3>
+        <div class="arabic">أشهد أن لا إله إلا الله وأشهد أن محمداً رسول الله</div>
+        <p>
+          داننان بەوەی هیچ پەرستراوێکی ڕاست نییە جگە لە خوای گەورە،
+          و محەممەد ﷺ نێردراوی خوایە.
+        </p>
+        <div class="detail"><strong>واتا:</strong> باوەڕ و داننان بە تاکایەتیی خوا و پێغەمبەرایەتیی محەممەد ﷺ.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=900&q=85"
+             alt="کەسێک لە نوێژدا" loading="lazy">
+        <span class="card-number">٢</span>
+      </div>
+      <div class="card-body">
+        <h3>نوێژ</h3>
+        <p>
+          ئەنجامدانی پێنج نوێژی فەرز لە شەو و ڕۆژدا:
+          بەیانی، نیوەڕۆ، عەسر، مەغریب و عیشا.
+        </p>
+        <div class="detail"><strong>ئامانج:</strong> پەیوەندیی بەردەوام بە خوای گەورە و پاککردنەوەی دڵ.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=900&q=85"
+             alt="یارمەتی و بەخشینی دارایی" loading="lazy">
+        <span class="card-number">٣</span>
+      </div>
+      <div class="card-body">
+        <h3>زەکات</h3>
+        <p>
+          دەرکردنی بەشێکی دیاریکراوی سامان بۆ ئەو کەسانەی
+          کە شەریعەت مافیان دیاری کردووە، ئەگەر مەرجەکانی
+          زەکات لەسەر کەسەکە جێبەجێ ببن.
+        </p>
+        <div class="detail"><strong>ئامانج:</strong> پاککردنەوەی سامان و یارمەتیدانی هەژاران.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=85"
+             alt="مانگی ڕەمەزان و ئاسمانی شەو" loading="lazy">
+        <span class="card-number">٤</span>
+      </div>
+      <div class="card-body">
+        <h3>ڕۆژوو</h3>
+        <p>
+          ڕۆژووگرتنی مانگی پیرۆزی ڕەمەزان، بە خۆپاراستن
+          لە خواردن و خواردنەوە و ئەو شتانەی ڕۆژوو دەشکێنن،
+          لە بەیانەوە تا خۆرئاوابوون.
+        </p>
+        <div class="detail"><strong>ئامانج:</strong> فێربوونی تەقوا، ئارامگرتن و خۆڕاگری.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=900&q=85"
+             alt="کەعبەی پیرۆز لە مەککە" loading="lazy">
+        <span class="card-number">٥</span>
+      </div>
+      <div class="card-body">
+        <h3>حەج</h3>
+        <p>
+          سەردانی ماڵی پیرۆزی خوا لە مەککە و ئەنجامدانی
+          مەراسیمەکانی حەج، بۆ ئەو کەسەی توانای جەستەیی
+          و دارایی هەبێت.
+        </p>
+        <div class="detail"><strong>ئامانج:</strong> جێبەجێکردنی فەرمانی خوا و نیشاندانی یەکگرتوویی موسڵمانان.</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SIX PILLARS OF IMAN -->
+<section class="section" id="iman">
+  <div class="section-heading">
+    <div class="symbol">۞</div>
+    <h2>شەش پایەکانی باوەڕ</h2>
+    <p>شەش بنەمای سەرەکیی باوەڕی ئیسلامی</p>
+    <div class="heading-line"></div>
+  </div>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=85"
+             alt="ئاسمان و سروشتی دروستکراو" loading="lazy">
+        <span class="card-number">١</span>
+      </div>
+      <div class="card-body">
+        <h3>باوەڕبوون بە خوا</h3>
+        <div class="arabic">اللَّهُ</div>
+        <p>
+          باوەڕبوون بە بوونی خوای تاک و بێ هاوەڵ،
+          پەروەردگار و پەرستراوی ڕاستەقینە؛ هەروەها
+          باوەڕبوون بە ناو و سیفەتەکانی کە لە قورئان
+          و سوننەتدا هاتوون.
+        </p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85"
+             alt="تیشکی ڕووناکی لە ئاسمانەوە" loading="lazy">
+        <span class="card-number">٢</span>
+      </div>
+      <div class="card-body">
+        <h3>باوەڕبوون بە فریشتەکان</h3>
+        <p>
+          باوەڕبوون بە بوونی فریشتەکانی خوا کە لە نوور
+          دروستکراون و بە تەواوی گوێڕایەڵی فەرمانەکانی
+          خوای گەورەن.
+        </p>
+        <div class="detail"><strong>نموونە:</strong> جبرائیل، میکائیل، ئیسرافیل و مەلەکولمەوت.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=85"
+             alt="قورئانی پیرۆز" loading="lazy">
+        <span class="card-number">٣</span>
+      </div>
+      <div class="card-body">
+        <h3>باوەڕبوون بە کتێبە ئاسمانییەکان</h3>
+        <p>
+          باوەڕبوون بە هەموو ئەو کتێبانەی خوای گەورە
+          بۆ پێغەمبەرانی خۆی ناردوون.
+        </p>
+        <div class="detail">
+          <strong>لەوانە:</strong>
+          تەورات، زەبوور، ئینجیل و قورئانی پیرۆز؛
+          هەروەها سوحفی ئیبراهیم.
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=900&q=85"
+             alt="کتێب و شوێنی فێربوونی ئایینی" loading="lazy">
+        <span class="card-number">٤</span>
+      </div>
+      <div class="card-body">
+        <h3>باوەڕبوون بە پێغەمبەران</h3>
+        <p>
+          باوەڕبوون بە هەموو پێغەمبەر و نێردراوانی خوا،
+          ئەوانەی ناویان لە قورئاندا هاتووە و ئەوانەشی
+          ناویان نەهاتووە.
+        </p>
+        <div class="detail"><strong>کۆتایی پێغەمبەران:</strong> محەممەد ﷺ.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85"
+             alt="تیشکی خۆر لە ئاسۆدا" loading="lazy">
+        <span class="card-number">٥</span>
+      </div>
+      <div class="card-body">
+        <h3>باوەڕبوون بە ڕۆژی دوایی</h3>
+        <p>
+          باوەڕبوون بە مردن، ژیانەوە، حەشر و لێپرسینەوە،
+          تەرازوو، بەهەشت و دۆزەخ؛ هەموو ئەوانەی
+          لە قورئان و سوننەتدا باس کراون.
+        </p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=900&q=85"
+             alt="گەردوون و ئەستێرەکان" loading="lazy">
+        <span class="card-number">٦</span>
+      </div>
+      <div class="card-body">
+        <h3>باوەڕبوون بە قەدەر</h3>
+        <p>
+          باوەڕبوون بەوەی هەموو شتێک بە زانین و نووسین
+          و ویست و دروستکردنی خوای گەورەیە؛
+          هەروەها مرۆڤ لە کردارە هەڵبژێردراوەکانی خۆیدا
+          بەرپرسیارە.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- HADITH -->
+<section class="hadith">
+  <div class="icon">✦</div>
+  <h2>فەرموودەی پێغەمبەر ﷺ</h2>
+  <div class="arabic">
+    بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ
+  </div>
+  <p>
+    «ئیسـلام لەسەر پێنج بنەما دامەزراوە.»
+  </p>
+  <p style="margin-top:12px">
+    <strong>سەرچاوە:</strong> صحیحی بوخاری و صحیحی موسلیم.
+  </p>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary">
+  <h2>✦ کورتەی بابەت</h2>
+  <p>
+    پێنج پایەکانی ئیسلام بریتین لە
+    <strong>شەهادەتان، نوێژ، زەکات، ڕۆژوو و حەج.</strong>
+    شەش پایەکانی باوەڕیش بریتین لە
+    <strong>باوەڕبوون بە خوا، فریشتەکان، کتێبەکان،
+    پێغەمبەران، ڕۆژی دوایی و قەدەر.</strong>
+  </p>
+  <a class="back-button" href="index.html">← گەڕانەوە بۆ پەڕەی سەرەکی</a>
+</section>
+
+</main>
+
+<footer>
+  <strong>نوری ئیمان</strong>
+  <p>ڕووناکی بۆ دڵ و گیان</p>
+  <p>هەنگاوێکی بچووک بۆ فێربوون، دەکرێت ببێتە دەستپێکی گۆڕانێکی گەورە.</p>
+  <p style="margin-top:10px">© 2026 نوری ئیمان - هەموو مافەکان پارێزراون</p>
+</footer>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

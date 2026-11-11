@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دەربارەی ئێمە | نوری ئیمان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #061a1b;
+  --card: #0d2928;
+  --gold: #e8c779;
+  --gold-light: #f8e7b4;
+  --text: #f5f2e8;
+  --muted: #b8c9c2;
+  --border: rgba(232,199,121,.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+  background:
+    radial-gradient(ellipse at top right, #17433a, transparent 40%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.9;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  color: var(--gold);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul a {
+  color: var(--muted);
+  transition: .3s;
+}
+
+nav ul a:hover,
+nav ul .active {
+  color: var(--gold);
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 65px 0 35px;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 5px 20px;
+  color: var(--gold-light);
+  background: #0d2928;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.5;
+  margin: 15px 0;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  color: var(--muted);
+}
+
+/* About layout */
+.about {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 28px;
+  margin: 35px 0;
+  align-items: stretch;
+}
+
+.profile,
+.about-text,
+.value {
+  background: linear-gradient(145deg, #123532, #0a2425);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 18px 50px #0002;
+}
+
+.profile {
+  padding: 25px;
+  text-align: center;
+}
+
+.photo-frame {
+  max-width: 310px;
+  margin: 0 auto 20px;
+  padding: 8px;
+  border: 1px solid var(--gold);
+  border-radius: 23px;
+  background: #e8c77912;
+}
+
+.photo-frame img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.name {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--gold-light);
+}
+
+.role {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.about-text {
+  padding: clamp(22px, 4vw, 38px);
+}
+
+.small-title {
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.about-text h2 {
+  font-size: 26px;
+  margin: 5px 0 15px;
+}
+
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.quote {
+  margin-top: 22px;
+  padding: 16px 20px;
+  border-right: 3px solid var(--gold);
+  background: #e8c7790c;
+  border-radius: 10px;
+  color: var(--gold-light);
+}
+
+/* Values */
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 28px 0;
+}
+
+.value {
+  padding: 23px;
+  transition: .3s;
+}
+
+.value:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.icon {
+  font-size: 30px;
+  color: var(--gold);
+}
+
+.value h3 {
+  margin: 8px 0;
+  color: var(--gold-light);
+}
+
+.value p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Bottom banner */
+.banner {
+  margin: 35px 0 50px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: linear-gradient(100deg, #163d35, #0b2526);
+  text-align: center;
+}
+
+.banner h2 {
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.banner p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #15251e;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 800;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+footer {
+  text-align: center;
+  padding: 23px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer span {
+  color: var(--gold);
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .values {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+<div class="container">
+
+  <nav>
+    <a href="index.html" class="logo">☾ نوری ئیمان</a>
+
+    <ul>
+      <li><a href="index.html">سەرەکی</a></li>
+      <li><a href="names.html">ناوە جوانەکان</a></li>
+      <li><a href="prayer.html">فێربوونی نوێژ</a></li>
+      <li><a href="zakat.html">زەکات</a></li>
+      <li><a href="about.html" class="active">دەربارەی ئێمە</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="badge">✦ بەخێربێن بۆ نوری ئیمان ✦</div>
+    <h1>دەربارەی <span>نوری ئیمان</span></h1>
+    <p>
+      شوێنێک بۆ فێربوون، زانیاری و بیرکردنەوە؛
+      بە هیوای ئەوەی هەنگاوێک بین بەرەو تێگەیشتنی باشتر.
+    </p>
+  </header>
+
+  <main>
+    <section class="about">
+
+      <div class="profile">
+        <div class="photo-frame">
+          <!-- وێنەکەت لە هەمان فۆڵدەر دابنێ و ناوی بکە my-photo.jpg -->
+          <img src="boss.jpeg" alt="وێنەی خاوەنی نوری ئیمان">
+        </div>
+
+        <div class="name">بەڵێن</div>
+        <div class="role">گەشە پێدەری / ماڵپەڕی نوری ئیمان</div>
+      </div>
+
+      <article class="about-text">
+        <div class="small-title">دەربارەی ئێمە</div>
+        <h2>ئامانجی نوری ئیمان چییە؟</h2>
+
+        <p>
+          نوری ئیمان دروست کراوە بۆ ئەوەی خوێنەر بتوانێت
+          بە شێوەیەکی ڕێکخراو و ئاسان لەگەڵ بابەتە ئایینییەکان
+          ئاشنا بێت و زانیارییە بەسوودەکان بخوێنێتەوە.
+        </p>
+
+        <p>
+          لەم ماڵپەڕەدا دەتوانیت لەبارەی ناوە جوانەکانی خودا،
+          فێربوونی نوێژ، زەکات و بابەتەکانی تر بخوێنیتەوە.
+          هەوڵ دەدەین ناوەڕۆکەکان بە زمانێکی ڕوون و دیزاینێکی
+          ئارام پێشکەش بکەین.
+        </p>
+
+        <p>
+          ئامانجمان ئەوەیە نوری ئیمان ببێتە شوێنێکی ئاسان بۆ
+          خوێندنەوە و فێربوون، لەگەڵ گرنگیدان بە سەرچاوە
+          و ڕێزگرتن لە زانیاری.
+        </p>
+
+        <div class="quote">
+          «زانیاریی بەسوود، دڵ ڕووناک دەکات و ڕێگا بۆ فێربوون دەکاتەوە.»
+        </div>
+      </article>
+
+    </section>
+
+    <section class="values">
+      <article class="value">
+        <div class="icon">✧</div>
+        <h3>فێربوونی ئاسان</h3>
+        <p>
+          بابەتەکان بە شێوەیەکی ڕوون و ڕێکخراو پێشکەش دەکرێن
+          بۆ ئەوەی خوێندنەوەیان ئاسان بێت.
+        </p>
+      </article>
+
+      <article class="value">
+        <div class="icon">❖</div>
+        <h3>گرنگیدان بە سەرچاوە</h3>
+        <p>
+          هەوڵ دەدەین زانیارییەکان بە وردی پێشکەش بکەین
+          و لە سەرچاوە باوەڕپێکراوەکان سوود وەربگرین.
+        </p>
+      </article>
+
+      <article class="value">
+        <div class="icon">♡</div>
+        <h3>خزمەتکردنی خوێنەر</h3>
+        <p>
+          ئامانجمان ئەوەیە بەکارهێنەر بە ئاسانی بگات بە
+          بابەتەکان و سوودیان لێ وەربگرێت.
+        </p>
+      </article>
+    </section>
+
+    <section class="banner">
+      <h2>سوپاس بۆ سەردانت 🌙</h2>
+      <p>
+        هیوادارین نوری ئیمان ببێتە هۆی سوود و فێربوونی زیاتر بۆ تۆ.
+      </p>
+      <a href="index.html" class="btn">گەڕانەوە بۆ پەڕەی سەرەکی ←</a>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> نوری ئیمان — هەموو مافەکان پارێزراون.
+  </footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نوری ئیمان | ناوە جوانەکانی خوای گەورە</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#061d18;--panel:#0b2b23;--card:#10382d;--gold:#e9c777;--text:#f7f3e8;--muted:#c0d0c4;--border:rgba(233,199,119,.22)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:radial-gradient(ellipse at 12% 8%,rgba(35,105,76,.22),transparent 32%),radial-gradient(ellipse at 90% 55%,rgba(194,151,67,.08),transparent 28%),var(--bg);color:var(--text);font-family:"Noto Sans Arabic",sans-serif;line-height:1.9}a{color:inherit;text-decoration:none}
+.navbar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 6%;border-bottom:1px solid var(--border);background:rgba(4,25,20,.94);position:sticky;top:0;z-index:10;backdrop-filter:blur(18px)}.logo{font-size:25px;font-weight:800;white-space:nowrap}.logo span{color:var(--gold)}.nav-links{display:flex;gap:10px;align-items:center}.nav-links a{font-size:13px;padding:8px 12px;border-radius:30px;color:#d0ddd2}.nav-links a:hover,.nav-links .active{color:var(--gold);border:1px solid #e9c77755;background:#e9c7770d}.menu-btn{display:none;border:1px solid var(--border);border-radius:12px;color:var(--gold);background:var(--panel);padding:7px 13px;font:inherit}
+.hero{padding:55px 8%;display:grid;grid-template-columns:160px 1fr;align-items:center;gap:35px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 15% 50%,#1b5944 0%,transparent 48%),linear-gradient(135deg,#061d18,#0b3026 58%,#102d24);border-bottom:1px solid var(--border)}.hero:before{content:"";position:absolute;inset:13px;border:1px solid #e9c77720;border-radius:25px;pointer-events:none}.seal{width:130px;height:130px;border:1px solid #e9c77780;border-radius:28px;transform:rotate(45deg);display:grid;place-items:center;box-shadow:0 0 70px #e9c77713}.seal span{transform:rotate(-45deg);font-size:65px;color:var(--gold)}.eyebrow{color:var(--gold);font-size:14px;font-weight:700}h1{font-size:clamp(34px,5vw,58px);line-height:1.5;margin:6px 0 10px}.hero p{color:var(--muted);max-width:760px;font-size:14px}.search-wrap{padding:26px 8% 0}.search{width:100%;max-width:560px;padding:13px 17px;border:1px solid #e9c77755;border-radius:14px;background:#0b2b23;color:var(--text);font:inherit;outline:none}.search:focus{border-color:var(--gold);box-shadow:0 0 0 3px #e9c77715}.count{color:var(--muted);font-size:12px;margin-top:8px}.section{padding:30px 8% 70px}.section-head{margin-bottom:25px}.section-head h2{font-size:clamp(24px,3vw,34px)}.section-head h2 span{color:var(--gold)}.section-head p{color:var(--muted);font-size:13px}.names-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.name-card{min-height:160px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px 12px;border:1px solid #e9c77730;border-radius:20px;background:radial-gradient(ellipse at 50% 0%,#e9c7770c,transparent 65%),linear-gradient(145deg,#10382d,#09271f);transition:.25s;overflow:hidden}.name-card:before{content:"۞";position:absolute;top:-18px;left:8px;font-size:48px;color:#e9c7770b}.name-card:hover{transform:translateY(-4px);border-color:#e9c777a0;box-shadow:0 12px 30px #0002}.num{position:absolute;top:9px;right:12px;color:#e9c77788;font-size:11px}.arabic{font-size:clamp(23px,2.2vw,30px);font-weight:700;color:var(--gold);margin:10px 0 5px;line-height:1.7}.meaning{color:var(--muted);font-size:12px}.note{margin-top:28px;padding:16px 18px;border-right:3px solid var(--gold);border-radius:12px;background:#e9c7770b;color:var(--muted);font-size:12px}.footer{border-top:1px solid var(--border);padding:24px 8%;display:flex;justify-content:space-between;align-items:center;gap:15px;color:var(--muted);font-size:12px;background:#041812}.footer strong{color:var(--gold)}.back{display:inline-block;margin-top:25px;padding:10px 18px;border-radius:13px;background:var(--gold);color:#071f19;font-weight:800}
+@media(max-width:1000px){.names-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero,.section,.search-wrap{padding-left:5%;padding-right:5%}}@media(max-width:720px){.navbar{min-height:68px;padding:10px 5%}.logo{font-size:21px}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:calc(100% + 1px);right:4%;left:4%;padding:14px;border:1px solid var(--border);border-radius:18px;background:#08271f;box-shadow:0 18px 35px #0005;flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.nav-links a{font-size:13px;padding:10px 14px}.hero{grid-template-columns:1fr;text-align:center;justify-items:center;padding-top:35px;gap:25px}.seal{width:92px;height:92px}.seal span{font-size:47px}.names-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.name-card{min-height:140px;padding:16px 8px}.arabic{font-size:23px}.footer{flex-direction:column;text-align:center}}@media(max-width:360px){.names-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head><body>
+<header class="navbar"><a class="logo" href="index.html">نوری ئیمان <span>✦</span></a><button class="menu-btn" id="menuBtn" aria-label="کردنەوەی مێنیو" aria-expanded="false">☰</button><nav class="nav-links" id="navLinks"><a href="index.html">سەرەکی</a><a href="nwezh.html">نوێژ</a><a href="jorakanynwezh.html">جۆرەکانی نوێژ</a><a href="dua.html">دوعا و زیکر</a><a href="zakat.html">زەکات</a><a class="active" href="names.html">ناوەکان</a></nav></header>
+<main><section class="hero"><div class="seal" aria-hidden="true"><span>ﷲ</span></div><div><span class="eyebrow">ئەسماء الحُسنى</span><h1>ناوە جوانەکانی خوای گەورە <span style="color:var(--gold)">✦</span></h1><p>ناسین و بیرکردنەوە لە مانای ناوە جوانەکانی خوای گەورە؛ ناوەکان بخوێنەوە و لە ماناکانیان تێبگە.</p></div></section>
+<div class="search-wrap"><input class="search" id="search" type="search" placeholder="گەڕان بە ناوی عەرەبی یان مانای کوردی..." aria-label="گەڕان لە ناوەکان"><div class="count" id="count">٩٩ ناو</div></div>
+<section class="section"><div class="section-head"><h2><span>۞</span> ئەسماء الحُسنى</h2><p>لیستی باوی ناوە جوانەکان لەگەڵ واتایەکی کورت بە کوردی.</p></div><div class="names-grid" id="namesGrid">
+      <article class="name-card"><span class="num">01</span><div class="arabic" lang="ar">الرَّحْمَٰنُ</div><div class="meaning">زۆر بە بەزەیی</div></article>
+      <article class="name-card"><span class="num">02</span><div class="arabic" lang="ar">الرَّحِيمُ</div><div class="meaning">زۆر میهرەبان</div></article>
+      <article class="name-card"><span class="num">03</span><div class="arabic" lang="ar">الْمَلِكُ</div><div class="meaning">پاشا و خاوەندار</div></article>
+      <article class="name-card"><span class="num">04</span><div class="arabic" lang="ar">الْقُدُّوسُ</div><div class="meaning">پاک و پیرۆز</div></article>
+      <article class="name-card"><span class="num">05</span><div class="arabic" lang="ar">السَّلَامُ</div><div class="meaning">سەرچاوەی سەلامەتی</div></article>
+      <article class="name-card"><span class="num">06</span><div class="arabic" lang="ar">الْمُؤْمِنُ</div><div class="meaning">بەخشەری ئاسایش</div></article>
+      <article class="name-card"><span class="num">07</span><div class="arabic" lang="ar">الْمُهَيْمِنُ</div><div class="meaning">چاودێر و پارێزەر</div></article>
+      <article class="name-card"><span class="num">08</span><div class="arabic" lang="ar">الْعَزِيزُ</div><div class="meaning">باڵادەست و بەهێز</div></article>
+      <article class="name-card"><span class="num">09</span><div class="arabic" lang="ar">الْجَبَّارُ</div><div class="meaning">توانادار و چارەسەرکەر</div></article>
+      <article class="name-card"><span class="num">10</span><div class="arabic" lang="ar">الْمُتَكَبِّرُ</div><div class="meaning">خاوەنی شکۆی گەورە</div></article>
+      <article class="name-card"><span class="num">11</span><div class="arabic" lang="ar">الْخَالِقُ</div><div class="meaning">دروستکەری هەموو شت</div></article>
+      <article class="name-card"><span class="num">12</span><div class="arabic" lang="ar">الْبَارِئُ</div><div class="meaning">پەیداهێنەری بوونەوەر</div></article>
+      <article class="name-card"><span class="num">13</span><div class="arabic" lang="ar">الْمُصَوِّرُ</div><div class="meaning">شێوەبەخش</div></article>
+      <article class="name-card"><span class="num">14</span><div class="arabic" lang="ar">الْغَفَّارُ</div><div class="meaning">زۆر لێخۆشبوو</div></article>
+      <article class="name-card"><span class="num">15</span><div class="arabic" lang="ar">الْقَهَّارُ</div><div class="meaning">زاڵ بەسەر هەموو شتدا</div></article>
+      <article class="name-card"><span class="num">16</span><div class="arabic" lang="ar">الْوَهَّابُ</div><div class="meaning">زۆر بەخشەر</div></article>
+      <article class="name-card"><span class="num">17</span><div class="arabic" lang="ar">الرَّزَّاقُ</div><div class="meaning">ڕۆزی‌بەخش</div></article>
+      <article class="name-card"><span class="num">18</span><div class="arabic" lang="ar">الْفَتَّاحُ</div><div class="meaning">کردنەوەی دەرگا و چارەسەر</div></article>
+      <article class="name-card"><span class="num">19</span><div class="arabic" lang="ar">الْعَلِيمُ</div><div class="meaning">زانا بە هەموو شت</div></article>
+      <article class="name-card"><span class="num">20</span><div class="arabic" lang="ar">الْقَابِضُ</div><div class="meaning">توندگر</div></article>
+      <article class="name-card"><span class="num">21</span><div class="arabic" lang="ar">الْبَاسِطُ</div><div class="meaning">فراوانکەر</div></article>
+      <article class="name-card"><span class="num">22</span><div class="arabic" lang="ar">الْخَافِضُ</div><div class="meaning">نزمکەرەوە</div></article>
+      <article class="name-card"><span class="num">23</span><div class="arabic" lang="ar">الرَّافِعُ</div><div class="meaning">بەرزکەرەوە</div></article>
+      <article class="name-card"><span class="num">24</span><div class="arabic" lang="ar">الْمُعِزُّ</div><div class="meaning">شکۆبەخش</div></article>
+      <article class="name-card"><span class="num">25</span><div class="arabic" lang="ar">الْمُذِلُّ</div><div class="meaning">خوارکەرەوە</div></article>
+      <article class="name-card"><span class="num">26</span><div class="arabic" lang="ar">السَّمِيعُ</div><div class="meaning">بیستەری هەموو شت</div></article>
+      <article class="name-card"><span class="num">27</span><div class="arabic" lang="ar">الْبَصِيرُ</div><div class="meaning">بینەری هەموو شت</div></article>
+      <article class="name-card"><span class="num">28</span><div class="arabic" lang="ar">الْحَكَمُ</div><div class="meaning">دادوەر</div></article>
+      <article class="name-card"><span class="num">29</span><div class="arabic" lang="ar">الْعَدْلُ</div><div class="meaning">دادپەروەر</div></article>
+      <article class="name-card"><span class="num">30</span><div class="arabic" lang="ar">اللَّطِيفُ</div><div class="meaning">زۆر وردبین و نەرم</div></article>
+      <article class="name-card"><span class="num">31</span><div class="arabic" lang="ar">الْخَبِيرُ</div><div class="meaning">ئاگاداری وردەکارییەکان</div></article>
+      <article class="name-card"><span class="num">32</span><div class="arabic" lang="ar">الْحَلِيمُ</div><div class="meaning">زۆر ئارام و بەسەبر</div></article>
+      <article class="name-card"><span class="num">33</span><div class="arabic" lang="ar">الْعَظِيمُ</div><div class="meaning">گەورە و مەزن</div></article>
+      <article class="name-card"><span class="num">34</span><div class="arabic" lang="ar">الْغَفُورُ</div><div class="meaning">لێخۆشبووی زۆر</div></article>
+      <article class="name-card"><span class="num">35</span><div class="arabic" lang="ar">الشَّكُورُ</div><div class="meaning">پاداشتدەرەوەی سوپاس</div></article>
+      <article class="name-card"><span class="num">36</span><div class="arabic" lang="ar">الْعَلِيُّ</div><div class="meaning">بەرز و بڵند</div></article>
+      <article class="name-card"><span class="num">37</span><div class="arabic" lang="ar">الْكَبِيرُ</div><div class="meaning">گەورەترین</div></article>
+      <article class="name-card"><span class="num">38</span><div class="arabic" lang="ar">الْحَفِيظُ</div><div class="meaning">پارێزەر</div></article>
+      <article class="name-card"><span class="num">39</span><div class="arabic" lang="ar">الْمُقِيتُ</div><div class="meaning">بەخشەری پێویستییەکان</div></article>
+      <article class="name-card"><span class="num">40</span><div class="arabic" lang="ar">الْحَسِيبُ</div><div class="meaning">بەس و لێپرسەرەوە</div></article>
+      <article class="name-card"><span class="num">41</span><div class="arabic" lang="ar">الْجَلِيلُ</div><div class="meaning">خاوەنی شکۆ</div></article>
+      <article class="name-card"><span class="num">42</span><div class="arabic" lang="ar">الْكَرِيمُ</div><div class="meaning">بەخشندە</div></article>
+      <article class="name-card"><span class="num">43</span><div class="arabic" lang="ar">الرَّقِيبُ</div><div class="meaning">چاودێر</div></article>
+      <article class="name-card"><span class="num">44</span><div class="arabic" lang="ar">الْمُجِيبُ</div><div class="meaning">وەڵامدەرەوەی دوعا</div></article>
+      <article class="name-card"><span class="num">45</span><div class="arabic" lang="ar">الْوَاسِعُ</div><div class="meaning">فراوان و بێ سنوور</div></article>
+      <article class="name-card"><span class="num">46</span><div class="arabic" lang="ar">الْحَكِيمُ</div><div class="meaning">دانای پڕ لە حیکمەت</div></article>
+      <article class="name-card"><span class="num">47</span><div class="arabic" lang="ar">الْوَدُودُ</div><div class="meaning">خۆشەویست و خۆشەویستی‌بەخش</div></article>
+      <article class="name-card"><span class="num">48</span><div class="arabic" lang="ar">الْمَجِيدُ</div><div class="meaning">خاوەنی شکۆی بەرز</div></article>
+      <article class="name-card"><span class="num">49</span><div class="arabic" lang="ar">الْبَاعِثُ</div><div class="meaning">زیندووکردنەوەی مردووان</div></article>
+      <article class="name-card"><span class="num">50</span><div class="arabic" lang="ar">الشَّهِيدُ</div><div class="meaning">شایەد و ئاگادار</div></article>
+      <article class="name-card"><span class="num">51</span><div class="arabic" lang="ar">الْحَقُّ</div><div class="meaning">ڕاست و حەق</div></article>
+      <article class="name-card"><span class="num">52</span><div class="arabic" lang="ar">الْوَكِيلُ</div><div class="meaning">پشت‌وپەنا و کارساز</div></article>
+      <article class="name-card"><span class="num">53</span><div class="arabic" lang="ar">الْقَوِيُّ</div><div class="meaning">بەهێز</div></article>
+      <article class="name-card"><span class="num">54</span><div class="arabic" lang="ar">الْمَتِينُ</div><div class="meaning">زۆر پتەو و بەهێز</div></article>
+      <article class="name-card"><span class="num">55</span><div class="arabic" lang="ar">الْوَلِيُّ</div><div class="meaning">یار و دۆستدار</div></article>
+      <article class="name-card"><span class="num">56</span><div class="arabic" lang="ar">الْحَمِيدُ</div><div class="meaning">شایانی ستایش</div></article>
+      <article class="name-card"><span class="num">57</span><div class="arabic" lang="ar">الْمُحْصِي</div><div class="meaning">ژمێرەری هەموو شت</div></article>
+      <article class="name-card"><span class="num">58</span><div class="arabic" lang="ar">الْمُبْدِئُ</div><div class="meaning">دەستپێکەر</div></article>
+      <article class="name-card"><span class="num">59</span><div class="arabic" lang="ar">الْمُعِيدُ</div><div class="meaning">گەڕێنەرەوە</div></article>
+      <article class="name-card"><span class="num">60</span><div class="arabic" lang="ar">الْمُحْيِي</div><div class="meaning">زیندووکەرەوە</div></article>
+      <article class="name-card"><span class="num">61</span><div class="arabic" lang="ar">الْمُمِيتُ</div><div class="meaning">مردن‌بەخش</div></article>
+      <article class="name-card"><span class="num">62</span><div class="arabic" lang="ar">الْحَيُّ</div><div class="meaning">هەمیشە زیندوو</div></article>
+      <article class="name-card"><span class="num">63</span><div class="arabic" lang="ar">الْقَيُّومُ</div><div class="meaning">بەڕێوەبەری هەموو بوونەوەر</div></article>
+      <article class="name-card"><span class="num">64</span><div class="arabic" lang="ar">الْوَاجِدُ</div><div class="meaning">خاوەنی هەموو شت</div></article>
+      <article class="name-card"><span class="num">65</span><div class="arabic" lang="ar">الْمَاجِدُ</div><div class="meaning">خاوەنی بەخشندگی و شکۆ</div></article>
+      <article class="name-card"><span class="num">66</span><div class="arabic" lang="ar">الْوَاحِدُ</div><div class="meaning">تاک و بێ هاوتا</div></article>
+      <article class="name-card"><span class="num">67</span><div class="arabic" lang="ar">الصَّمَدُ</div><div class="meaning">پەنا و پێویستی هەمووان</div></article>
+      <article class="name-card"><span class="num">68</span><div class="arabic" lang="ar">الْقَادِرُ</div><div class="meaning">توانادار</div></article>
+      <article class="name-card"><span class="num">69</span><div class="arabic" lang="ar">الْمُقْتَدِرُ</div><div class="meaning">خاوەنی توانی تەواو</div></article>
+      <article class="name-card"><span class="num">70</span><div class="arabic" lang="ar">الْمُقَدِّمُ</div><div class="meaning">پێشخەر</div></article>
+      <article class="name-card"><span class="num">71</span><div class="arabic" lang="ar">الْمُؤَخِّرُ</div><div class="meaning">دواخەر</div></article>
+      <article class="name-card"><span class="num">72</span><div class="arabic" lang="ar">الْأَوَّلُ</div><div class="meaning">یەکەم و بێ دەستپێک</div></article>
+      <article class="name-card"><span class="num">73</span><div class="arabic" lang="ar">الْآخِرُ</div><div class="meaning">کۆتایی و بێ کۆتایی</div></article>
+      <article class="name-card"><span class="num">74</span><div class="arabic" lang="ar">الظَّاهِرُ</div><div class="meaning">ئاشکرا و بەرز</div></article>
+      <article class="name-card"><span class="num">75</span><div class="arabic" lang="ar">الْبَاطِنُ</div><div class="meaning">شاراوە لە هەستەکان</div></article>
+      <article class="name-card"><span class="num">76</span><div class="arabic" lang="ar">الْوَالِي</div><div class="meaning">بەڕێوەبەر</div></article>
+      <article class="name-card"><span class="num">77</span><div class="arabic" lang="ar">الْمُتَعَالِي</div><div class="meaning">زۆر بەرز و بڵند</div></article>
+      <article class="name-card"><span class="num">78</span><div class="arabic" lang="ar">الْبَرُّ</div><div class="meaning">چاکەکار و بەخشندە</div></article>
+      <article class="name-card"><span class="num">79</span><div class="arabic" lang="ar">التَّوَّابُ</div><div class="meaning">زۆر قبووڵکەری تەوبە</div></article>
+      <article class="name-card"><span class="num">80</span><div class="arabic" lang="ar">الْمُنْتَقِمُ</div><div class="meaning">دادوەری سزا‌بەخش</div></article>
+      <article class="name-card"><span class="num">81</span><div class="arabic" lang="ar">الْعَفُوُّ</div><div class="meaning">زۆر لێبوردە</div></article>
+      <article class="name-card"><span class="num">82</span><div class="arabic" lang="ar">الرَّؤُوفُ</div><div class="meaning">زۆر بەسۆز</div></article>
+      <article class="name-card"><span class="num">83</span><div class="arabic" lang="ar">مَالِكُ الْمُلْكِ</div><div class="meaning">خاوەنی هەموو پاشایەتی</div></article>
+      <article class="name-card"><span class="num">84</span><div class="arabic" lang="ar">ذُو الْجَلَالِ وَالْإِكْرَامِ</div><div class="meaning">خاوەنی شکۆ و ڕێز</div></article>
+      <article class="name-card"><span class="num">85</span><div class="arabic" lang="ar">الْمُقْسِطُ</div><div class="meaning">دادپەروەر</div></article>
+      <article class="name-card"><span class="num">86</span><div class="arabic" lang="ar">الْجَامِعُ</div><div class="meaning">کۆکەرەوە</div></article>
+      <article class="name-card"><span class="num">87</span><div class="arabic" lang="ar">الْغَنِيُّ</div><div class="meaning">دەوڵەمەندی بێ‌پێویست</div></article>
+      <article class="name-card"><span class="num">88</span><div class="arabic" lang="ar">الْمُغْنِي</div><div class="meaning">دەوڵەمەندکەر</div></article>
+      <article class="name-card"><span class="num">89</span><div class="arabic" lang="ar">الْمَانِعُ</div><div class="meaning">ڕێگر بە حیکمەت</div></article>
+      <article class="name-card"><span class="num">90</span><div class="arabic" lang="ar">الضَّارُّ</div><div class="meaning">خاوەنی دەسەڵات لەسەر زیان</div></article>
+      <article class="name-card"><span class="num">91</span><div class="arabic" lang="ar">النَّافِعُ</div><div class="meaning">بەخشەری سوود</div></article>
+      <article class="name-card"><span class="num">92</span><div class="arabic" lang="ar">النُّورُ</div><div class="meaning">ڕووناکی</div></article>
+      <article class="name-card"><span class="num">93</span><div class="arabic" lang="ar">الْهَادِي</div><div class="meaning">ڕێنیشاندەر</div></article>
+      <article class="name-card"><span class="num">94</span><div class="arabic" lang="ar">الْبَدِيعُ</div><div class="meaning">داهێنەری بێ نموونە</div></article>
+      <article class="name-card"><span class="num">95</span><div class="arabic" lang="ar">الْبَاقِي</div><div class="meaning">هەمیشەماوە</div></article>
+      <article class="name-card"><span class="num">96</span><div class="arabic" lang="ar">الْوَارِثُ</div><div class="meaning">ماوەی هەمیشەیی و میراتگر</div></article>
+      <article class="name-card"><span class="num">97</span><div class="arabic" lang="ar">الرَّشِيدُ</div><div class="meaning">ڕێنمایی‌کەری دانا</div></article>
+      <article class="name-card"><span class="num">98</span><div class="arabic" lang="ar">الصَّبُورُ</div><div class="meaning">زۆر بەسەبر</div></article>
+      <article class="name-card"><span class="num">99</span><div class="arabic" lang="ar">الْأَحَدُ</div><div class="meaning">تاک و بێ هاوتا</div></article>
+</div><div class="note">تێبینی: ئەم واتایانە کورت و نزیکەیین بۆ ئاسانکاری تێگەیشتن؛ واتای تەواوی هەر ناوێک لە کتێبەکانی عەقیدە و تەفسیری باوەڕپێکراودا وردتر ڕوونکراوەتەوە. لە شێوازی ژماردن و هەندێک لیستی ناوەکاندا جیاوازیی زانایان هەیە.</div><a class="back" href="index.html">← گەڕانەوە بۆ پەڕەی سەرەکی</a></section></main>
+<footer class="footer"><div class="logo">نوری ئیمان <span>✦</span></div><p>بە زانیاری و ڕێنمایی، بەرەو ژیانێکی باشتر.</p><p>© <span id="year"></span> نوری ئیمان</p></footer>
+<script>const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'✕':'☰'});navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));const search=document.getElementById('search'),cards=[...document.querySelectorAll('.name-card')],count=document.getElementById('count');function update(){const q=search.value.trim().toLowerCase();let n=0;cards.forEach(c=>{const show=c.innerText.toLowerCase().includes(q);c.style.display=show?'flex':'none';if(show)n++});count.textContent=n+' ناو'}search.addEventListener('input',update);document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body></html>

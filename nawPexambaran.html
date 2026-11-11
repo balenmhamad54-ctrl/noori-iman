@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#061b1b">
+<title>پێغەمبەران | نوری ئیمان</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+ --bg:#061b1b;
+ --card:#0d2927;
+ --gold:#d9b568;
+ --gold2:#f4dfa5;
+ --white:#f7f2df;
+ --muted:#b7c3b9;
+}
+
+* {
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+body {
+ font-family:'Noto Sans Arabic',sans-serif;
+ background:var(--bg);
+ color:var(--white);
+ min-height:100vh;
+}
+
+body::before {
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ opacity:.12;
+ background-image:
+ radial-gradient(circle at 50% 50%,transparent 0 35px,#c6a45d 36px,transparent 37px);
+ background-size:65px 65px;
+ z-index:-1;
+}
+
+/* HEADER */
+
+header {
+ min-height:75px;
+ padding:15px 6%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #d9b56855;
+ background:#071d1ceF;
+}
+
+.logo {
+ color:var(--gold);
+ font-size:25px;
+ font-weight:800;
+}
+
+.home {
+ text-decoration:none;
+ color:var(--gold2);
+ border:1px solid #c9a65e;
+ padding:9px 18px;
+ border-radius:12px;
+ font-size:14px;
+}
+
+/* HERO */
+
+.hero {
+ text-align:center;
+ padding:65px 15px 35px;
+ background:
+ linear-gradient(#061b1bd9,#061b1bd9),
+ url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=85") center/cover;
+}
+
+.bismillah {
+ color:var(--gold);
+ font-size:38px;
+ margin-bottom:18px;
+}
+
+.hero h1 {
+ font-size:clamp(27px,5vw,43px);
+ color:var(--gold2);
+ margin-bottom:12px;
+}
+
+.hero p {
+ color:var(--muted);
+ line-height:2.2;
+ max-width:650px;
+ margin:auto;
+ font-size:15px;
+}
+
+.hero-decoration {
+ margin:25px auto;
+ width:170px;
+ height:2px;
+ background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+/* INTRO */
+
+.container {
+ max-width:1250px;
+ margin:auto;
+ padding:20px;
+}
+
+.intro {
+ text-align:center;
+ margin:25px auto 35px;
+}
+
+.intro h2 {
+ color:var(--gold);
+ font-size:25px;
+ margin-bottom:10px;
+}
+
+.intro p {
+ color:var(--muted);
+ font-size:14px;
+ line-height:2;
+}
+
+.counter {
+ display:inline-block;
+ margin-top:15px;
+ padding:8px 24px;
+ color:var(--gold2);
+ background:#d9b56817;
+ border:1px solid #d9b56866;
+ border-radius:30px;
+}
+
+/* SEARCH */
+
+.search-box {
+ max-width:650px;
+ margin:0 auto 35px;
+}
+
+.search-box input {
+ width:100%;
+ padding:16px 20px;
+ border-radius:14px;
+ border:1px solid #c9a65e70;
+ background:#102b29;
+ color:white;
+ outline:none;
+ font-family:inherit;
+ font-size:15px;
+}
+
+.search-box input:focus {
+ border-color:var(--gold);
+ box-shadow:0 0 15px #d9b56825;
+}
+
+/* GRID */
+
+.prophets-grid {
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:22px;
+}
+
+.prophet-card {
+ background:linear-gradient(145deg,#153631,#092321);
+ border:1px solid #c6a45b80;
+ border-radius:24px;
+ overflow:hidden;
+ text-align:center;
+ transition:.35s;
+ cursor:pointer;
+ box-shadow:0 10px 25px #0005;
+}
+
+.prophet-card:hover {
+ transform:translateY(-8px);
+ border-color:var(--gold2);
+ box-shadow:0 15px 35px #d9b56825;
+}
+
+.image-box {
+ height:175px;
+ position:relative;
+ overflow:hidden;
+}
+
+.image-box img {
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ transition:.5s;
+}
+
+.prophet-card:hover img {
+ transform:scale(1.1);
+}
+
+.image-box::after {
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(transparent 50%,#092321);
+}
+
+.number {
+ position:absolute;
+ top:12px;
+ right:12px;
+ z-index:2;
+ width:30px;
+ height:30px;
+ border-radius:50%;
+ display:grid;
+ place-items:center;
+ background:#d9b568;
+ color:#092321;
+ font-size:13px;
+ font-weight:bold;
+}
+
+.card-info {
+ padding:12px 8px 20px;
+}
+
+.card-info h3 {
+ color:var(--gold2);
+ font-size:19px;
+ margin-bottom:5px;
+}
+
+.card-info p {
+ color:var(--muted);
+ font-size:12px;
+}
+
+.card-info .arabic-name {
+ color:#fff;
+ font-size:15px;
+ margin-top:5px;
+}
+
+/* SPECIAL PROPHET */
+
+.muhammad {
+ margin:50px auto 35px;
+ max-width:850px;
+ padding:35px 20px;
+ text-align:center;
+ border:1px solid var(--gold);
+ border-radius:25px;
+ background:
+ linear-gradient(#092321eF,#092321eF),
+ url("https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=85") center/cover;
+ box-shadow:0 10px 35px #0005;
+}
+
+.muhammad .star {
+ font-size:38px;
+ color:var(--gold);
+}
+
+.muhammad h2 {
+ color:var(--gold2);
+ font-size:32px;
+ margin:12px;
+}
+
+.muhammad p {
+ color:var(--white);
+ line-height:2.2;
+}
+
+/* VERSE */
+
+.verse {
+ text-align:center;
+ padding:30px 15px;
+ margin:35px auto;
+ border-top:1px solid #c9a65e55;
+ border-bottom:1px solid #c9a65e55;
+}
+
+.verse .arabic {
+ color:var(--gold2);
+ font-size:25px;
+ line-height:2.3;
+}
+
+.verse .source {
+ color:var(--gold);
+ margin-top:15px;
+ font-size:14px;
+}
+
+/* FOOTER */
+
+footer {
+ text-align:center;
+ padding:35px 15px;
+ color:var(--muted);
+ border-top:1px solid #c9a65e44;
+}
+
+footer strong {
+ color:var(--gold);
+}
+
+.no-result {
+ display:none;
+ text-align:center;
+ padding:35px;
+ color:var(--gold2);
+}
+
+@media(max-width:1000px) {
+ .prophets-grid {
+  grid-template-columns:repeat(3,1fr);
+ }
+}
+
+@media(max-width:600px) {
+ header {padding:13px 4%}
+ .logo {font-size:20px}
+ .hero {padding:45px 12px 30px}
+ .prophets-grid {
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+ }
+ .image-box {height:145px}
+ .card-info h3 {font-size:17px}
+ .container {padding:13px}
+ .muhammad h2 {font-size:26px}
+ .verse .arabic {font-size:20px}
+}
+
+@media(max-width:350px) {
+ .prophets-grid {grid-template-columns:1fr}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+
+/* Mobile repair: prophet cards and Kurdish text */
+.prophets-grid{grid-template-columns:repeat(5,minmax(0,1fr));}
+.prophet-card{min-width:0;width:100%;}
+.card-info{min-width:0;overflow-wrap:anywhere;word-break:normal;}
+.card-info h3,.card-info p,.arabic-name{max-width:100%;overflow-wrap:anywhere;word-break:normal;}
+.image-box{width:100%;}
+.image-box img{display:block;width:100%;height:100%;object-fit:cover;}
+.search-box{width:100%;padding:0 2px;}
+.search-box input{display:block;width:100%;min-width:0;max-width:100%;}
+@media(max-width:600px){
+ .prophets-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px;}
+ .prophet-card{border-radius:17px;}
+ .card-info{padding:12px 7px 16px;}
+ .card-info h3{font-size:clamp(14px,4vw,17px);line-height:1.7;}
+ .card-info .arabic-name{font-size:clamp(14px,3.8vw,16px);line-height:1.8;}
+ .card-info p{font-size:11px;line-height:1.7;}
+ .image-box{height:clamp(105px,34vw,145px);}
+ .muhammad{margin:30px 2px;padding:25px 14px;}
+ .muhammad h2{font-size:clamp(22px,6vw,27px);overflow-wrap:anywhere;}
+ .hero h1,.intro h2{overflow-wrap:anywhere;line-height:1.65;}
+ header{gap:10px;flex-wrap:wrap;}
+ .home{white-space:normal;text-align:center;}
+}
+@media(max-width:350px){.prophets-grid{grid-template-columns:minmax(0,1fr)!important}.image-box{height:180px;}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header>
+ <div class="logo">✦ نوری ئیمان</div>
+ <a href="index.html" class="home">⌂ گەڕانەوە</a>
+</header>
+
+<section class="hero">
+ <div class="bismillah">﷽</div>
+ <h1>ناوی پێغەمبەران</h1>
+ <p>
+ ئەو پێغەمبەرانەی کە ناویان لە قورئانی پیرۆزدا هاتووە،
+ ڕێبەرانی مرۆڤایەتی بوون بۆ ڕاستی و ڕووناکی.
+ </p>
+ <div class="hero-decoration"></div>
+</section>
+
+<main class="container">
+
+ <section class="intro">
+  <h2>٢٥ پێغەمبەری ناوبراو لە قورئاندا</h2>
+  <p>بە ناوی هەموویان ئاشنا ببە و ناویان بزانە.</p>
+  <div class="counter">٢٥ پێغەمبەر</div>
+  <p class="image-note" style="margin-top:10px;font-size:12px;color:var(--muted)">تێبینی: وێنەکان تەنها دیمەنی سروشتن و بە هیچ شێوەیەک وێنەی پێغەمبەران نین.</p>
+ </section>
+
+ <div class="search-box">
+  <input
+   type="search"
+   id="search"
+   placeholder="گەڕان بە ناوی پێغەمبەر..."
+   oninput="searchProphets()"
+  >
+ </div>
+
+ <section class="prophets-grid" id="prophetsGrid"></section>
+
+ <div class="no-result" id="noResult">
+  هیچ ئەنجامێک نەدۆزرایەوە.
+ </div>
+
+ <section class="muhammad">
+  <div class="star">۞ ﷺ ۞</div>
+  <h2>محمد ﷺ</h2>
+  <p>
+   محەممەد ﷺ کۆتا پێغەمبەری خوای گەورەیە،
+   وەک ڕەحمەتێک بۆ هەموو جیهان نێردراوە.
+  </p>
+ </section>
+
+ <section class="verse">
+  <div class="arabic">
+   وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ
+  </div>
+  <div class="source">
+   سورەتی ئەنبیا، ئایەتی ١٠٧
+  </div>
+ </section>
+
+</main>
+
+<footer>
+ <strong>✦ نوری ئیمان ✦</strong>
+ <p style="margin-top:10px">
+  بە ڕووناکی قورئان، ڕێگای ڕاست بدۆزەرەوە.
+ </p>
+ <p style="margin-top:15px;font-size:12px">
+  © 2026 نوری ئیمان - هەموو مافەکان پارێزراون
+ </p>
+</footer>
+
+<script>
+
+const images = {
+ desert: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=900&q=80",
+ mountain: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80",
+ sea: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80",
+ sky: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80",
+ green: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80",
+ kaaba: "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=900&q=80",
+ mosque: "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=80",
+ ocean: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=900&q=80"
+};
+
+const prophets = [
+ {name:"ئادەم",ar:"آدم",img:"green"},
+ {name:"ئیدریس",ar:"إدريس",img:"mountain"},
+ {name:"نوح",ar:"نوح",img:"sea"},
+ {name:"هود",ar:"هود",img:"desert"},
+ {name:"ساڵح",ar:"صالح",img:"mountain"},
+ {name:"ئیبراهیم",ar:"إبراهيم",img:"kaaba"},
+ {name:"لوط",ar:"لوط",img:"desert"},
+ {name:"ئیسمائیل",ar:"إسماعيل",img:"desert"},
+ {name:"ئیسحاق",ar:"إسحاق",img:"green"},
+ {name:"یەعقوب",ar:"يعقوب",img:"sky"},
+ {name:"یوسف",ar:"يوسف",img:"green"},
+ {name:"ئەیوب",ar:"أيوب",img:"mountain"},
+ {name:"شوعەیب",ar:"شعيب",img:"desert"},
+ {name:"موسا",ar:"موسى",img:"ocean"},
+ {name:"هارون",ar:"هارون",img:"mountain"},
+ {name:"ذولکیفل",ar:"ذو الكفل",img:"sky"},
+ {name:"داود",ar:"داود",img:"green"},
+ {name:"سولەیمان",ar:"سليمان",img:"mosque"},
+ {name:"ئیلیاس",ar:"إلياس",img:"mountain"},
+ {name:"ئەلیەسەع",ar:"اليسع",img:"green"},
+ {name:"یونس",ar:"يونس",img:"ocean"},
+ {name:"زەکەریا",ar:"زكريا",img:"mosque"},
+ {name:"یەحیا",ar:"يحيى",img:"green"},
+ {name:"عیسا",ar:"عيسى",img:"sky"},
+ {name:"محەممەد ﷺ",ar:"محمد ﷺ",img:"kaaba"}
+];
+
+const grid = document.getElementById("prophetsGrid");
+
+function showProphets(list) {
+ grid.innerHTML = "";
+
+ list.forEach((p) => {
+  const number = prophets.indexOf(p) + 1;
+
+  const card = document.createElement("article");
+  card.className = "prophet-card";
+
+  const imageBox = document.createElement("div");
+  imageBox.className = "image-box";
+
+  const img = document.createElement("img");
+  img.src = images[p.img];
+  img.alt = "وێنەی سروشت بۆ کارتی " + p.name;
+  img.loading = "lazy";
+
+  const badge = document.createElement("span");
+  badge.className = "number";
+  badge.textContent = number;
+
+  imageBox.appendChild(img);
+  imageBox.appendChild(badge);
+
+  const info = document.createElement("div");
+  info.className = "card-info";
+
+  const title = document.createElement("h3");
+  title.textContent = p.name;
+
+  const arabic = document.createElement("div");
+  arabic.className = "arabic-name";
+  arabic.textContent = p.ar;
+  arabic.dir = "rtl";
+
+  const caption = document.createElement("p");
+  caption.textContent = "عَلَيْهِ السَّلَامُ";
+
+  info.appendChild(title);
+  info.appendChild(arabic);
+  info.appendChild(caption);
+
+  card.appendChild(imageBox);
+  card.appendChild(info);
+  grid.appendChild(card);
+ });
+}
+
+function searchProphets() {
+ const value = document.getElementById("search").value.trim().toLowerCase();
+
+ const filtered = prophets.filter(p =>
+  p.name.toLowerCase().includes(value) ||
+  p.ar.toLowerCase().includes(value)
+ );
+
+ showProphets(filtered);
+
+ document.getElementById("noResult").style.display =
+  filtered.length ? "none" : "block";
+}
+
+showProphets(prophets);
+
+</script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

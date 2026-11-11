@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b1b">
+<title>تقویمی هیجری | نوری ئیمان</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --bg:#071b1b;--panel:#102a27;--panel2:#15352f;
+ --green:#43c69a;--gold:#dfbd78;--text:#f4f4ed;
+ --muted:#a4b8ad;--border:rgba(255,255,255,.09);
+}
+*{box-sizing:border-box}
+body{
+ margin:0;background:
+ radial-gradient(ellipse at 10% 0%,rgba(67,198,154,.13),transparent 35%),
+ radial-gradient(ellipse at 90% 40%,rgba(223,189,120,.08),transparent 35%),var(--bg);
+ color:var(--text);font-family:'Noto Sans Arabic',sans-serif;
+}
+header{
+ max-width:1150px;margin:auto;padding:20px;
+ display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+ width:47px;height:47px;border-radius:15px;display:grid;place-items:center;
+ background:linear-gradient(135deg,#43c69a,#176c55);
+ color:#06251b;font-size:25px
+}
+.brand strong{font-size:19px}
+.brand small{display:block;color:var(--muted);font-size:11px}
+.home{
+ text-decoration:none;color:var(--gold);border:1px solid var(--border);
+ padding:10px 15px;border-radius:12px;font-size:12px
+}
+main{max-width:1100px;margin:20px auto 60px;padding:0 18px}
+.hero{text-align:center;padding:25px 10px 30px}
+.hero .moon{font-size:40px;color:var(--gold)}
+.hero h1{font-size:clamp(26px,5vw,39px);color:#f3dfae;margin:10px 0}
+.hero p{color:var(--muted);font-size:13px;line-height:2}
+.today{
+ display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:22px
+}
+.today-card{
+ background:linear-gradient(135deg,#143c32,#102722);
+ border:1px solid rgba(67,198,154,.17);border-radius:18px;
+ padding:22px;text-align:center
+}
+.today-card small{color:var(--muted);font-size:12px}
+.today-card h2{font-size:26px;color:var(--gold);margin:12px 0 5px}
+.today-card p{margin:0;color:var(--muted);font-size:12px}
+.today-card.hijri h2{font-family:'Amiri',serif;font-size:32px}
+.panel{
+ background:rgba(16,42,39,.94);border:1px solid var(--border);
+ border-radius:19px;padding:22px;margin-bottom:20px
+}
+.panel-title{font-size:17px;margin:0 0 18px}
+.calendar-head{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:10px;margin-bottom:18px
+}
+.calendar-head h2{font-size:20px;color:var(--gold);margin:0}
+.nav-btn{
+ border:1px solid var(--border);background:#183a32;color:var(--text);
+ width:40px;height:40px;border-radius:11px;cursor:pointer;font-size:18px
+}
+.nav-btn:hover{border-color:var(--green);color:var(--green)}
+.weekdays,.days{
+ display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px
+}
+.weekdays div{text-align:center;color:var(--muted);font-size:11px;padding:9px 0}
+.day{
+ min-height:75px;border:1px solid var(--border);border-radius:11px;
+ background:#0b2420;padding:8px 5px;text-align:center;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:5px;position:relative
+}
+.day .greg{font-size:11px;color:var(--muted)}
+.day .hijri{font-size:20px;color:var(--text);font-weight:700}
+.day.today-day{border:1px solid var(--green);background:rgba(67,198,154,.13)}
+.day.today-day .hijri{color:var(--green)}
+.day.other{opacity:.3}
+.day.event-day:after{
+ content:"";position:absolute;bottom:5px;width:5px;height:5px;
+ background:var(--gold);border-radius:50%
+}
+.calendar-foot{font-size:11px;color:var(--muted);margin-top:14px;line-height:2}
+.events{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
+}
+.event{
+ display:flex;align-items:center;gap:13px;padding:14px;
+ border:1px solid var(--border);border-radius:14px;background:#0b2420
+}
+.event-icon{
+ width:43px;height:43px;flex-shrink:0;border-radius:13px;
+ display:grid;place-items:center;background:rgba(223,189,120,.12);
+ color:var(--gold);font-size:21px
+}
+.event strong{display:block;font-size:13px}
+.event small{display:block;color:var(--muted);font-size:11px;margin-top:5px;line-height:1.8}
+.event-date{margin-right:auto;color:var(--green);font-size:11px;white-space:nowrap}
+.converter{
+ display:grid;grid-template-columns:1fr 1fr;gap:15px
+}
+.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}
+input{
+ width:100%;padding:13px;border:1px solid var(--border);
+ border-radius:11px;background:#091f1c;color:white;
+ font-family:inherit;font-size:14px;outline:none
+}
+input:focus{border-color:var(--green)}
+.convert-result{
+ grid-column:1/-1;padding:17px;border-radius:13px;
+ background:rgba(67,198,154,.08);border:1px solid rgba(67,198,154,.16);
+ text-align:center;color:var(--green);font-size:17px;line-height:2
+}
+.note{
+ color:var(--muted);font-size:11px;line-height:2;
+ padding:14px;background:rgba(255,255,255,.035);border-radius:12px;margin-top:18px
+}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:11px}
+footer b{color:var(--gold)}
+@media(max-width:650px){
+ .today{grid-template-columns:1fr}
+ .events{grid-template-columns:1fr}
+ .day{min-height:61px;padding:5px 2px}
+ .day .hijri{font-size:16px}
+ .day .greg{font-size:9px}
+ .weekdays{gap:3px}
+ .days{gap:4px}
+ .panel{padding:14px}
+ .converter{grid-template-columns:1fr}
+ .convert-result{grid-column:auto}
+ .calendar-head h2{font-size:16px}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+<header>
+ <div class="brand">
+  <div class="logo">☪</div>
+  <div><strong>نوری ئیمان</strong><small>ڕێگای زانین و ئیمان</small></div>
+ </div>
+ <a class="home" href="index.html">⌂ گەڕانەوە بۆ سەرەتا</a>
+</header>
+
+<main>
+ <section class="hero">
+  <div class="moon">☪</div>
+  <h1>تقویمی هیجری</h1>
+  <p>بەروارە کۆچییەکان، مانگە پیرۆزەکان و بۆنە ئاینییەکانت لە یەک شوێندا ببینە.</p>
+ </section>
+
+ <section class="today">
+  <div class="today-card hijri">
+   <small>بەرواری ئەمڕۆ بە کۆچی</small>
+   <h2 id="todayHijri">...</h2>
+   <p id="todayHijriDay">...</p>
+  </div>
+  <div class="today-card">
+   <small>بەرواری ئەمڕۆ بە زایینی</small>
+   <h2 id="todayGregorian">...</h2>
+   <p id="todayWeekday">...</p>
+  </div>
+ </section>
+
+ <section class="panel">
+  <div class="calendar-head">
+   <button class="nav-btn" id="nextMonth" aria-label="مانگی داهاتوو">‹</button>
+   <h2 id="monthTitle">...</h2>
+   <button class="nav-btn" id="prevMonth" aria-label="مانگی پێشوو">›</button>
+  </div>
+  <div class="weekdays">
+   <div>یەکشەممە</div><div>دووشەممە</div><div>سێشەممە</div>
+   <div>چوارشەممە</div><div>پێنجشەممە</div><div>هەینی</div><div>شەممە</div>
+  </div>
+  <div class="days" id="calendarDays"></div>
+  <div class="calendar-foot">
+   • ژمارەی گەورە بەرواری کۆچییە و ژمارەی بچووک بەرواری زایینییە.
+   خاڵی زێڕین نیشانەی ڕۆژی بۆنەیە.
+  </div>
+ </section>
+
+ <section class="panel">
+  <h2 class="panel-title">✧ بۆنە ئاینییەکان</h2>
+  <div class="events" id="eventsList"></div>
+  <div class="note">
+   تێبینی: بەروارەکانی بۆنە ئاینییەکان پێشبینین و دەکرێت بەهۆی بینینی مانگ یەک ڕۆژ پێش یان دوا بکەون. بۆ ڕۆژی فەرمی، ڕاگەیاندنی دەسەڵاتی ئاینیی ناوچەکەت بەدواداچوون بکە.
+  </div>
+ </section>
+
+ <section class="panel">
+  <h2 class="panel-title">⇄ گۆڕینی بەروار</h2>
+  <div class="converter">
+   <div class="field">
+    <label for="dateInput">بەرواری زایینی</label>
+    <input type="date" id="dateInput">
+   </div>
+   <div class="field">
+    <label>بەرواری کۆچی</label>
+    <input type="text" id="hijriOutput" readonly placeholder="ئەنجام">
+   </div>
+   <div class="convert-result" id="convertDetails">بەروارێک هەڵبژێرە</div>
+  </div>
+ </section>
+</main>
+
+<footer><b>نوری ئیمان</b> — هەموو مافەکان پارێزراون © 2026</footer>
+
+<script>
+const hijriFormatter = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura-nu-latn', {
+  day:'numeric',month:'numeric',year:'numeric'
+});
+const hijriNameFormatter = new Intl.DateTimeFormat('ckb-u-ca-islamic-umalqura', {
+  day:'numeric',month:'long',year:'numeric'
+});
+const gregorianFormatter = new Intl.DateTimeFormat('ckb', {
+  day:'numeric',month:'long',year:'numeric'
+});
+const weekdayFormatter = new Intl.DateTimeFormat('ckb', {weekday:'long'});
+const monthNames = [
+ 'محەڕەم','سەفەر','ڕەبیعی یەکەم','ڕەبیعی دووەم',
+ 'جومادای یەکەم','جومادای دووەم','ڕەجەب','شەعبان',
+ 'ڕەمەزان','شەوال','ذیقەعدە','ذیحیجە'
+];
+
+const events = [
+ {name:'شەوی ئیسرا و میعراج',date:'2026-01-16',hijri:'٢٧ ڕەجەب ١٤٤٧',icon:'🌙'},
+ {name:'نیوەی شەعبان',date:'2026-02-03',hijri:'١٥ شەعبان ١٤٤٧',icon:'✨'},
+ {name:'دەستپێکی مانگی ڕەمەزان',date:'2026-02-18',hijri:'١ ڕەمەزان ١٤٤٧',icon:'🌙'},
+ {name:'شەوی قەدر (پێشبینی)',date:'2026-03-16',hijri:'٢٧ ڕەمەزان ١٤٤٧',icon:'⭐'},
+ {name:'جەژنی ڕەمەزان',date:'2026-03-20',hijri:'١ شەوال ١٤٤٧',icon:'🎉'},
+ {name:'ڕۆژی عەرەفە',date:'2026-05-26',hijri:'٩ ذیحیجە ١٤٤٧',icon:'🕋'},
+ {name:'جەژنی قوربان',date:'2026-05-27',hijri:'١٠ ذیحیجە ١٤٤٧',icon:'🐑'},
+ {name:'ڕۆژی غەدیر',date:'2026-06-04',hijri:'١٨ ذیحیجە ١٤٤٧',icon:'🌟'},
+ {name:'ساڵی نوێی کۆچی',date:'2026-06-16',hijri:'١ محەڕەم ١٤٤٨',icon:'🌙'},
+ {name:'عاشوورا',date:'2026-06-25',hijri:'١٠ محەڕەم ١٤٤٨',icon:'🕌'},
+ {name:'لەدایکبوونی پێغەمبەر ﷺ',date:'2026-08-25',hijri:'١٢ ڕەبیعی یەکەم ١٤٤٨',icon:'💚'}
+];
+
+const today = new Date();
+today.setHours(12,0,0,0);
+let shownDate = new Date(today.getFullYear(),today.getMonth(),1);
+
+function hijriParts(date){
+ const parts = hijriFormatter.formatToParts(date);
+ const get = type => Number(parts.find(p=>p.type===type).value);
+ return {day:get('day'),month:get('month'),year:get('year')};
+}
+function dateKey(date){
+ return date.getFullYear()+'-'+String(date.getMonth()+1).padStart(2,'0')+'-'+String(date.getDate()).padStart(2,'0');
+}
+function sameDate(a,b){return dateKey(a)===dateKey(b)}
+
+function updateToday(){
+ $('todayHijri').textContent = hijriNameFormatter.format(today);
+ $('todayHijriDay').textContent = 'ڕۆژ لە مانگی کۆچی';
+ $('todayGregorian').textContent = gregorianFormatter.format(today);
+ $('todayWeekday').textContent = weekdayFormatter.format(today);
+}
+function $(id){return document.getElementById(id)}
+
+function renderCalendar(){
+ const first = new Date(shownDate.getFullYear(),shownDate.getMonth(),1);
+ const last = new Date(shownDate.getFullYear(),shownDate.getMonth()+1,0);
+ const firstWeekday = first.getDay();
+ const start = new Date(first);
+ start.setDate(start.getDate()-firstWeekday);
+
+ const firstHijri = hijriParts(first);
+ $('monthTitle').textContent = monthNames[firstHijri.month-1]+' '+firstHijri.year+' کۆچی';
+
+ const days = $('calendarDays');
+ days.innerHTML='';
+
+ for(let i=0;i<42;i++){
+  const date=new Date(start);
+  date.setDate(start.getDate()+i);
+  const hp=hijriParts(date);
+  const cell=document.createElement('div');
+  cell.className='day';
+  if(date.getMonth()!==shownDate.getMonth())cell.classList.add('other');
+  if(sameDate(date,today))cell.classList.add('today-day');
+  if(events.some(e=>e.date===dateKey(date)))cell.classList.add('event-day');
+  cell.innerHTML='<span class="hijri">'+hp.day+'</span><span class="greg">'+date.getDate()+'</span>';
+  cell.title=hijriNameFormatter.format(date)+' — '+gregorianFormatter.format(date);
+  days.appendChild(cell);
+  if(i>=34 && date>last && i>last.getDate()+firstWeekday+6)break;
+ }
+}
+function renderEvents(){
+ const list=$('eventsList');
+ list.innerHTML='';
+ events.forEach(event=>{
+  const item=document.createElement('div');
+  item.className='event';
+  item.innerHTML=`
+   <div class="event-icon">${event.icon}</div>
+   <div><strong>${event.name}</strong><small>${event.hijri}</small></div>
+   <div class="event-date">${new Date(event.date+'T12:00:00').toLocaleDateString('ckb',{day:'numeric',month:'short'})}</div>
+  `;
+  list.appendChild(item);
+ });
+}
+$('prevMonth').addEventListener('click',()=>{
+ shownDate.setMonth(shownDate.getMonth()-1);renderCalendar();
+});
+$('nextMonth').addEventListener('click',()=>{
+ shownDate.setMonth(shownDate.getMonth()+1);renderCalendar();
+});
+
+$('dateInput').value=dateKey(today);
+function convertDate(){
+ const value=$('dateInput').value;
+ if(!value)return;
+ const date=new Date(value+'T12:00:00');
+ $('hijriOutput').value=hijriNameFormatter.format(date);
+ $('convertDetails').textContent=
+  weekdayFormatter.format(date)+'، '+gregorianFormatter.format(date);
+}
+$('dateInput').addEventListener('change',convertDate);
+
+updateToday();
+renderCalendar();
+renderEvents();
+convertDate();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

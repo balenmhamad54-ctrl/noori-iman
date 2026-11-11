@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071f1b">
+<title>قورئانی پیرۆز | نوری ئیمان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#071f1b;
+  --panel:#0c3028;
+  --card:#103b30;
+  --gold:#e6c477;
+  --text:#f7f2e6;
+  --muted:#b5c9bd;
+  --border:rgba(230,196,119,.3);
+  --hover:#1a493b;
+  --button:#dcb766;
+}
+
+/* شێوازی شین */
+[data-theme="blue"] {
+  --bg:#081b2d;
+  --panel:#102b43;
+  --card:#163957;
+  --gold:#83c9ee;
+  --text:#eff8ff;
+  --muted:#b3c9dc;
+  --border:rgba(131,201,238,.3);
+  --hover:#204b68;
+  --button:#83c9ee;
+}
+
+/* شێوازی مۆر */
+[data-theme="purple"] {
+  --bg:#20142c;
+  --panel:#30203e;
+  --card:#402950;
+  --gold:#dfb1f0;
+  --text:#fff4ff;
+  --muted:#d0badb;
+  --border:rgba(223,177,240,.3);
+  --hover:#56376a;
+  --button:#d4a4e8;
+}
+
+/* شێوازی کرێمی */
+[data-theme="light"] {
+  --bg:#f3eee1;
+  --panel:#fffaf0;
+  --card:#eee4cf;
+  --gold:#99702e;
+  --text:#28362e;
+  --muted:#6e796e;
+  --border:rgba(153,112,46,.3);
+  --hover:#e7dcc4;
+  --button:#d8bd83;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Noto Sans Arabic',sans-serif;
+  transition:background .3s,color .3s;
+  min-height:100vh;
+}
+
+button,input {
+  font-family:inherit;
+}
+
+/* Header */
+header {
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:30px 15px 35px;
+  background:
+    radial-gradient(ellipse at top,rgba(230,196,119,.12),transparent 65%),
+    linear-gradient(145deg,var(--panel),var(--bg));
+  border-bottom:1px solid var(--border);
+}
+
+.header-top {
+  max-width:1150px;
+  margin:0 auto 25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.home-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:11px 20px;
+  border:1px solid var(--gold);
+  border-radius:30px;
+  color:var(--gold);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.home-btn:hover {
+  background:var(--gold);
+  color:var(--bg);
+  transform:translateY(-2px);
+}
+
+.logo {
+  color:var(--gold);
+  font-size:24px;
+  font-weight:bold;
+}
+
+.moon {
+  font-size:35px;
+  color:var(--gold);
+  margin-bottom:5px;
+}
+
+header h1 {
+  font-family:'Amiri',serif;
+  color:var(--gold);
+  font-size:clamp(35px,6vw,55px);
+  margin:5px 0;
+}
+
+header p {
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* Theme */
+.theme-area {
+  margin:22px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.theme-label {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.theme-buttons {
+  display:flex;
+  gap:9px;
+}
+
+.theme-btn {
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:3px solid transparent;
+  cursor:pointer;
+  outline:1px solid var(--border);
+  transition:.2s;
+}
+
+.theme-btn:hover {
+  transform:scale(1.15);
+}
+
+.theme-btn.active {
+  outline:2px solid var(--gold);
+  border:3px solid var(--bg);
+}
+
+.theme-green {background:#174b3c}
+.theme-blue {background:#2475a5}
+.theme-purple {background:#70418b}
+.theme-light {background:#e8d5ae}
+
+/* Container */
+.container {
+  max-width:1200px;
+  margin:auto;
+  padding:22px;
+}
+
+/* Statistics */
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin:0 0 22px;
+}
+
+.stat {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:18px 10px;
+  text-align:center;
+  transition:.3s;
+}
+
+.stat:hover {
+  transform:translateY(-3px);
+}
+
+.stat strong {
+  display:block;
+  font-size:27px;
+  color:var(--gold);
+}
+
+.stat span {
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Search */
+.controls {
+  display:flex;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+input {
+  flex:1;
+  min-width:0;
+  padding:14px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--text);
+  outline:none;
+  font-size:14px;
+}
+
+input:focus {
+  border-color:var(--gold);
+}
+
+input::placeholder {
+  color:var(--muted);
+}
+
+.main-btn {
+  background:var(--button);
+  color:#14251c;
+  border:1px solid var(--gold);
+  border-radius:12px;
+  padding:12px 20px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
+  white-space:nowrap;
+}
+
+.main-btn:hover {
+  filter:brightness(1.1);
+  transform:translateY(-2px);
+}
+
+/* Main layout */
+.layout {
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:18px;
+  align-items:start;
+}
+
+.panel {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+.panel h3 {
+  color:var(--gold);
+  margin-bottom:15px;
+  font-size:19px;
+}
+
+/* Surah list */
+.surah-list {
+  max-height:680px;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:var(--gold) var(--panel);
+}
+
+.surah-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  padding:13px 10px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition:.2s;
+  border-radius:8px;
+}
+
+.surah-item:hover {
+  background:var(--hover);
+}
+
+.surah-item.active {
+  background:var(--button);
+  color:#14251c;
+  font-weight:bold;
+}
+
+.surah-item small {
+  font-size:11px;
+  color:var(--muted);
+}
+
+.surah-item.active small {
+  color:#263b2d;
+}
+
+.message {
+  color:var(--muted);
+  padding:25px 10px;
+  text-align:center;
+  font-size:14px;
+}
+
+/* Quran reader */
+.reader {
+  text-align:center;
+  min-height:500px;
+  background:
+    radial-gradient(ellipse at center,rgba(230,196,119,.05),transparent 70%),
+    var(--panel);
+}
+
+.surah-title {
+  color:var(--gold);
+  font-family:'Amiri',serif;
+  font-size:35px;
+  margin:8px 0;
+}
+
+.surah-subtitle {
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.bismillah {
+  font-family:'Amiri',serif;
+  font-size:32px;
+  color:var(--gold);
+  margin:30px 0;
+  line-height:2;
+}
+
+.quran-text {
+  line-height:3;
+  padding:10px 5px;
+  text-align:center;
+}
+
+.ayah {
+  display:inline;
+  font-family:'Amiri',serif;
+  font-size:30px;
+  line-height:2.5;
+  color:var(--text);
+}
+
+.ayah-number {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:31px;
+  height:31px;
+  margin:0 7px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  color:var(--gold);
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  vertical-align:middle;
+}
+
+/* Reader buttons */
+.reader-actions {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:25px 0 5px;
+}
+
+.reader-actions button {
+  background:transparent;
+  color:var(--gold);
+  border:1px solid var(--gold);
+  padding:11px 22px;
+  border-radius:30px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.reader-actions button:hover:not(:disabled) {
+  background:var(--gold);
+  color:var(--bg);
+}
+
+.reader-actions button:disabled {
+  opacity:.35;
+  cursor:not-allowed;
+}
+
+/* Footer */
+footer {
+  margin-top:30px;
+  padding:25px 15px;
+  text-align:center;
+  border-top:1px solid var(--border);
+  background:var(--panel);
+}
+
+footer p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:2;
+}
+
+footer a {
+  color:var(--gold);
+  text-decoration:none;
+}
+
+.footer-home {
+  margin-bottom:15px;
+}
+
+/* Mobile */
+@media(max-width:750px) {
+  .container {
+    padding:14px;
+  }
+
+  .layout {
+    grid-template-columns:1fr;
+  }
+
+  .surah-list {
+    max-height:280px;
+  }
+
+  .stats {
+    gap:8px;
+  }
+
+  .stat {
+    padding:12px 5px;
+  }
+
+  .stat strong {
+    font-size:22px;
+  }
+
+  .controls {
+    flex-direction:column;
+  }
+
+  .main-btn {
+    width:100%;
+  }
+
+  .ayah {
+    font-size:25px;
+  }
+
+  .surah-title {
+    font-size:30px;
+  }
+
+  .header-top {
+    justify-content:center;
+  }
+
+  .home-btn {
+    font-size:12px;
+  }
+}
+
+@media(max-width:400px) {
+  .stats {
+    grid-template-columns:1fr;
+  }
+
+  .ayah {
+    font-size:23px;
+  }
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+
+/* Stable theme controls and Quran typography on phones */
+.theme-buttons{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:nowrap;}
+.theme-btn{display:block;flex:0 0 30px;width:30px!important;height:30px!important;min-width:30px;min-height:30px;aspect-ratio:1/1;padding:0;border-radius:50%!important;}
+.ayah-number{box-sizing:border-box;flex:0 0 31px;width:31px!important;height:31px!important;min-width:31px;min-height:31px;aspect-ratio:1/1;border-radius:50%!important;white-space:nowrap;line-height:1;}
+.quran-text{max-width:100%;overflow-wrap:break-word;word-break:normal;}
+.ayah{font-size:var(--quran-font-size,30px);overflow-wrap:break-word;}
+.reader,.panel,.layout,.container{min-width:0;max-width:100%;}
+.reader-actions button{max-width:100%;white-space:normal;}
+@media(max-width:750px){
+ .container{width:100%;padding:12px!important;}
+ .layout{grid-template-columns:minmax(0,1fr)!important;}
+ .panel{width:100%;padding:14px;}
+ .controls{display:flex;flex-direction:column;align-items:stretch;}
+ .controls input,.controls button{width:100%;min-width:0;}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+ .stat{min-width:0;padding:12px 5px;}
+ .theme-area{width:100%;gap:9px;}
+ .theme-buttons{gap:9px;}
+ .reader{overflow:hidden;}
+ .quran-text{padding:10px 2px;line-height:2.6;}
+ .ayah{font-size:var(--quran-font-size,25px);line-height:2.25;}
+ .ayah-number{margin:0 4px;}
+ .reader-actions{gap:8px;}
+ .reader-actions button{padding:10px 13px;font-size:12px;}
+}
+@media(max-width:380px){
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px;}
+ .stat strong{font-size:18px;}
+ .stat span{font-size:11px;}
+ .theme-btn{flex-basis:27px;width:27px!important;height:27px!important;min-width:27px;min-height:27px;}
+ .ayah{font-size:var(--quran-font-size,23px);}
+ .home-btn{padding:9px 12px;font-size:11px;}
+}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body data-theme="green">
+
+<header>
+
+  <div class="header-top">
+    <a href="index.html" class="home-btn">
+      🏠 گەڕانەوە بۆ پەڕەی سەرەکی
+    </a>
+
+    <div class="logo">☪ نوری ئیمان</div>
+  </div>
+
+  <div class="moon">☾</div>
+
+  <h1>قورئانی پیرۆز</h1>
+
+  <p>بەشی خوێندنەوەی کتێبی پیرۆزی خوای گەورە</p>
+
+  <div class="theme-area">
+    <span class="theme-label">🎨 شێوازی ڕەنگ:</span>
+
+    <div class="theme-buttons">
+      <button class="theme-btn theme-green active"
+        data-theme="green" title="سەوز"></button>
+
+      <button class="theme-btn theme-blue"
+        data-theme="blue" title="شین"></button>
+
+      <button class="theme-btn theme-purple"
+        data-theme="purple" title="مۆر"></button>
+
+      <button class="theme-btn theme-light"
+        data-theme="light" title="کرێمی"></button>
+    </div>
+  </div>
+
+</header>
+
+<main class="container">
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>١١٤</strong>
+      <span>سوورەت</span>
+    </div>
+
+    <div class="stat">
+      <strong>٦٢٣٦</strong>
+      <span>ئایەت</span>
+    </div>
+
+    <div class="stat">
+      <strong>٣٠</strong>
+      <span>جوزء</span>
+    </div>
+
+  </div>
+
+  <div class="controls">
+
+    <input id="search" type="search"
+      placeholder="گەڕان بە ناوی سوورەت یان ژمارە...">
+
+    <button class="main-btn" onclick="loadSurahs()">
+      ↻ نوێکردنەوە
+    </button>
+
+  </div>
+
+  <div class="layout">
+
+    <section class="panel">
+
+      <h3>📖 فهرستی سوورەتەکان</h3>
+
+      <div id="surahList" class="surah-list">
+        <div class="message">چاوەڕێ بکە...</div>
+      </div>
+
+    </section>
+
+    <section class="panel reader">
+
+      <div id="reader">
+
+        <h2 class="surah-title">
+          بەخێربێیت بۆ قورئانی پیرۆز
+        </h2>
+
+        <p class="message">
+          سوورەتێک هەڵبژێرە بۆ دەستکردن بە خوێندنەوە
+        </p>
+
+      </div>
+
+      <div class="reader-actions">
+
+        <button type="button" id="fontDown" aria-label="کەمکردنەوەی قەبارەی نووسین">A− قەبارە</button>
+        <button type="button" id="fontUp" aria-label="زیادکردنی قەبارەی نووسین">A+ قەبارە</button>
+
+        <button id="prev" onclick="changeSurah(-1)" disabled>
+          ❮ سوورەتی پێشوو
+        </button>
+
+        <button id="next" onclick="changeSurah(1)" disabled>
+          سوورەتی دواتر ❯
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+<footer>
+
+  <div class="footer-home">
+    <a href="index.html" class="home-btn">
+      🏠 گەڕانەوە بۆ پەڕەی سەرەکی
+    </a>
+  </div>
+
+  <p>
+    سەرچاوەی دەقی قورئان:
+    <a href="https://alquran.cloud/" target="_blank" rel="noopener">
+      AlQuran Cloud API
+    </a>
+  </p>
+
+  <p>دەق بە ڕەسمی عوسمانی – Quran Uthmani</p>
+
+  <p style="margin-top:10px">
+    © نوری ئیمان - هەموو مافەکان پارێزراون
+  </p>
+
+</footer>
+
+<script>
+const API = 'https://api.alquran.cloud/v1';
+
+let surahs = [];
+let currentSurah = 0;
+let requestNumber = 0;
+
+const list = document.getElementById('surahList');
+const reader = document.getElementById('reader');
+
+/* ڕێکخستنی قەبارەی نووسینی قورئان */
+let quranFontSize = Number(localStorage.getItem('nuriQuranFontSize')) || 30;
+quranFontSize = Math.min(42, Math.max(20, quranFontSize));
+function applyQuranFontSize(){
+  document.documentElement.style.setProperty('--quran-font-size', quranFontSize + 'px');
+  localStorage.setItem('nuriQuranFontSize', String(quranFontSize));
+}
+applyQuranFontSize();
+document.getElementById('fontDown').addEventListener('click', () => {
+  quranFontSize = Math.max(20, quranFontSize - 2); applyQuranFontSize();
+});
+document.getElementById('fontUp').addEventListener('click', () => {
+  quranFontSize = Math.min(42, quranFontSize + 2); applyQuranFontSize();
+});
+
+/* گۆڕینی شێوازی ڕەنگ */
+const themeButtons = document.querySelectorAll('.theme-btn');
+
+function setTheme(theme) {
+
+  document.body.setAttribute('data-theme', theme);
+
+  localStorage.setItem('nuriTheme', theme);
+
+  themeButtons.forEach(button => {
+    button.classList.toggle(
+      'active',
+      button.dataset.theme === theme
+    );
+  });
+}
+
+themeButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    setTheme(button.dataset.theme);
+  });
+});
+
+/* هێنانی شێوازی پێشوو */
+const savedTheme = localStorage.getItem('nuriTheme');
+
+if(savedTheme && ['green','blue','purple','light'].includes(savedTheme)) {
+  setTheme(savedTheme);
+}
+
+/* بارکردنی سوورەتەکان */
+async function loadSurahs() {
+
+  list.innerHTML =
+    '<div class="message">بارکردنی سوورەتەکان...</div>';
+
+  try {
+
+    const response = await fetch(API + '/surah');
+
+    if(!response.ok) {
+      throw new Error('API error');
+    }
+
+    const result = await response.json();
+
+    if(result.code !== 200) {
+      throw new Error('Invalid data');
+    }
+
+    surahs = result.data;
+
+    renderSurahs();
+
+    if(!currentSurah) {
+      openSurah(1);
+    }
+
+  } catch(error) {
+
+    list.innerHTML =
+      '<div class="message">نەتوانرا سوورەتەکان باربکرێن. ئینتەرنێت بپشکنە و دووبارە هەوڵ بدە.</div>';
+
+  }
+}
+
+/* پیشاندانی لیستی سوورەتەکان */
+function renderSurahs() {
+
+  const query = document.getElementById('search')
+    .value.trim().toLowerCase();
+
+  list.innerHTML = '';
+
+  const filtered = surahs.filter(s =>
+    s.name.includes(query) ||
+    s.englishName.toLowerCase().includes(query) ||
+    String(s.number).includes(query)
+  );
+
+  if(filtered.length === 0) {
+    list.innerHTML =
+      '<div class="message">هیچ سوورەتێک نەدۆزرایەوە.</div>';
+    return;
+  }
+
+  filtered.forEach(s => {
+
+    const item = document.createElement('div');
+
+    item.className = 'surah-item' +
+      (currentSurah === s.number ? ' active' : '');
+
+    const name = document.createElement('span');
+
+    name.textContent = s.number + '. ' + s.name;
+
+    const count = document.createElement('small');
+
+    count.textContent = s.numberOfAyahs + ' ئایەت';
+
+    item.append(name,count);
+
+    item.onclick = () => openSurah(s.number);
+
+    list.appendChild(item);
+
+  });
+}
+
+/* کردنەوەی سوورەت */
+async function openSurah(number) {
+
+  currentSurah = number;
+
+  const thisRequest = ++requestNumber;
+
+  renderSurahs();
+
+  reader.innerHTML =
+    '<div class="message">تکایە چاوەڕێ بکە، سوورەتەکە بار دەکرێت...</div>';
+
+  document.getElementById('prev').disabled = number === 1;
+
+  document.getElementById('next').disabled = number === 114;
+
+  try {
+
+    const response = await fetch(
+      API + '/surah/' + number + '/quran-uthmani'
+    );
+
+    if(!response.ok) {
+      throw new Error('API error');
+    }
+
+    const result = await response.json();
+
+    if(result.code !== 200) {
+      throw new Error('Invalid data');
+    }
+
+    /* ڕێگری لە پیشاندانی وەڵامی داواکارییە کۆنەکان */
+    if(thisRequest !== requestNumber) return;
+
+    const s = result.data;
+
+    reader.innerHTML = '';
+
+    const title = document.createElement('h2');
+
+    title.className = 'surah-title';
+
+    title.textContent = s.name;
+
+    const subtitle = document.createElement('p');
+
+    subtitle.className = 'surah-subtitle';
+
+    subtitle.textContent =
+      s.englishName + ' | ' + s.numberOfAyahs + ' ئایەت';
+
+    reader.append(title,subtitle);
+
+    /* بسم الله */
+    if(number !== 1 && number !== 9) {
+
+      const bismillah = document.createElement('div');
+
+      bismillah.className = 'bismillah';
+
+      bismillah.textContent =
+        'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+
+      reader.appendChild(bismillah);
+
+    }
+
+    const textContainer = document.createElement('div');
+
+    textContainer.className = 'quran-text';
+
+    textContainer.dir = 'rtl';
+
+    s.ayahs.forEach(ayah => {
+
+      const text = document.createElement('span');
+
+      text.className = 'ayah';
+
+      text.textContent = ayah.text + ' ';
+
+      const numberMark = document.createElement('span');
+
+      numberMark.className = 'ayah-number';
+
+      numberMark.textContent = ayah.numberInSurah;
+
+      textContainer.append(text,numberMark);
+
+    });
+
+    reader.appendChild(textContainer);
+
+    reader.scrollIntoView({
+      behavior:'smooth',
+      block:'start'
+    });
+
+  } catch(error) {
+
+    if(thisRequest !== requestNumber) return;
+
+    reader.innerHTML =
+      '<div class="message">کێشەیەک ڕوویدا لە بارکردنی سوورەتەکە. تکایە دووبارە هەوڵ بدە.</div>';
+
+  }
+}
+
+/* سوورەتی پێشوو و دواتر */
+function changeSurah(step) {
+
+  const next = currentSurah + step;
+
+  if(next >= 1 && next <= 114) {
+    openSurah(next);
+  }
+
+}
+
+/* گەڕان */
+document.getElementById('search').addEventListener(
+  'input',
+  renderSurahs
+);
+
+/* دەستپێکردن */
+loadSurahs();
+
+</script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

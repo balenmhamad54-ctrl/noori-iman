@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شێوازی دەستنوێژگرتن | نوری ئیمان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #063b30;
+  --dark: #041f1a;
+  --gold: #d9b65f;
+  --cream: #faf4e2;
+  --text: #153c32;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  line-height: 1.9;
+}
+
+.page {
+  max-width: 1150px;
+  margin: auto;
+  background: var(--cream);
+  border: 4px solid var(--gold);
+  overflow: hidden;
+}
+
+/* سەرەوەی پەڕە */
+.hero {
+  text-align: center;
+  padding: 35px 15px;
+  color: white;
+  background:
+    radial-gradient(ellipse at top, #176449, transparent 65%),
+    linear-gradient(135deg, #07513e, #021d17);
+  border-bottom: 4px solid var(--gold);
+  position: relative;
+}
+
+.hero:before,
+.hero:after {
+  content: "✦ ❖ ✦";
+  color: var(--gold);
+  position: absolute;
+  top: 12px;
+  font-size: 22px;
+}
+
+.hero:before { right: 15px; }
+.hero:after { left: 15px; }
+
+.mosque {
+  font-size: 42px;
+  color: var(--gold);
+}
+
+.hero h1 {
+  margin: 5px 0;
+  font-size: clamp(27px, 5vw, 43px);
+  color: #fff6d9;
+  line-height: 1.6;
+}
+
+.subtitle {
+  display: inline-block;
+  border-block: 2px solid var(--gold);
+  padding: 5px 20px;
+  color: #f3d88d;
+  font-size: 17px;
+}
+
+.hero p {
+  margin-bottom: 0;
+}
+
+.bismillah {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 3px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  color: var(--gold);
+  background: #ffffff0d;
+  font-size: 21px;
+}
+
+/* ناوەڕۆک */
+.content {
+  padding: 25px 20px;
+  background: linear-gradient(#fffbed, #f4ecd4);
+}
+
+.section-title {
+  text-align: center;
+  color: var(--green);
+  font-size: 23px;
+  margin: 0 0 20px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.step {
+  padding: 14px;
+  border: 2px solid #b79a50;
+  border-radius: 17px;
+  background: #fffdf5;
+  text-align: center;
+  box-shadow: inset 0 0 0 3px #f2e7c7;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  min-height: 52px;
+  background: linear-gradient(110deg, #07503d, #03271f);
+  color: white;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+}
+
+.number {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  color: #ffe5a0;
+  font-weight: 800;
+}
+
+.step h2 {
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.illustration {
+  height: 125px;
+  max-width: 210px;
+  margin: 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  background: radial-gradient(circle at top, #287456, #064034 75%);
+  font-size: 65px;
+  overflow: hidden;
+}
+
+.step p {
+  font-size: 14px;
+  margin: 5px 0 3px;
+}
+
+/* دوعا */
+.dua-area {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.mosque-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  background: radial-gradient(circle, #176449, #03271f);
+  color: #ffdc7c;
+  font-size: 24px;
+}
+
+.dua {
+  border: 2px solid #9bb495;
+  border-radius: 17px;
+  background: #fffdf5;
+  padding: 18px;
+  text-align: center;
+}
+
+.dua h2 {
+  margin-top: 0;
+  color: var(--green);
+}
+
+.arabic {
+  direction: rtl;
+  font-size: clamp(19px, 2.5vw, 27px);
+  line-height: 2.2;
+  color: #153c32;
+}
+
+.reminder {
+  margin-top: 18px;
+  padding: 13px;
+  text-align: center;
+  border: 1px solid #a8b98c;
+  border-radius: 13px;
+  background: #fffdf5;
+  font-size: 14px;
+}
+
+footer {
+  padding: 17px;
+  text-align: center;
+  background: linear-gradient(100deg, #03271f, #07503d, #03271f);
+  color: #f4d57a;
+  border-top: 3px solid var(--gold);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+footer small {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 6px 17px;
+  border: 1px solid var(--gold);
+  border-radius: 25px;
+  color: #ffe8a8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back:hover {
+  background: #ffffff18;
+}
+
+/* مۆبایل */
+@media (max-width: 760px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dua-area {
+    grid-template-columns: 1fr;
+  }
+
+  .mosque-card {
+    min-height: 90px;
+  }
+
+  .content {
+    padding: 16px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    padding: 13px;
+  }
+
+  .illustration {
+    height: 145px;
+  }
+
+  .hero {
+    padding: 28px 12px;
+  }
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="mosque">☾ 🕌 ✦</div>
+  <h1>شێوازی دەستنوێژگرتن</h1>
+  <div class="subtitle">بە شێوەیەکی دروست و هەنگاو بە هەنگاو</div>
+  <p>پاکی و تازەبوونەوە، ئامادەییە بۆ پەیوەندی بە خوا</p>
+  <div class="bismillah">بِسْمِ اللَّه</div>
+  <br>
+  <a class="back" href="index.html">↩ گەڕانەوە بۆ پەڕەی سەرەکی</a>
+</header>
+
+<main class="content">
+  <h2 class="section-title">✦ هەنگاوەکانی دەستنوێژگرتن ✦</h2>
+
+  <section class="steps">
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">١</span>
+        <h2>نییەت و ناوهێنانی خوا</h2>
+      </div>
+      <div class="illustration">🤲🏻</div>
+      <p>لە دڵەوە نییەتی دەستنوێژگرتن بهێنە و بڵێ «بِسْمِ اللَّه».</p>
+    </article>
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">٢</span>
+        <h2>شۆردنی دەستەکان</h2>
+      </div>
+      <div class="illustration">👐🏻💧</div>
+      <p>هەردوو لەپی دەستت سێ جار تا مەچەک بە جوانی بشۆ و پەنجەکانت لەناو یەکدا بخشێنە.</p>
+    </article>
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">٣</span>
+        <h2>ئاودان لە دەم (مەزمەزە)</h2>
+      </div>
+      <div class="illustration">💧👄</div>
+      <p>سێ جار ئاو بکەرە دەمتەوە و ڕایوەشێنە و فڕێی بدەرەوە.</p>
+    </article>
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">٤</span>
+        <h2>ئاودان لە لووت</h2>
+      </div>
+      <div class="illustration">💧👃🏻</div>
+      <p>سێ جار کەمێک ئاو بە دەستی ڕاست هەڵبمژە ناو لووتت و بە دەستی چەپ پاکی بکەرەوە.</p>
+    </article>
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">٥</span>
+        <h2>شۆردنی دەموچاو</h2>
+      </div>
+      <div class="illustration">🧔🏻💦</div>
+      <p>سێ جار تەواوی دەموچاوت لە جێگەی ڕوواندنی قژی سەرەوە تا ژێر چەناکە، و لە نەرمەی گوێیەکەوە بۆ نەرمەی گوێیەکەی تر بشۆ.</p>
+    </article>
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">٦</span>
+        <h2>شۆردنی دەستەکان تا ئانیشک</h2>
+      </div>
+      <div class="illustration">💪🏻💧</div>
+      <p>سەرەتا دەستی ڕاست لە سەرەپەنجەکانەوە تا سەروو ئانیشک (ئانیشکیش دەگرێتەوە) سێ جار بشۆ، پاشان دەستی چەپ بە هەمان شێوە سێ جار بشۆ.</p>
+    </article>
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">٧</span>
+        <h2>مەسحی سەر</h2>
+      </div>
+      <div class="illustration">🧑🏻‍🦱🤲🏻</div>
+      <p>یەک جار دەستە تەڕەکانت لە پێشەوەی سەرتەوە بەرەو پشتەملت ببە و پاشان بیهێنەرەوە بۆ پێشەوە.</p>
+    </article>
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">٨</span>
+        <h2>مەسحی گوێیەکان</h2>
+      </div>
+      <div class="illustration">👂🏻💧</div>
+      <p>بەبێ تازەکردنەوەی ئاو، هەر بە تەڕایی دەستەکانت پەنجەی شایەتمان بخەرە ناو کونی گوێکانتەوە و پەنجە گەورەکانت بە دەرەوەی گوێتدا بهێنە (یەک جار).</p>
+    </article>
+
+    <article class="step">
+      <div class="step-header">
+        <span class="number">٩</span>
+        <h2>شۆردنی پێیەکان تا قولاپەپێک</h2>
+      </div>
+      <div class="illustration">🦶🏻💦</div>
+      <p>سەرەتا پێی ڕاست سێ جار تا سەروو قولاپەپێک بشۆ بە شێوەیەک نێوان پەنجەکانیش تەڕ ببن، پاشان پێی چەپ بە هەمان شێوە سێ جار بشۆ.</p>
+    </article>
+
+  </section>
+
+  <section class="dua-area">
+    <div class="mosque-card">
+      <span>☾</span>
+      <strong>الله</strong>
+      <span>🕌</span>
+    </div>
+
+    <div class="dua">
+      <h2>دوعای دوای تەواوبوونی دەستنوێژ</h2>
+      <p>لە دوای تەواوبوون سوننەتە ئەم دوعایە بخوێنیت:</p>
+      <div class="arabic">
+        أَشْهَدُ أَنْ لا إِلَهَ إِلا اللَّهُ وَحْدَهُ لا شَرِيكَ لَهُ،
+        وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ،
+        اللَّهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ
+      </div>
+    </div>
+  </section>
+
+  <div class="reminder">
+    <strong>تێبینی:</strong>
+    هەوڵ بدە هەموو هەنگاوەکان بە ئارامی جێبەجێ بکەیت و دڵنیابیت کە ئاو بە تەواوی دەگاتە شوێنە پێویستەکان.
+  </div>
+</main>
+
+<footer>
+  نوری ئیمان
+  <small>ڕووناکی بۆ دڵ و گیان</small>
+</footer>
+
+</div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

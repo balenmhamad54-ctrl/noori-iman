@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="فێربوونی حوکمەکانی تەڵاق و مافە داراییەکانی ژن لە ئیسلامدا بە بەڵگەی قورئان و فەرموودەی سەحیح">
+<title>تەڵاق و مافە داراییەکان | نوری ئیمان</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#071a1b;
+  --panel:#102e2b;
+  --panel2:#153b35;
+  --gold:#e5bd68;
+  --gold2:#f8e4ad;
+  --text:#f6f3e9;
+  --muted:#c3d0c9;
+  --border:rgba(229,189,104,.3);
+  --green:#55bd91;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{
+  font-family:"Noto Sans Arabic",Tahoma,sans-serif;
+  background:
+    radial-gradient(ellipse at top,#164638 0%,transparent 43%),
+    var(--bg);
+  color:var(--text);
+  line-height:2;
+}
+a{color:inherit}
+.header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(5,24,23,.94);
+  backdrop-filter:blur(13px);
+  border-bottom:1px solid var(--border);
+  padding:13px 5%;
+}
+.nav{
+  max-width:1150px;margin:auto;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:15px;flex-wrap:wrap;
+}
+.brand{
+  color:var(--gold);text-decoration:none;
+  font-size:23px;font-weight:800;
+}
+.brand small{display:block;color:var(--muted);font-size:11px;font-weight:400}
+.links{display:flex;gap:7px;flex-wrap:wrap}
+.links a{
+  text-decoration:none;color:var(--muted);
+  padding:7px 11px;border-radius:9px;font-size:12px;
+  transition:.25s;
+}
+.links a:hover{background:var(--panel);color:var(--gold)}
+.container{width:min(1100px,92%);margin:auto}
+
+/* Hero */
+.hero{
+  min-height:410px;
+  margin:27px auto 40px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  background:
+    linear-gradient(90deg,rgba(3,22,20,.87),rgba(3,22,20,.48)),
+    url("https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+.hero-content{padding:55px 20px;max-width:800px}
+.hero-icon{font-size:48px;color:var(--gold)}
+.tag{
+  display:inline-block;padding:5px 17px;
+  border:1px solid var(--border);border-radius:30px;
+  color:var(--gold2);font-size:12px;
+  background:rgba(229,189,104,.08);
+}
+.hero h1{
+  color:var(--gold2);
+  font-size:clamp(30px,5vw,46px);
+  margin:15px 0;line-height:1.7;
+}
+.hero p{color:#f1eee4;font-size:14px}
+.hero-buttons{
+  display:flex;justify-content:center;gap:10px;
+  flex-wrap:wrap;margin-top:23px;
+}
+.hero-buttons a{
+  text-decoration:none;padding:9px 19px;
+  border-radius:10px;font-size:13px;font-weight:700;
+  transition:.25s;
+}
+.gold-btn{background:var(--gold);color:#17271e}
+.outline-btn{border:1px solid var(--gold);color:var(--gold2)}
+.hero-buttons a:hover{transform:translateY(-3px)}
+
+/* General */
+.intro,.notice,.quote,.summary{
+  border:1px solid var(--border);
+  border-radius:16px;padding:21px 23px;
+  margin:25px 0;
+}
+.intro{
+  background:linear-gradient(120deg,#143d34,#102b2a);
+  border-right:4px solid var(--gold);
+}
+.intro h2,.notice h2{color:var(--gold);font-size:19px;margin-bottom:8px}
+.intro p,.notice p{color:#d9e3dc;font-size:14px}
+.section{margin:55px 0;scroll-margin-top:100px}
+.section-title{text-align:center;margin-bottom:27px}
+.section-title .symbol{font-size:35px;color:var(--gold)}
+.section-title h2{color:var(--gold2);font-size:clamp(24px,4vw,32px)}
+.section-title p{color:var(--muted);font-size:13px}
+.line{width:90px;height:2px;background:var(--gold);margin:12px auto}
+
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:19px;
+}
+.card{
+  background:linear-gradient(145deg,#123a34,#0b2625);
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:22px;
+  transition:.25s;
+  overflow:hidden;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+}
+.card h3{color:var(--gold2);font-size:18px;margin-bottom:9px}
+.card p,.card li{font-size:13px;color:#d3ded8;line-height:2.2}
+.card ul{padding-right:22px;margin-top:7px}
+.card .ref{
+  display:inline-block;margin-top:12px;
+  color:var(--gold2);font-size:12px;
+  text-decoration:none;border-bottom:1px dashed var(--gold);
+}
+.card .ref:hover{color:white}
+.num{
+  display:inline-grid;place-items:center;
+  width:37px;height:37px;border-radius:12px;
+  background:linear-gradient(135deg,var(--gold2),#c4963d);
+  color:#16271d;font-weight:800;margin-left:9px;
+}
+.verse{
+  margin-top:13px;padding:15px;
+  background:rgba(0,0,0,.2);
+  border:1px solid rgba(229,189,104,.2);
+  border-radius:12px;
+}
+.arabic{
+  color:var(--gold2);font-size:20px;
+  text-align:center;line-height:2.2;margin-bottom:8px;
+}
+.translation{color:var(--muted);font-size:12px}
+.refline{color:var(--gold);font-size:12px;margin-top:7px}
+
+/* Full width cards */
+.full-card{
+  background:linear-gradient(140deg,#143b34,#0b2725);
+  border:1px solid var(--border);
+  border-radius:18px;padding:23px;margin:18px 0;
+}
+.full-card h3{color:var(--gold);font-size:19px;margin-bottom:9px}
+.full-card p,.full-card li{font-size:13px;color:#d4ded8;line-height:2.2}
+.full-card ul{padding-right:22px}
+
+/* Financial rights */
+.right-card{
+  display:flex;gap:15px;align-items:flex-start;
+  padding:19px;margin-bottom:13px;
+  background:linear-gradient(120deg,#123830,#0b2825);
+  border:1px solid var(--border);border-radius:15px;
+}
+.right-icon{
+  flex:0 0 45px;height:45px;
+  display:grid;place-items:center;
+  border-radius:13px;background:rgba(229,189,104,.13);
+  color:var(--gold);font-size:23px;
+}
+.right-card h3{color:var(--gold2);font-size:16px;margin-bottom:5px}
+.right-card p{font-size:13px;color:#d4ded8}
+
+/* Warning */
+.notice{
+  background:rgba(190,139,54,.09);
+  border-color:rgba(229,189,104,.4);
+}
+.notice strong{color:var(--gold2)}
+.quote{
+  text-align:center;
+  background:linear-gradient(135deg,#153e34,#092522);
+  padding:30px 20px;
+}
+.quote h2{color:var(--gold);font-size:20px}
+.quote .arabic{font-size:clamp(19px,3vw,25px);margin:13px 0}
+.quote p{color:var(--muted);font-size:13px}
+.summary{text-align:center;background:rgba(229,189,104,.06)}
+.summary h2{color:var(--gold);margin-bottom:9px}
+.summary p{font-size:13px;color:var(--muted)}
+.summary strong{color:var(--gold2)}
+.back{
+  display:inline-block;margin-top:20px;
+  padding:10px 22px;background:var(--gold);
+  color:#13251d;text-decoration:none;
+  border-radius:10px;font-weight:800;font-size:13px;
+}
+footer{
+  text-align:center;padding:30px 15px;
+  border-top:1px solid var(--border);
+  color:var(--muted);font-size:12px;margin-top:50px;
+}
+footer strong{color:var(--gold);font-size:18px}
+
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+  .nav{justify-content:center}
+  .links{justify-content:center}
+  .hero{min-height:370px}
+  .hero-content{padding:40px 15px}
+  .right-card{gap:11px;padding:15px}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      نوری ئیمان
+      <small>ڕووناکی بۆ دڵ و گیان</small>
+    </a>
+    <div class="links">
+      <a href="index.html">⌂ سەرەکی</a>
+      <a href="#meaning">مانای تەڵاق</a>
+      <a href="#rules">حوکمەکان</a>
+      <a href="#iddah">عیددە</a>
+      <a href="#rights">مافە داراییەکان</a>
+      <a href="#children">مافی منداڵ</a>
+      <a href="#hadith">فەرموودەکان</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-icon">۞</div>
+    <span class="tag">فێربوونی ئایینی · نوری ئیمان</span>
+    <h1>تەڵاق لە ئیسلامدا</h1>
+    <p>
+      حوکمەکانی تەڵاق، عیددە، مافە داراییەکانی ژن
+      و بەرپرسیارێتیی باوک بەرامبەر منداڵ،
+      بە بەڵگەی قورئانی پیرۆز و فەرموودەی سەحیح.
+    </p>
+    <div class="hero-buttons">
+      <a class="gold-btn" href="#rules">خوێندنەوەی حوکمەکان</a>
+      <a class="outline-btn" href="#rights">مافە داراییەکان</a>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <h2>✦ تەڵاق چییە؟</h2>
+  <p>
+    تەڵاق لە شەریعەتی ئیسلامدا کۆتاییهێنانە بە پەیوەندیی هاوسەرگیری
+    بە شێوەیەکی دیاریکراو لە شەریعەتدا. ئیسلام ڕێنماییی بۆ چارەسەری
+    کێشەکانی نێوان هاوسەران داناوە و ئەگەر ئاشتی نەکرا، تەڵاقیش
+    بە ڕێوشوێنی دادپەروەرانە ڕێکخستووە؛ بەبێ ستەم و زیانگەیاندن.
+  </p>
+</section>
+
+<!-- MEANING -->
+<section class="section" id="meaning">
+  <div class="section-title">
+    <div class="symbol">۞</div>
+    <h2>بنەما و ڕێنمایییەکانی تەڵاق</h2>
+    <p>تەڵاق نابێت ببێتە ئامرازی ستەم و ئازاردان</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="full-card">
+    <h3>١. هەوڵدان بۆ ئاشتی پێش تەڵاق</h3>
+    <p>
+      قورئان ڕێنمایی دەکات کە کاتێک ترسی ناکۆکی و جیابوونەوە هەبوو،
+      نوێنەرێک لە خێزانی پیاو و نوێنەرێک لە خێزانی ژن دیاری بکرێن
+      بۆ هەوڵدان لە چاککردنەوەی نێوانیان.
+    </p>
+    <div class="verse">
+      <div class="arabic">
+        وَإِنْ خِفْتُمْ شِقَاقَ بَيْنِهِمَا فَابْعَثُوا حَكَمًا مِّنْ أَهْلِهِ وَحَكَمًا مِّنْ أَهْلِهَا
+      </div>
+      <p class="translation">
+        واتا: ئەگەر ترسی ناکۆکی لەنێوانیاندا هەبوو، داوەرێک لە خێزانی ئەو
+        و داوەرێک لە خێزانی ئەوەی تر بنێرن.
+      </p>
+      <p class="refline">سورەتی النساء، ئایەتی ٣٥</p>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h3>٢. تەڵاق بە شێوەیەکی ڕێکخراو</h3>
+    <p>
+      قورئان فەرمان دەکات کە تەڵاق بە پێی ماوەی عیددە بێت،
+      عیددە بە وردی هەژمار بکرێت و ژن لە ماڵەکەی دەربەدەر نەکرێت
+      لەو ماوەیەدا بە پێی حوکمەکانی ئایەتەکان.
+    </p>
+    <div class="verse">
+      <div class="arabic">
+        يَا أَيُّهَا النَّبِيُّ إِذَا طَلَّقْتُمُ النِّسَاءَ فَطَلِّقُوهُنَّ لِعِدَّتِهِنَّ وَأَحْصُوا الْعِدَّةَ
+      </div>
+      <p class="translation">
+        واتا: ئەی پێغەمبەر، کاتێک ژنان تەڵاق دەدەن،
+        بە شێوەیەک تەڵاقیان بدەن کە عیددەکەیان دەست پێ بکات،
+        و عیددەکە بە وردی هەژمار بکەن.
+      </p>
+      <p class="refline">سورەتی تەڵاق، ئایەتی ١</p>
+      <a class="ref" href="https://quran.com/65/1" target="_blank" rel="noopener">بینینی ئایەت لە قورئاندا ←</a>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h3>٣. دوو تەڵاقی گەڕانەوەیی و جیاکردنەوە بە چاکی</h3>
+    <div class="verse">
+      <div class="arabic">
+        الطَّلَاقُ مَرَّتَانِ ۖ فَإِمْسَاكٌ بِمَعْرُوفٍ أَوْ تَسْرِيحٌ بِإِحْسَانٍ
+      </div>
+      <p class="translation">
+        واتا: تەڵاقی گەڕانەوەیی دوو جارە؛ پاشان یان بە چاکی ڕایبگرن،
+        یان بە چاکی و جوانی جیا ببنەوە.
+      </p>
+      <p class="refline">سورەتی بەقەرە، ئایەتی ٢٢٩</p>
+      <a class="ref" href="https://quran.com/2/229" target="_blank" rel="noopener">بینینی ئایەت ←</a>
+    </div>
+  </div>
+</section>
+
+<!-- TYPES -->
+<section class="section" id="rules">
+  <div class="section-title">
+    <div class="symbol">✦</div>
+    <h2>جۆر و حوکمەکانی تەڵاق</h2>
+    <p>زانیارییە سەرەکییەکان دەربارەی تەڵاق</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <h3><span class="num">١</span> تەڵاقی ڕەجعی</h3>
+      <p>
+        ئەو تەڵاقەیە کە لە ماوەی عیددەدا مێرد دەتوانێت بە پێی
+        مەرجەکانی شەریعەت بگەڕێتەوە بۆ هاوسەرەکەی، بەبێ ئەوەی
+        گرێبەستی نوێی هاوسەرگیری ببەستنەوە.
+      </p>
+      <p class="refline">بەڵگە: سورەتی بەقەرە ٢:٢٢٨ و ٢:٢٢٩</p>
+    </article>
+
+    <article class="card">
+      <h3><span class="num">٢</span> تەڵاقی بائن</h3>
+      <p>
+        لە هەندێک حاڵەتدا تەڵاق بە شێوەیەک دەبێت کە گەڕانەوە
+        بە تەنها بە گەڕاندنەوەی عیددە ناکرێت؛ بەڵکو پێویستی
+        بە گرێبەستی نوێ و مەهر هەیە ئەگەر ڕێگەی شەریعەت هەبێت.
+      </p>
+      <p class="refline">وردەکارییەکانی لە فقهدا جیاوازن.</p>
+    </article>
+
+    <article class="card">
+      <h3><span class="num">٣</span> تەڵاقی خولع</h3>
+      <p>
+        ئەو جۆرە جیابوونەوەیەیە کە ژن داوای جیابوونەوە دەکات
+        و لە نموونەی فەرموودەی ژنی سابت بن قەیسدا،
+        باخەکەی کە مەهری بوو گەڕاندەوە.
+      </p>
+      <p class="refline">سەرچاوە: صحیحی بوخاری، ٥٢٧٣</p>
+      <a class="ref" href="https://sunnah.com/bukhari:5273" target="_blank" rel="noopener">خوێندنەوەی فەرموودە ←</a>
+    </article>
+
+    <article class="card">
+      <h3><span class="num">٤</span> تەڵاقی سوننی</h3>
+      <p>
+        شێوازی تەڵاقێکە کە لەگەڵ ڕێنمایی شەریعەتدا بێت؛
+        لە کاتی پاکبوونەوەی ژن لە سووڕی مانگانە و پێش
+        ئەوەی پەیوەندیی هاوسەرگیری لەو ماوەیەدا هەبێت.
+      </p>
+      <p class="refline">سەرچاوە: صحیحی بوخاری ٤٩٠٨، صحیحی موسلیم ١٤٧١</p>
+    </article>
+  </div>
+
+  <div class="notice">
+    <h2>⚠ ئاگادارییەکی گرنگ</h2>
+    <p>
+      تەڵاق لە کاتی سووڕی مانگانەدا لە فەرموودەی پێغەمبەر ﷺ دا
+      ڕێنماییی پێچەوانەی هاتووە و ابن عومەر فەرمانی پێدرا
+      هاوسەرەکەی بگەڕێنێتەوە. بەڵام لەسەر ئەوەی تەڵاقی
+      لەو کاتەدا چۆن هەژمار دەکرێت، باس و جیاوازیی فقهی هەیە.
+      بۆیە لە حاڵەتی ڕاستەقینەدا بەبێ پرسیاری زانا بڕیار مەدە.
+    </p>
+  </div>
+</section>
+
+<!-- IDDAH -->
+<section class="section" id="iddah">
+  <div class="section-title">
+    <div class="symbol">☾</div>
+    <h2>عیددە چییە و چەندە؟</h2>
+    <p>ماوەی چاوەڕوانی دوای جیابوونەوە</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <h3>١. ژنی سووڕی مانگانەی هەیە</h3>
+      <p>
+        قورئان بۆ ژنی تەڵاق‌دراو کە سووڕی مانگانەی هەیە
+        سێ قُروء دیاری کردووە. لە واتای قُروءدا لەنێوان
+        زانایان جیاوازیی لێکدانەوە هەیە.
+      </p>
+      <p class="refline">سورەتی بەقەرە، ئایەتی ٢٢٨</p>
+      <a class="ref" href="https://quran.com/2/228" target="_blank" rel="noopener">بینینی ئایەت ←</a>
+    </article>
+
+    <article class="card">
+      <h3>٢. ژنی بێ سووڕی مانگانە</h3>
+      <p>
+        بۆ ئەو ژنانەی لەبەر تەمەنیان سووڕیان نەماوە،
+        یان هێشتا سووڕیان دەست پێ نەکردووە،
+        سورەتی تەڵاق ماوەی سێ مانگ باس دەکات.
+      </p>
+      <p class="refline">سورەتی تەڵاق، ئایەتی ٤</p>
+      <a class="ref" href="https://quran.com/65/4" target="_blank" rel="noopener">بینینی ئایەت ←</a>
+    </article>
+
+    <article class="card">
+      <h3>٣. ژنی دووگیان</h3>
+      <p>
+        عیددەی ژنی دووگیان تا کاتی دانانی منداڵەکەیە.
+        ئەمە بە ڕوونی لە قورئانی پیرۆزدا هاتووە.
+      </p>
+      <div class="verse">
+        <div class="arabic">وَأُولَاتُ الْأَحْمَالِ أَجَلُهُنَّ أَن يَضَعْنَ حَمْلَهُنَّ</div>
+        <p class="translation">واتا: کۆتایی ماوەی ژنانی دووگیان، دانانی منداڵەکەیانە.</p>
+        <p class="refline">سورەتی تەڵاق، ئایەتی ٤</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>٤. هاوسەرگیری پێش پەیوەندیی هاوسەرگیری</h3>
+      <p>
+        ئەگەر تەڵاق پێش ئەوە بێت کە پەیوەندیی هاوسەرگیری
+        لەنێوانیاندا هەبێت، عیددەی تەڵاق لەسەر ژن نییە.
+      </p>
+      <p class="refline">سورەتی ئەحزاب، ئایەتی ٤٩</p>
+      <a class="ref" href="https://quran.com/33/49" target="_blank" rel="noopener">بینینی ئایەت ←</a>
+    </article>
+  </div>
+
+  <div class="notice">
+    <h2>تێبینی لەسەر عیددە</h2>
+    <p>
+      ئەم ماوە و حوکمانە پەیوەندییان بە جۆری تەڵاق،
+      بارودۆخی ژن و مەزهەبی فقهییەوە هەیە.
+      بەتایبەتی لە حاڵەتی مردنی مێرد، دووگیانی،
+      نەبوونی سووڕ و تەڵاقی بائن، وردەکاریی تایبەت هەیە.
+    </p>
+  </div>
+</section>
+
+<!-- FINANCIAL RIGHTS -->
+<section class="section" id="rights">
+  <div class="section-title">
+    <div class="symbol">✧</div>
+    <h2>مافە داراییەکانی ژن دوای تەڵاق</h2>
+    <p>مافەکانی ژن نابێت بە ناحەق لێی بسەنرێنەوە</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="right-card">
+    <div class="right-icon">١</div>
+    <div>
+      <h3>مافی مەهر</h3>
+      <p>
+        مەهر مافی ژنە. ئەگەر پەیوەندیی هاوسەرگیری ڕوویدابێت،
+        بە گشتی مەهری دیاریکراو مافی تەواوی ژنە و تەڵاق
+        بە تەنها ئەو مافە لەنا نابەیت.
+        ئەگەر تەڵاق پێش پەیوەندیی هاوسەرگیری بێت و مەهر دیاریکراو
+        بووبێت، قورئان نیوەی مەهرەکە دیاری دەکات،
+        مەگەر لێبوردنێک لەلایەن یەکێک لە لایەنەکانەوە هەبێت.
+      </p>
+      <p class="refline">بەڵگە: سورەتی بەقەرە، ئایەتەکانی ٢٣٦–٢٣٧</p>
+      <a class="ref" href="https://quran.com/2/236-237" target="_blank" rel="noopener">بینینی ئایەتەکان ←</a>
+    </div>
+  </div>
+
+  <div class="right-card">
+    <div class="right-icon">٢</div>
+    <div>
+      <h3>نەفەقە و خەرجی ژن لە ماوەی عیددەدا</h3>
+      <p>
+        قورئان لە سورەتی تەڵاقدا باس لە شوێنی نیشتەجێبوون
+        و خەرجی بە پێی توانای دارایی مێرد دەکات.
+        لە تەڵاقی ڕەجعی و تەڵاقی بائن و حاڵەتی دووگیانیدا
+        حوکمەکان یەکسان نین؛ بۆیە پێویستە جۆری تەڵاق دیاری بکرێت.
+      </p>
+      <p class="refline">بەڵگە: سورەتی تەڵاق، ئایەتەکانی ١ و ٦ و ٧</p>
+      <a class="ref" href="https://quran.com/65/6-7" target="_blank" rel="noopener">بینینی ئایەتەکان ←</a>
+    </div>
+  </div>
+
+  <div class="right-card">
+    <div class="right-icon">٣</div>
+    <div>
+      <h3>مافی نیشتەجێبوون</h3>
+      <p>
+        لە ئایەتی یەکەمی سورەتی تەڵاقدا قورئان فەرمان دەکات
+        ژنانی تەڵاق‌دراو لە ماڵەکانیان دەربەدەر نەکرێن
+        لە ماوەی عیددەدا، بە پێی حوکمەکانی شەریعەت.
+        هەروەها لە ئایەتی ٦دا باس لە نیشتەجێکردنیان
+        بە پێی توانای دارایی دەکرێت.
+      </p>
+      <p class="refline">بەڵگە: سورەتی تەڵاق، ئایەتەکانی ١ و ٦</p>
+    </div>
+  </div>
+
+  <div class="right-card">
+    <div class="right-icon">٤</div>
+    <div>
+      <h3>مەتاع و بەخشینی جیابوونەوە</h3>
+      <p>
+        قورئان لە هەندێک حاڵەتی تەڵاقدا فەرمان بە پێدانی
+        بەخشین و مەتاع دەکات بە پێی توانای دارایی مێرد.
+        بۆ نموونە، ئەگەر ژن تەڵاق بدرێت پێش پەیوەندیی
+        هاوسەرگیری و مەهریشی دیاری نەکرابێت، پێدانی
+        مەتاع بە پێی توانای دارایی باس کراوە.
+      </p>
+      <p class="refline">بەڵگە: سورەتی بەقەرە، ئایەتی ٢٣٦ و ٢٤١</p>
+      <a class="ref" href="https://quran.com/2/236" target="_blank" rel="noopener">بینینی ئایەت ←</a>
+    </div>
+  </div>
+
+  <div class="right-card">
+    <div class="right-icon">٥</div>
+    <div>
+      <h3>کرێی شیردان</h3>
+      <p>
+        ئەگەر دایک دوای جیابوونەوە منداڵەکەی شیر بدات،
+        قورئان فەرمان دەکات کرێی شیردان بە شێوەیەکی
+        دادپەروەرانە بدرێت و لەسەر مافەکانیان ڕێک بکەون.
+      </p>
+      <p class="refline">بەڵگە: سورەتی تەڵاق، ئایەتی ٦؛ سورەتی بەقەرە، ئایەتی ٢٣٣</p>
+      <a class="ref" href="https://quran.com/65/6" target="_blank" rel="noopener">بینینی ئایەت ←</a>
+    </div>
+  </div>
+
+  <div class="notice">
+    <h2>ئاگاداری لەسەر مافە داراییەکان</h2>
+    <p>
+      مافە داراییەکان بە جۆری تەڵاق، ئەوەی پەیوەندیی هاوسەرگیری
+      ڕوویداوە یان نا، مەهری پێشووتر دیاریکراوە یان نا،
+      دووگیانی و بارودۆخی عیددەوە دەگۆڕێن.
+      هەموو ژنێک بە هەمان شێوە مافە داراییەکانی دیاری ناکرێن.
+    </p>
+  </div>
+</section>
+
+<!-- CHILDREN -->
+<section class="section" id="children">
+  <div class="section-title">
+    <div class="symbol">♡</div>
+    <h2>مافی منداڵ دوای جیابوونەوە</h2>
+    <p>جیابوونەوەی دایک و باوک نابێت ببێتە هۆی لەدەستدانی مافی منداڵ</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <h3>١. نەفەقەی منداڵ</h3>
+      <p>
+        خەرجی پێویستییەکانی منداڵ وەک خواردن، جل، شوێنی ژیان
+        و چاودێری، لە حوکمەکانی شەریعەتدا بەرپرسیارێتیی
+        باوکی منداڵە بە پێی توانای دارایی و وردەکاریی حوکمەکان.
+      </p>
+      <p class="refline">بەڵگە: سورەتی بەقەرە، ئایەتی ٢٣٣</p>
+      <a class="ref" href="https://quran.com/2/233" target="_blank" rel="noopener">بینینی ئایەت ←</a>
+    </article>
+
+    <article class="card">
+      <h3>٢. مافی شیردان</h3>
+      <p>
+        قورئان باس لە شیردانی منداڵ بۆ دوو ساڵی تەواو
+        بۆ ئەو کەسانە دەکات کە دەیانەوێت ماوەکە تەواو بکەن،
+        و خەرجی و جل‌وبەرگی دایکیش بە شێوەیەکی دادپەروەرانە
+        دیاری دەکات.
+      </p>
+      <p class="refline">بەڵگە: سورەتی بەقەرە، ئایەتی ٢٣٣</p>
+    </article>
+
+    <article class="card">
+      <h3>٣. زیان نەگەیاندن بە دایک و باوک</h3>
+      <p>
+        نابێت بەهۆی منداڵەوە زیان بە دایک بگەیەنرێت
+        و نابێت باوکیش زیانی پێ بگەیەنرێت.
+        بڕیارەکان دەبێت لەسەر بنەمای دادپەروەری و بەرژەوەندیی
+        منداڵ بن.
+      </p>
+      <p class="refline">بەڵگە: سورەتی بەقەرە، ئایەتی ٢٣٣</p>
+    </article>
+
+    <article class="card">
+      <h3>٤. ڕێککەوتن لەسەر شیردان</h3>
+      <p>
+        ئەگەر دایک و باوک بە ڕەزامەندی و ڕاوێژ بڕیار بدەن
+        منداڵەکە زووتر لە ماوەی تەواوی شیردان لە شیر ببڕن،
+        قورئان ئەو ڕێککەوتنە بە مەرجی ڕەزامەندی و دادپەروەری
+        ڕێگەپێدراو دەزانێت.
+      </p>
+      <p class="refline">بەڵگە: سورەتی بەقەرە، ئایەتی ٢٣٣</p>
+    </article>
+  </div>
+</section>
+
+<!-- HADITH -->
+<section class="section" id="hadith">
+  <div class="section-title">
+    <div class="symbol">۞</div>
+    <h2>فەرموودە سەحیحەکان دەربارەی تەڵاق</h2>
+    <p>بەڵگە لە صحیحی بوخاری و صحیحی موسلیم</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="full-card">
+    <h3>١. فەرموودەی تەڵاقی لە کاتی سووڕی مانگانە</h3>
+    <div class="verse">
+      <div class="arabic">
+        مُرْهُ فَلْيُرَاجِعْهَا
+      </div>
+      <p class="translation">
+        واتا: فەرمانی پێ بکە بگەڕێتەوە بۆی.
+        ئەمە بەشێکە لە فەرموودەی پێغەمبەر ﷺ دەربارەی
+        تەڵاقی عەبدوڵڵا کوڕی عومەر لە کاتی سووڕی مانگانەی ژنەکەی.
+      </p>
+      <p class="refline">صحیحی بوخاری ٤٩٠٨؛ صحیحی موسلیم ١٤٧١</p>
+      <a class="ref" href="https://sunnah.com/bukhari:4908" target="_blank" rel="noopener">فەرموودە لە بوخاری ←</a>
+      <a class="ref" href="https://sunnah.com/muslim:1471i" target="_blank" rel="noopener">فەرموودە لە موسلیم ←</a>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h3>٢. فەرموودەی خولع و گەڕاندنەوەی مەهر</h3>
+    <div class="verse">
+      <div class="arabic">
+        أَتَرُدِّينَ عَلَيْهِ حَدِيقَتَهُ؟
+      </div>
+      <p class="translation">
+        واتا: ئایا باخەکەی کە پێی بەخشیویت دەگەڕێنیتەوە؟
+        ئەمە لە چیرۆکی ژنی سابت بن قەیسدا هاتووە؛
+        ئەو ژنە ڕەزامەندیی خۆی بۆ گەڕاندنەوەی باخەکە دەربڕی.
+      </p>
+      <p class="refline">صحیحی بوخاری ٥٢٧٣</p>
+      <a class="ref" href="https://sunnah.com/bukhari:5273" target="_blank" rel="noopener">خوێندنەوەی تەواوی فەرموودە ←</a>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h3>٣. فەرموودەی نەفەقە و خەرجی خێزان</h3>
+    <p>
+      پێغەمبەر ﷺ فەرموویەتی:
+    </p>
+    <div class="verse">
+      <div class="arabic">
+        كَفَى بِالْمَرْءِ إِثْمًا أَنْ يُضَيِّعَ مَنْ يَقُوتُ
+      </div>
+      <p class="translation">
+        واتا: بەسە بۆ مرۆڤ لە گوناهدا کە ئەوانەی خەرجییان لەسەرە
+        پشتگوێ بخات و مافیان لەدەست بدات.
+      </p>
+      <p class="refline">سنەنی ئەبو داود ١٦٩٢؛ فەرموودەکە بە صحیح دانراوە لەلایەن هەندێک زاناوە.</p>
+      <a class="ref" href="https://sunnah.com/abudawud:1692" target="_blank" rel="noopener">سەرچاوەی فەرموودە ←</a>
+    </div>
+  </div>
+</section>
+
+<!-- IMPORTANT NOTES -->
+<section class="section">
+  <div class="section-title">
+    <div class="symbol">!</div>
+    <h2>چەند تێبینییەکی زۆر گرنگ</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="full-card">
+    <ul>
+      <li>تەڵاق بە قسەی تووڕەیی و بێ بیرکردنەوە مەکەنە بابەتێکی ئاسان.</li>
+      <li>مافە داراییەکانی ژن و منداڵ نابێت بە ناحەق پشتگوێ بخرێن.</li>
+      <li>هەموو جۆرە تەڵاقێک حوکمی یەکسانی نییە.</li>
+      <li>ماوەی عیددە بە جۆری ژن و بارودۆخی هاوسەرگیرییەکەوە پەیوەستە.</li>
+      <li>حوکمی حەضانەت و چاودێریی منداڵ لەگەڵ نەفەقەی منداڵ یەک بابەت نین.</li>
+      <li>ئەگەر تەڵاقێکی ڕاستەقینە ڕوویداوە، هەموو وردەکارییەکان بۆ زانا و دادگای پەیوەندیدار باس بکەن.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="summary">
+  <h2>✦ کورتەی پەیامی ئیسلام</h2>
+  <p>
+    جیابوونەوە نابێت ببێتە هۆی ستەمکردن.
+    <strong>مافی ژن، مافی منداڵ، مەهر، نەفەقە و ڕێزگرتن</strong>
+    دەبێت لە هەموو حاڵەتێکدا بە دادپەروەری و بەگوێرەی
+    حوکمەکانی شەریعەت و یاسای پەیوەندیدار بپارێزرێن.
+  </p>
+  <a class="back" href="index.html">← گەڕانەوە بۆ پەڕەی سەرەکی</a>
+</section>
+
+</main>
+
+<footer>
+  <strong>نوری ئیمان</strong>
+  <p>ڕووناکی بۆ دڵ و گیان</p>
+  <p>فێربوون، تێگەیشتن و کردارکردن بە زانست.</p>
+  <p style="margin-top:10px"> 2026 نوری ئیمان - </p>
+</footer>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

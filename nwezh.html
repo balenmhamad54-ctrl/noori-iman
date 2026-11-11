@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071720">
+<title>فێربوونی نوێژ | نوری ئیمان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#071720;--panel:#102a35;--line:#254650;--gold:#ffc342;--cream:#fff1c5;--text:#e9f4f5;--muted:#c6d7dc}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans Arabic",sans-serif;background:radial-gradient(ellipse at top,#12323c 0%,var(--bg) 58%);color:var(--text);line-height:2}
+header{position:sticky;top:0;z-index:5;padding:14px 6%;border-bottom:1px solid #25414bcc;background:#071720ed;backdrop-filter:blur(12px);display:flex;justify-content:space-between;align-items:center;gap:15px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--gold);font-size:22px;font-weight:800}
+.brand-icon{width:42px;height:42px;border:1px solid #e8c675;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#12483f,#09262b);font-size:22px}
+.top-link{color:var(--cream);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:7px 13px;font-size:13px}
+main{width:min(960px,91%);margin:34px auto 45px}
+.hero{position:relative;overflow:hidden;text-align:center;padding:36px 25px 32px;border:1px solid #94733c70;border-radius:26px;background:linear-gradient(145deg,#12343b,#0b222b 65%,#102a35);box-shadow:0 20px 55px #0003}
+.hero:before,.hero:after{content:"✦";position:absolute;color:#d7ac4b35;font-size:90px;line-height:1}.hero:before{top:4px;right:18px}.hero:after{bottom:0;left:20px}
+.eyebrow{display:inline-block;color:var(--gold);border:1px solid #ffc34255;background:#ffc3420c;border-radius:999px;padding:4px 15px;font-size:13px;font-weight:700}
+h1{font-size:clamp(29px,5vw,46px);line-height:1.55;margin:12px 0 8px;color:#fff5d7}.hero p{max-width:680px;margin:0 auto;color:var(--muted)}.hero-symbol{font-size:38px;color:var(--gold)}
+.quote{margin:20px auto 0;max-width:690px;padding:12px 18px;border-right:3px solid var(--gold);background:#ffffff08;border-radius:10px;color:var(--cream);font-weight:600}
+.section-title{display:flex;align-items:center;gap:12px;margin:30px 0 14px;color:var(--gold);font-size:23px}.section-title:after{content:"";height:1px;flex:1;background:linear-gradient(to left,#ffc34270,transparent)}
+.lesson{background:linear-gradient(145deg,#102a35,#0c222c);border:1px solid var(--line);border-radius:20px;padding:22px 24px;margin-bottom:17px;box-shadow:0 9px 26px #0002;transition:.25s}.lesson:hover{transform:translateY(-3px);border-color:#b28a3c99}
+h2{margin:0 0 9px;color:var(--gold);font-size:21px}p,li{color:var(--muted)}p{margin:8px 0}ul{margin:8px 0;padding-right:24px}li{padding:3px 0}li::marker{color:var(--gold)}
+.arabic{direction:rtl;text-align:center;font-size:clamp(26px,4vw,34px);color:var(--cream);line-height:2.1;padding:12px 8px;margin:14px 0;background:#07172070;border:1px solid #b18a3c45;border-radius:15px}.translation{text-align:center;color:#e6d7a9;font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:15px}.step{background:#07172070;border:1px solid #254650;border-radius:15px;padding:15px;text-align:center}.num{display:grid;place-items:center;margin:0 auto 7px;width:36px;height:36px;border-radius:50%;border:1px solid #d9b253;color:var(--gold);font-weight:800}.step strong{color:#fff0c5;display:block}.step span{font-size:13px;color:var(--muted)}
+.note{padding:14px 17px;border:1px solid #8f713d80;background:#ffc3420b;border-radius:14px;color:#e8d9b4;font-size:14px;margin-top:14px}
+.back-wrap{text-align:center;padding:10px 12px 25px}.home-back-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:12px 22px;border:1px solid #e8c675;border-radius:16px;background:linear-gradient(135deg,#064e48,#032c2e);color:#fffdf5;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 7px 20px #003b3026;transition:.3s}.home-back-btn:hover{transform:translateY(-4px);background:linear-gradient(135deg,#087568,#06433e);color:#ffe4a0}.home-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;border:1px solid #e8c675;background:#ffffff12;color:#f5d17c;font-size:21px}.home-arrow{color:#f5d17c;font-size:20px;transition:.3s}.home-back-btn:hover .home-arrow{transform:translateX(5px)}
+footer{text-align:center;padding:26px 15px 32px;border-top:1px solid #25414b;color:#8faab4;font-size:13px}footer strong{color:var(--gold)}
+@media(max-width:620px){header{padding:12px 4%}.brand{font-size:18px}.top-link{font-size:12px;padding:7px 10px}main{margin-top:22px}.hero{padding:29px 17px}.lesson{padding:18px 17px}.steps{grid-template-columns:1fr}.section-title{font-size:20px}}
+.verse{position:relative;padding:8px 14px 14px;margin:12px 0;border:1px solid #254650;border-radius:15px;background:#07172055}.verse-num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#ffc34218;border:1px solid #ffc34280;color:var(--gold);font-weight:800}.verse .arabic{margin:8px 0;font-size:clamp(23px,3.6vw,30px)}.dhikr{margin:14px 0;padding:15px;border-radius:15px;border:1px solid #254650;background:#07172055}.dhikr h3{color:#f4d47d;margin:0;font-size:17px}.dhikr .arabic{font-size:clamp(23px,3.4vw,30px)}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+<body>
+<header><a class="brand" href="index.html"><span class="brand-icon">☪</span><span>نوری ئیمان</span></a><a class="top-link" href="index.html">⌂ پەڕەی سەرەکی</a></header>
+<main>
+<section class="hero"><div class="hero-symbol">☪</div><span class="eyebrow">ڕێگای ئارامی و نزیکی لە خوا</span><h1>فێربوونی نوێژ 🕌</h1><p>نوێژ یەکێکە لە گرنگترین عیبادەتەکانی ئیسلام. لەم بەشەدا بە شێوەیەکی سادە و ڕێکخراو، لەگەڵ بنەما و هەنگاوە سەرەکییەکانی نوێژ ئاشنا دەبیت.</p><div class="quote">«نوێژ؛ پەیوەندیی دڵە بە پەروەردگاری گەورەوە.»</div></section>
+<h2 class="section-title">بنەماکانی نوێژ</h2>
+<section class="lesson"><h2>١. نوێژ چییە؟</h2><p>نوێژ عیبادەتێکە کە موسڵمان لە ڕێگەیەوە پەیوەندی خۆی بە خوای گەورەوە بەهێز دەکات. نوێژکردن پێویستی بە پاکی، نیەت و جێبەجێکردنی مەرج و ڕوکنەکانی هەیە.</p></section>
+<section class="lesson"><h2>٢. پێش نوێژ چی بکەین؟</h2><ul><li>دڵنیابە لە پاکیی جەستە، جل و شوێنی نوێژ.</li><li>دەستنوێژ بە شێوەی دروست بگرە.</li><li>ڕوو لە قیبلە بکە.</li><li>نیەتی نوێژەکە لە دڵدا دیاری بکە؛ نیەت شوێنی لە دڵدایە.</li><li>دڵنیابە لەوەی کاتی نوێژ هاتووە و داپۆشینی پێویستت تەواوە.</li></ul><div class="note">تێبینی: وردەکاریی هەندێک حوکمی دەستنوێژ و نوێژ لە نێوان مەزهەبەکاندا جیاوازی هەیە؛ بۆ فێربوونی تەواو، سەرچاوەیەکی باوەڕپێکراوی مەزهەبەکەت بەکاربهێنە.</div></section>
+<section class="lesson"><h2>٣. تەکبیری دەستپێک</h2><p>نوێژ بە تەکبیری دەستپێک دەست پێ دەکات. دەڵێیت:</p><div class="arabic" lang="ar">اللَّهُ أَكْبَرُ</div><p class="translation">واتە: خوا گەورەترینە.</p></section>
+<section class="lesson"><h2>٤. هەنگاوە سەرەکییەکانی نوێژ</h2><p>بە گشتی، نوێژ ئەم کردارە سەرەکییانە لەخۆ دەگرێت. شێوازی وردی جێبەجێکردن و هەندێک وردەکاری بە پێی مەزهەب جیاواز دەبێت.</p><div class="steps"><div class="step"><div class="num">١</div><strong>وەستان</strong><span>قیام و خوێندنەوە</span></div><div class="step"><div class="num">٢</div><strong>ڕکوع</strong><span>چەمانەوە بۆ ڕکوع</span></div><div class="step"><div class="num">٣</div><strong>سوجدە</strong><span>سوجدە و دانیشتن بە ڕێنمایی دروست</span></div></div><div class="note">ئەم پەڕەیە پێشەکییە و جێگای فێرکاریی تەواوی نوێژ ناگرێتەوە. بۆ فێربوونی سورە و زیکرەکان و ژمارەی ڕکعەتەکان، ڕێنمایی مامۆستایەکی ئایینی باوەڕپێکراو بەکاربهێنە.</div></section>
+<section class="lesson"><h2>٥. گرنگی بەردەوامبوون لە نوێژ</h2><p>بەردەوامبوون لە نوێژ یارمەتیدەرە بۆ بەهێزکردنی پەیوەندی مرۆڤ بە خوا، ڕێکخستنی ژیان و بیرکردنەوە لە کردارەکان. هەوڵ بدە نوێژەکانت لە کاتی خۆیاندا و بە فێرکاریی دروست ئەنجام بدەیت.</p></section>
+<h2 class="section-title" id="azkar">زیکر و خوێندنەوەکانی ناو نوێژ و ماناکانیان</h2>
+<section class="lesson"><h2>٦. مانای تەکبیری دەستپێک</h2><div class="arabic" lang="ar">اللَّهُ أَكْبَرُ</div><p class="translation">واتە: خوای گەورە لە هەموو شتێک گەورەترە.</p></section>
+<section class="lesson"><h2>٧. سورەتی فاتحە و ماناکەی</h2><p>لە خوارەوە دەقی عەرەبی و مانای کوردیی هەر ئایەتێک دێت. ماناکان وەرگێڕان و ڕوونکردنەوەیەکن.</p>
+<div class="verse"><span class="verse-num">١</span><div class="arabic" lang="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><p>بە ناوی خوای بەخشندەی میهرەبان.</p></div>
+<div class="verse"><span class="verse-num">٢</span><div class="arabic" lang="ar">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</div><p>هەموو ستایش و سوپاس بۆ خوایە، پەروەردگاری هەموو جیهانەکان.</p></div>
+<div class="verse"><span class="verse-num">٣</span><div class="arabic" lang="ar">الرَّحْمَٰنِ الرَّحِيمِ</div><p>بەخشندە و میهرەبانە.</p></div>
+<div class="verse"><span class="verse-num">٤</span><div class="arabic" lang="ar">مَالِكِ يَوْمِ الدِّينِ</div><p>خاوەنی ڕۆژی پاداشت و لێپرسینەوەیە.</p></div>
+<div class="verse"><span class="verse-num">٥</span><div class="arabic" lang="ar">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div><p>تەنها تۆ دەپەرستین و تەنها لە تۆ یارمەتی دەخوازین.</p></div>
+<div class="verse"><span class="verse-num">٦</span><div class="arabic" lang="ar">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</div><p>ڕێنماییمان بکە بۆ ڕێگای ڕاست.</p></div>
+<div class="verse"><span class="verse-num">٧</span><div class="arabic" lang="ar">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div><p>ڕێگای ئەوانەی نیعمەتت پێ بەخشیون، نەک ڕێگای ئەوانەی تووڕەیی لەسەرە و نەک گومڕاکان.</p></div><div class="note">دوای فاتحە دەکرێت «آمين» بگوترێت. سەرچاوەی مانای درێژتر کە لەلایەن بەکارهێنەرەوە نێردراوە: تەفسیری ڕامان لە مانا و مەبەستی قورئان.</div></section>
+<section class="lesson"><h2>٨. زیکرەکانی ڕکوع و سوجدە</h2><div class="dhikr"><h3>لە ڕکوع</h3><div class="arabic" lang="ar">سُبْحَانَ رَبِّيَ الْعَظِيمِ</div><p>پاک و بێگەردە پەروەردگاری مەزنم.</p></div><div class="dhikr"><h3>کاتی هەستانەوە لە ڕکوع</h3><div class="arabic" lang="ar">سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ</div><p>خوا ستایشی ئەو کەسە دەبیستێت کە ستایشی دەکات.</p><div class="arabic" lang="ar">رَبَّنَا وَلَكَ الْحَمْدُ</div><p>پەروەردگارمان، هەموو ستایش بۆ تۆیە.</p></div><div class="dhikr"><h3>لە سوجدە</h3><div class="arabic" lang="ar">سُبْحَانَ رَبِّيَ الْأَعْلَى</div><p>پاک و بێگەردە پەروەردگاری بەرز و بڵندم.</p></div><div class="dhikr"><h3>دانیشتن لە نێوان دوو سوجدە</h3><div class="arabic" lang="ar">رَبِّ اغْفِرْ لِي، رَبِّ اغْفِرْ لِي</div><p>پەروەردگارم، لێم خۆش ببە؛ پەروەردگارم، لێم خۆش ببە.</p></div></section>
+<section class="lesson"><h2>٩. تەحیات و شایەتدان</h2><div class="arabic" lang="ar">التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ</div><p>هەموو ڕێز و شکۆ و عیبادەت و پاکی بۆ خوایە.</p><div class="arabic" lang="ar">السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</div><p>سڵاو و ڕەحمەت و بەرەکەتی خوا لەسەرت بێت، ئەی پێغەمبەر.</p><div class="arabic" lang="ar">السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ</div><p>سڵاو لەسەر ئێمە و لەسەر بەندە چاکەکانی خوا.</p><div class="arabic" lang="ar">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</div><p>شایەتی دەدەم هیچ پەرستراوێکی بەحەق نییە جگە لە خوا، و شایەتی دەدەم محەممەد بەندە و نێردراوی خوایە.</p></section>
+<section class="lesson"><h2>١٠. دروود لەسەر پێغەمبەر ﷺ</h2><div class="arabic" lang="ar">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ</div><p>خوایە، دروود بنێرە لەسەر محەممەد و خێزانەکەی، وەک چۆن دروودت نارد لەسەر ئیبراهیم و خێزانەکەی؛ بەڕاستی تۆ شایانی ستایش و خاوەن شکۆیت.</p><div class="arabic" lang="ar">اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ</div><p>خوایە، بەرەکەت بخە لەسەر محەممەد و خێزانەکەی، وەک چۆن بەرەکەتت خست لەسەر ئیبراهیم و خێزانەکەی؛ بەڕاستی تۆ شایانی ستایش و خاوەن شکۆیت.</p></section>
+<section class="lesson"><h2>١١. دوعای پەنابردن پێش تەسلیم</h2><div class="arabic" lang="ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، وَمِنْ عَذَابِ جَهَنَّمَ، وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ، وَمِنْ شَرِّ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ</div><p>خوایە، پەنات پێ دەگرم لە سزای گۆڕ، لە سزای دۆزەخ، لە تاقیکردنەوەی ژیان و مردن، و لە خراپەی فیتنەی مەسیحی دەججاڵ.</p><div class="note">سەرچاوەی دەقی دوعاکە: ماڵپەڕی دەنگی ئیسلام (dangiislam.org)، وەک لە دەقە نێردراوەکەدا هاتووە.</div></section>
+<section class="lesson"><h2>١٢. تەسلیم و کۆتایی نوێژ</h2><p>لە کۆتایی نوێژدا بە شێوەی فێرکراو تەسلیم دەکەیت. وردەکاریی هەندێک زیکر و شێوازی جێبەجێکردن بە پێی مەزهەب جیاواز دەبێت؛ بۆیە لە مامۆستایەکی ئایینی باوەڕپێکراو فێری شێوازی تەواو ببە.</p></section>
+
+
+<div class="back-wrap"><a href="index.html" class="home-back-btn"><span class="home-icon">🕌</span><span>گەڕانەوە بۆ پەڕەی سەرەکی</span><span class="home-arrow">←</span></a></div>
+</main><footer><div><strong>نوری ئیمان</strong> — ڕووناکییەک بۆ دڵ، ئارامییەک بۆ ڕۆح ✦</div><div>          </div></footer>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body></html>

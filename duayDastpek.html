@@ -1,0 +1,455 @@
+
+<!-- ================================
+     نوری ئیمان | دوعای دەستپێکی نوێژ
+     HTML + CSS
+================================= -->
+
+<section class="opening-duas" dir="rtl" lang="ckb">
+
+<style>
+.opening-duas {
+  --dua-bg: #071b19;
+  --dua-green: #103b30;
+  --dua-green-light: #e8efdc;
+  --dua-gold: #d9b45d;
+  --dua-gold-light: #f5dfa0;
+  --dua-text: #f8f3e6;
+  --dua-muted: #52645a;
+
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+  color: var(--dua-text);
+  padding: 28px 14px;
+  margin: 28px auto;
+  border-radius: 25px;
+  background:
+    radial-gradient(ellipse at top, #194a39 0%, transparent 48%),
+    linear-gradient(150deg, #071b19, #0b2822);
+  border: 1px solid rgba(217,180,93,.45);
+  box-shadow: 0 18px 55px rgba(0,0,0,.22);
+  overflow: hidden;
+}
+
+.opening-duas * {
+  box-sizing: border-box;
+}
+
+.opening-duas .dua-container {
+  width: min(100%, 950px);
+  margin: auto;
+}
+
+.opening-duas .dua-hero {
+  text-align: center;
+  padding: 16px 5px 30px;
+}
+
+.opening-duas .dua-symbol {
+  color: var(--dua-gold);
+  font-size: 37px;
+  line-height: 1.5;
+}
+
+.opening-duas .dua-label {
+  display: inline-block;
+  padding: 5px 18px;
+  border: 1px solid rgba(217,180,93,.5);
+  border-radius: 30px;
+  color: var(--dua-gold-light);
+  background: #ffffff08;
+  font-size: 13px;
+}
+
+.opening-duas .dua-hero h2 {
+  font-size: clamp(25px, 4vw, 38px);
+  line-height: 1.7;
+  margin: 12px 0;
+  color: var(--dua-gold-light);
+}
+
+.opening-duas .dua-hero h2 span {
+  color: #fff8e8;
+}
+
+.opening-duas .dua-hero p {
+  color: #d0ded4;
+  max-width: 730px;
+  margin: auto;
+  line-height: 2;
+  font-size: 15px;
+}
+
+.opening-duas .dua-note {
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(217,180,93,.3);
+  border-right: 4px solid var(--dua-gold);
+  border-radius: 13px;
+  padding: 14px 17px;
+  margin-bottom: 25px;
+  color: #e2e8dc;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.opening-duas .dua-note strong {
+  color: var(--dua-gold-light);
+}
+
+.opening-duas .dua-card {
+  background: linear-gradient(145deg, #f8f4e8, #e8eddd);
+  border: 1px solid var(--dua-gold);
+  border-radius: 19px;
+  margin: 24px 0;
+  padding: clamp(15px, 3vw, 28px);
+  color: #17382d;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  overflow-wrap: anywhere;
+}
+
+.opening-duas .dua-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(120,100,50,.2);
+  margin-bottom: 18px;
+}
+
+.opening-duas .dua-number {
+  flex: 0 0 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--dua-green);
+  border: 2px solid var(--dua-gold);
+  color: var(--dua-gold-light);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.opening-duas .dua-card-header h3 {
+  color: #164332;
+  font-size: 20px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.opening-duas .dua-card-header p {
+  color: #657469;
+  font-size: 13px;
+  margin: 3px 0 0;
+}
+
+.opening-duas .dua-arabic {
+  font-family: "Amiri", "Noto Naskh Arabic", serif;
+  font-size: clamp(23px, 3.3vw, 31px);
+  line-height: 2.2;
+  text-align: center;
+  color: #103a2c;
+  background: #e2e9d6;
+  border: 1px solid #d8dfca;
+  border-radius: 13px;
+  padding: 20px 15px;
+  margin: 15px 0 20px;
+  overflow-wrap: anywhere;
+}
+
+.opening-duas .dua-meaning-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8c6a1c;
+  font-weight: 800;
+  font-size: 16px;
+  margin: 15px 0 8px;
+}
+
+.opening-duas .dua-meaning {
+  color: #34483b;
+  font-size: 15px;
+  line-height: 2.25;
+  margin: 0;
+}
+
+.opening-duas .dua-footnote {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #758174;
+}
+
+.opening-duas .dua-footer {
+  text-align: center;
+  padding: 24px 8px 8px;
+  color: var(--dua-gold-light);
+}
+
+.opening-duas .dua-footer .ornament {
+  color: var(--dua-gold);
+  font-size: 25px;
+}
+
+.opening-duas .dua-footer p {
+  font-size: 14px;
+  color: #c8d6cb;
+  line-height: 2;
+}
+
+.opening-duas .dua-back-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 21px;
+  background: var(--dua-gold);
+  color: #183729;
+  border-radius: 11px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: .25s;
+}
+
+.opening-duas .dua-back-link:hover {
+  background: var(--dua-gold-light);
+  transform: translateY(-2px);
+}
+
+@media(max-width:600px) {
+  .opening-duas {
+    padding: 17px 10px;
+    border-radius: 17px;
+  }
+
+  .opening-duas .dua-card {
+    padding: 14px;
+    border-radius: 15px;
+  }
+
+  .opening-duas .dua-card-header h3 {
+    font-size: 17px;
+  }
+
+  .opening-duas .dua-arabic {
+    padding: 15px 10px;
+    line-height: 2.15;
+  }
+
+  .opening-duas .dua-meaning {
+    font-size: 14px;
+  }
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<div class="dua-container">
+
+  <!-- سەردێڕ -->
+  <header class="dua-hero">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="dua-symbol">۞</div>
+    <div class="dua-label">نوری ئیمان · فێربوونی نوێژ</div>
+
+    <h2>
+      دوعای <span>دەستپێکی نوێژ</span>
+    </h2>
+
+    <p>
+      دوای تەکبیری دەستپێکردنی نوێژ «الله أكبر» و پێش خوێندنی
+      سورەتی فاتحە، دەتوانرێت یەکێک لەم دوعا و زیکرانە بخوێندرێت.
+    </p>
+  </header>
+
+  <div class="dua-note">
+    <strong>✦ تێبینی:</strong>
+    ئەم دوعایانە نموونەی دوعاکانی دەستپێکی نوێژن.
+    دەتوانیت یەکێکیان بخوێنیتەوە؛ پێویست ناکات هەموویان
+    لە یەک نوێژدا بخوێنرێنەوە.
+  </div>
+
+  <!-- دوعای یەکەم -->
+  <article class="dua-card">
+
+    <div class="dua-card-header">
+      <div class="dua-number">١</div>
+      <div>
+        <h3>دوعای یەکەم</h3>
+        <p>داوای پاکبوونەوە لە گوناهەکان</p>
+      </div>
+    </div>
+
+    <div class="dua-arabic" lang="ar" dir="rtl">
+      اللَّهُمَّ بَاعِدْ بَيْنِي وَبَيْنَ خَطَايَايَ كَمَا
+      بَاعَدْتَ بَيْنَ الْمَشْرِقِ وَالْمَغْرِبِ،
+      اللَّهُمَّ نَقِّنِي مِنْ خَطَايَايَ كَمَا يُنَقَّى
+      الثَّوْبُ الْأَبْيَضُ مِنَ الدَّنَسِ،
+      اللَّهُمَّ اغْسِلْنِي مِنْ خَطَايَايَ بِالثَّلْجِ
+      وَالْمَاءِ وَالْبَرَدِ.
+    </div>
+
+    <div class="dua-meaning-title">✧ مانای کوردی</div>
+
+    <p class="dua-meaning">
+      خودایە، نێوان من و هەڵە و تاوانەکانم دوور بخەرەوە،
+      هەروەک چۆن نێوان ڕۆژهەڵات و ڕۆژئاوات دوور خستووەتەوە.
+      خودایە، لە گوناهەکانم پاکم بکەرەوە، وەک چۆن پۆشاکی
+      سپی لە چڵک و پیسی پاک دەکرێتەوە. خودایە، لە هەڵە و
+      تاوانەکانم بمشۆ بە بەفر و ئاو و تەڕزە.
+    </p>
+
+  </article>
+
+  <!-- دوعای دووەم -->
+  <article class="dua-card">
+
+    <div class="dua-card-header">
+      <div class="dua-number">٢</div>
+      <div>
+        <h3>دوعای دووەم</h3>
+        <p>پاکی و ستایش بۆ خوای گەورە</p>
+      </div>
+    </div>
+
+    <div class="dua-arabic" lang="ar" dir="rtl">
+      سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ،
+      وَتَبَارَكَ اسْمُكَ،
+      وَتَعَالَى جَدُّكَ،
+      وَلَا إِلَهَ غَيْرُكَ.
+    </div>
+
+    <div class="dua-meaning-title">✧ مانای کوردی</div>
+
+    <p class="dua-meaning">
+      خودایە، پاکی و بێگەردی و سوپاس و ستایش بۆ تۆیە؛
+      ناوەکەت پیرۆزە، شکۆ و پایەی تۆ بەرز و بڵندە،
+      و هیچ پەرستراوێکی شایستەی پەرستن نییە جگە لە تۆ.
+    </p>
+
+  </article>
+
+  <!-- دوعای سێیەم -->
+  <article class="dua-card">
+
+    <div class="dua-card-header">
+      <div class="dua-number">٣</div>
+      <div>
+        <h3>دوعای سێیەم</h3>
+        <p>ڕووکردنە خودا و داوای لێخۆشبوون</p>
+      </div>
+    </div>
+
+    <div class="dua-arabic" lang="ar" dir="rtl">
+      وَجَّهْتُ وَجْهِيَ لِلَّذِي فَطَرَ السَّمَاوَاتِ
+      وَالْأَرْضَ حَنِيفًا وَمَا أَنَا مِنَ الْمُشْرِكِينَ،
+      إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي
+      لِلَّهِ رَبِّ الْعَالَمِينَ، لَا شَرِيكَ لَهُ
+      وَبِذَٰلِكَ أُمِرْتُ وَأَنَا مِنَ الْمُسْلِمِينَ.
+      اللَّهُمَّ أَنْتَ الْمَلِكُ لَا إِلَهَ إِلَّا أَنْتَ،
+      أَنْتَ رَبِّي وَأَنَا عَبْدُكَ، ظَلَمْتُ نَفْسِي
+      وَاعْتَرَفْتُ بِذَنْبِي فَاغْفِرْ لِي ذُنُوبِي جَمِيعًا،
+      إِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ،
+      وَاهْدِنِي لِأَحْسَنِ الْأَخْلَاقِ لَا يَهْدِي
+      لِأَحْسَنِهَا إِلَّا أَنْتَ، وَاصْرِفْ عَنِّي سَيِّئَهَا،
+      لَا يَصْرِفُ عَنِّي سَيِّئَهَا إِلَّا أَنْتَ،
+      لَبَّيْكَ وَسَعْدَيْكَ، وَالْخَيْرُ كُلُّهُ بِيَدَيْكَ،
+      وَالشَّرُّ لَيْسَ إِلَيْكَ، أَنَا بِكَ وَإِلَيْكَ،
+      تَبَارَكْتَ وَتَعَالَيْتَ، أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ.
+    </div>
+
+    <div class="dua-meaning-title">✧ مانای کوردی</div>
+
+    <p class="dua-meaning">
+      من ڕووم کردووەتە ئەو زاتەی کە ئاسمانەکان و زەوی
+      دروست کردووە؛ بە دڵپاکی و یەکتاپەرستی، و من لە
+      هاوبەشدانان نیم. بەڕاستی نوێژ و پەرستن و ژیان و مردنم
+      هەمووی بۆ خوایە، پەروەردگاری هەموو جیهانەکان؛
+      هیچ هاوبەشێکی نییە. بەمە فەرمانم پێکراوە و من
+      لە موسڵمانانم.
+    </p>
+
+    <p class="dua-meaning" style="margin-top:12px">
+      خودایە، تۆ پادشایت و هیچ پەرستراوێکی شایستەی
+      پەرستن نییە جگە لە تۆ. تۆ پەروەردگارمی و من بەندەی
+      تۆم. من ستەمم لە خۆم کردووە و دان بە گوناهەکەمدا
+      دەنێم؛ کەواتە هەموو گوناهەکانم ببەخشە، چونکە هیچ
+      کەسێک گوناهەکان نابەخشێت جگە لە تۆ.
+    </p>
+
+    <p class="dua-meaning" style="margin-top:12px">
+      ڕێنماییم بکە بۆ جوانترین ڕەوشتی، چونکە هیچ کەسێک
+      ڕێنماییم ناکات بۆ جوانترینی جگە لە تۆ. خراپەکانی
+      ڕەوشتم لێ دوور بخەرەوە، چونکە هیچ کەسێک لێمی
+      دووریان ناخاتەوە جگە لە تۆ. خێر و چاکە هەمووی
+      لە دەستی تۆدایە؛ پیرۆز و بەرز و بڵندیت. داوای
+      لێخۆشبوونت لێ دەکەم و تەوبە بۆ تۆ دەکەم.
+    </p>
+
+  </article>
+
+  <div class="dua-note">
+    <strong>✦ سەرنج:</strong>
+    بۆ فێربوونی وردی دەقی عەرەبی و ماناکانی، باشە سەرچاوەی
+    حەدیث و مامۆستایەکی ئایینی باوەڕپێکراو بپشکنیت.
+    هەندێک وردەکاریی دوعاکانی دەستپێکی نوێژ بە پێی
+    مەزهەب جیاواز دەبن.
+  </div>
+
+  <div class="dua-footer">
+    <div class="ornament">✧ ۞ ✧</div>
+    <p>خوایە نوێژ و دوعاکانمان قبوڵ بکە.</p>
+    <a href="nwezh.html" class="dua-back-link">
+      ← گەڕانەوە بۆ فێربوونی نوێژ
+    </a>
+  </div>
+
+</div>
+</section>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>

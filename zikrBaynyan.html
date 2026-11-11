@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071d19">
+<title>زیکری بەیانی و ئێواران | نووری ئیمان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+ --bg:#071d19;
+ --card:#102a24;
+ --gold:#d8b66b;
+ --gold2:#f2dca2;
+ --text:#f5f1e7;
+ --muted:#a7b8ad;
+ --border:rgba(216,182,107,.2);
+ --green:#438b69;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:radial-gradient(ellipse at top,#1a3b30,transparent 55%),var(--bg);
+ color:var(--text);
+ font-family:'Noto Sans Arabic',sans-serif;
+}
+header{
+ padding:20px 6%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ border-bottom:1px solid var(--border);
+}
+.logo{font-size:23px;font-weight:800;color:var(--gold2)}
+.logo small{display:block;font-size:11px;color:var(--muted);font-weight:400}
+.back{
+ color:var(--gold2);text-decoration:none;
+ border:1px solid var(--border);
+ padding:9px 15px;border-radius:12px;font-size:13px;
+}
+main{width:min(900px,92%);margin:35px auto}
+.hero{text-align:center;margin-bottom:28px}
+.hero .icon{font-size:38px;color:var(--gold)}
+.hero h1{color:var(--gold2);font-size:27px;margin:8px 0}
+.hero p{font-size:13px;color:var(--muted);line-height:2}
+.tabs{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:12px;margin-bottom:23px;
+}
+.tab{
+ padding:17px;border-radius:16px;
+ background:var(--card);color:var(--text);
+ border:1px solid var(--border);
+ font-family:inherit;font-size:16px;
+ cursor:pointer;transition:.2s;
+}
+.tab.active{
+ background:linear-gradient(135deg,#b18a43,#e8cd8b);
+ color:#14271d;font-weight:800;
+}
+.progress-card{
+ padding:19px;background:var(--card);
+ border:1px solid var(--border);
+ border-radius:18px;margin-bottom:20px;
+}
+.progress-top{
+ display:flex;justify-content:space-between;
+ align-items:center;gap:10px;font-size:13px;
+}
+.progress-top strong{color:var(--gold2)}
+.progress{
+ height:9px;background:#ffffff13;
+ border-radius:20px;margin-top:15px;overflow:hidden;
+}
+.progress div{
+ height:100%;width:0%;
+ background:linear-gradient(90deg,#a98239,#f2dca2);
+ transition:.3s;
+}
+.cards{display:grid;gap:17px}
+.zikr-card{
+ background:linear-gradient(145deg,#15372e,#0c241e);
+ border:1px solid var(--border);
+ border-radius:20px;padding:23px;
+ transition:.2s;
+}
+.zikr-card.done{
+ border-color:#438b69;
+ background:linear-gradient(145deg,#163a2e,#0d2820);
+}
+.card-head{
+ display:flex;justify-content:space-between;
+ align-items:center;gap:10px;margin-bottom:15px;
+}
+.card-head h3{
+ color:var(--gold2);font-size:16px;margin:0;
+}
+.status{
+ font-size:11px;padding:6px 10px;
+ border-radius:20px;background:#ffffff0c;
+ color:var(--muted);
+}
+.done .status{background:#438b6925;color:#8ed9a8}
+.arabic{
+ font-family:'Amiri',serif;
+ font-size:25px;line-height:2.1;
+ text-align:center;color:#f4dfa8;
+ margin:12px 0;
+ white-space:pre-line;
+}
+.translation{
+ color:#e6e5d8;font-size:13px;
+ line-height:2.1;padding:13px;
+ background:#ffffff07;border-radius:12px;
+}
+.reference{
+ color:var(--muted);font-size:11px;
+ margin:14px 0;
+}
+.card-bottom{
+ display:flex;justify-content:space-between;
+ align-items:center;gap:10px;flex-wrap:wrap;
+}
+.repeat{
+ color:var(--gold2);font-size:13px;
+}
+.count{
+ font-weight:800;font-size:17px;
+ direction:ltr;display:inline-block;
+}
+.read-btn{
+ background:var(--gold);color:#17271c;
+ border:0;border-radius:11px;
+ padding:11px 19px;font-family:inherit;
+ font-weight:700;cursor:pointer;
+}
+.read-btn:disabled{opacity:.5;cursor:not-allowed}
+.reset{
+ margin-top:24px;width:100%;padding:14px;
+ background:#ffffff0a;color:var(--gold2);
+ border:1px solid var(--border);
+ border-radius:13px;font-family:inherit;
+ cursor:pointer;
+}
+.finished{
+ text-align:center;padding:23px;
+ margin-top:20px;border:1px solid var(--border);
+ border-radius:17px;color:var(--gold2);
+ display:none;line-height:2;
+}
+footer{
+ text-align:center;color:var(--muted);
+ font-size:12px;padding:30px;
+}
+@media(max-width:600px){
+ header{padding:16px 4%}
+ .hero h1{font-size:23px}
+ .zikr-card{padding:17px}
+ .arabic{font-size:23px}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header>
+ <div class="logo">
+  ☾ نووری ئیمان
+  <small>ڕووناکییەک بۆ ڕۆح و دڵ</small>
+ </div>
+ <a href="index.html" class="back">↩ گەڕانەوە</a>
+</header>
+
+<main>
+
+<section class="hero">
+ <div class="icon">۞</div>
+ <h1>زیکری بەیانی و ئێواران</h1>
+ <p>بە یادکردنی خوای گەورە دڵەکان ئارام دەگرن</p>
+</section>
+
+<div class="tabs">
+ <button class="tab active" data-period="morning">☀ زیکری بەیانی</button>
+ <button class="tab" data-period="evening">☾ زیکری ئێواران</button>
+</div>
+
+<section class="progress-card">
+ <div class="progress-top">
+  <strong id="periodTitle">زیکری بەیانی</strong>
+  <span id="progressText">٠ لە ١١</span>
+ </div>
+ <div class="progress">
+  <div id="progressBar"></div>
+ </div>
+</section>
+
+<div class="cards" id="zikrCards"></div>
+
+<div class="finished" id="finished">
+ ۞ پیرۆزە! هەموو زیکرەکانت تەواو کرد.
+ <br>خوای گەورە قبوڵی بکات. 🤲
+</div>
+
+<button class="reset" id="reset">
+ ↻ دەستپێکردنەوەی زیکرەکان
+</button>
+
+</main>
+
+<footer>
+ © 2026 نووری ئیمان | هەموو مافەکان پارێزراون
+</footer>
+
+<script>
+const data = {
+ morning: [
+  {
+   title:"ئایەتەڵکورسی",
+   arabic:"اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+   meaning:"خوای گەورە، هیچ پەرستراوێکی بەحق نییە جگە لە ئەو، زیندووی هەمیشەیی و بەڕێوەبەری هەموو بوونەوەرە. خەو و نوستن ناگرێتەوە...",
+   repeat:1,
+   source:"سورەتی بەقەرە، ئایەتی ٢٥٥"
+  },
+  {
+   title:"سوورەتەکانی ئیخلاس، فەلەق و ناس",
+   arabic:"قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَهُ كُفُوًا أَحَدٌ\n\nقُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ\n\nقُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ",
+   meaning:"سێ سوورەتی پیرۆزی ئیخلاس، فەلەق و ناس بخوێنەوە. هەر سێ سوورەتەکە بەیەکەوە سێ جار بخوێنەوە.",
+   repeat:3,
+   source:"ئەبووداوود ٥٠٨٢؛ تیرمیزی ٣٥٧٥"
+  },
+  {
+   title:"سەیدول ئیستیغفار",
+   arabic:"اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+   meaning:"خوایە تۆ پەروەردگاری منیت، هیچ پەرستراوێکی بەحق نییە جگە لە تۆ. تۆ منت خوڵقاندووە و من بەندەی تۆم... دان بە نیعمەتەکانتدا دەنێم و دان بە گوناهەکانمدا دەنێم، کەواتە لێم خۆش بە.",
+   repeat:1,
+   source:"سەحیحی بوخاری ٦٣٠٦"
+  },
+  {
+   title:"دوعای پاراستن لە زیان",
+   arabic:"بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+   meaning:"بە ناوی خوایەوە، ئەوەی لەگەڵ ناوی هیچ شتێک لە زەوی و ئاسمان زیانی ناگەیەنێت، ئەوە بیسەر و زانایە.",
+   repeat:3,
+   source:"ئەبووداوود ٥٠٨٨؛ تیرمیزی ٣٣٨٨"
+  },
+  {
+   title:"داوای تەندروستی و لێخۆشبوون",
+   arabic:"اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي",
+   meaning:"خوایە لێخۆشبوون و تەندروستی لە دونیا و قیامەتدا لە تۆ دەخوازم. خوایە لە ئایین و دونیا و خێزان و ماڵەکەمدا لێخۆشبوون و تەندروستیم پێ ببەخشە.",
+   repeat:1,
+   source:"ئەبووداوود ٥٠٧٤"
+  }
+ ],
+ evening: [
+  {
+   title:"ئایەتەڵکورسی",
+   arabic:"اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+   meaning:"خوای گەورە، هیچ پەرستراوێکی بەحق نییە جگە لە ئەو، زیندووی هەمیشەیی و بەڕێوەبەری هەموو بوونەوەرە...",
+   repeat:1,
+   source:"سورەتی بەقەرە، ئایەتی ٢٥٥"
+  },
+  {
+   title:"سوورەتەکانی ئیخلاس، فەلەق و ناس",
+   arabic:"قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَهُ كُفُوًا أَحَدٌ\n\nقُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ\n\nقُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ",
+   meaning:"سێ سوورەتی پیرۆزی ئیخلاس، فەلەق و ناس بخوێنەوە. هەر سێ سوورەتەکە بەیەکەوە سێ جار بخوێنەوە.",
+   repeat:3,
+   source:"ئەبووداوود ٥٠٨٢؛ تیرمیزی ٣٥٧٥"
+  },
+  {
+   title:"سەیدول ئیستیغفار",
+   arabic:"اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+   meaning:"خوایە تۆ پەروەردگاری منیت، هیچ پەرستراوێکی بەحق نییە جگە لە تۆ. تۆ منت خوڵقاندووە و من بەندەی تۆم... کەواتە لێم خۆش بە.",
+   repeat:1,
+   source:"سەحیحی بوخاری ٦٣٠٦"
+  },
+  {
+   title:"دوعای پاراستن لە زیان",
+   arabic:"بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+   meaning:"بە ناوی خوایەوە، ئەوەی لەگەڵ ناوی هیچ شتێک لە زەوی و ئاسمان زیانی ناگەیەنێت، ئەوە بیسەر و زانایە.",
+   repeat:3,
+   source:"ئەبووداوود ٥٠٨٨؛ تیرمیزی ٣٣٨٨"
+  },
+  {
+   title:"داوای تەندروستی و لێخۆشبوون",
+   arabic:"اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي",
+   meaning:"خوایە لێخۆشبوون و تەندروستی لە دونیا و قیامەتدا لە تۆ دەخوازم. خوایە لە ئایین و دونیا و خێزان و ماڵەکەمدا لێخۆشبوون و تەندروستیم پێ ببەخشە.",
+   repeat:1,
+   source:"ئەبووداوود ٥٠٧٤"
+  }
+ ]
+};
+
+let period = "morning";
+
+let progress = {};
+try {
+ progress = JSON.parse(localStorage.getItem("nooriAdhkarProgress")) || {};
+} catch(e) {
+ progress = {};
+}
+
+function getProgress(){
+ if(!progress[period]) {
+  progress[period] = {};
+ }
+ return progress[period];
+}
+
+function save(){
+ localStorage.setItem("nooriAdhkarProgress",JSON.stringify(progress));
+}
+
+function render(){
+ const list = data[period];
+ const current = getProgress();
+ const total = list.reduce((s,z)=>s+z.repeat,0);
+ const done = list.reduce((s,z,i)=>s+Math.min(current[i]||0,z.repeat),0);
+
+ document.getElementById("periodTitle").textContent =
+ period === "morning" ? "زیکری بەیانی" : "زیکری ئێواران";
+
+ document.getElementById("progressText").textContent =
+ done + " لە " + total;
+
+ document.getElementById("progressBar").style.width =
+ (done/total*100) + "%";
+
+ const cards = document.getElementById("zikrCards");
+ cards.innerHTML = "";
+
+ list.forEach((z,i)=>{
+  const count = Math.min(current[i]||0,z.repeat);
+  const finished = count >= z.repeat;
+
+  const card = document.createElement("article");
+  card.className = "zikr-card" + (finished ? " done" : "");
+
+  const head = document.createElement("div");
+  head.className = "card-head";
+
+  const title = document.createElement("h3");
+  title.textContent = z.title;
+
+  const status = document.createElement("span");
+  status.className = "status";
+  status.textContent = finished ? "✓ تەواو بوو" : "لە چاوەڕوانی";
+
+  head.append(title,status);
+
+  const arabic = document.createElement("div");
+  arabic.className = "arabic";
+  arabic.textContent = z.arabic;
+
+  const meaning = document.createElement("div");
+  meaning.className = "translation";
+  meaning.textContent = z.meaning;
+
+  const reference = document.createElement("div");
+  reference.className = "reference";
+  reference.textContent = "سەرچاوە: " + z.source;
+
+  const bottom = document.createElement("div");
+  bottom.className = "card-bottom";
+
+  const repeat = document.createElement("div");
+  repeat.className = "repeat";
+  repeat.innerHTML =
+   'ژمارەی خوێندنەوە: <span class="count">' +
+   count + ' / ' + z.repeat + '</span>';
+
+  const btn = document.createElement("button");
+  btn.className = "read-btn";
+  btn.textContent = finished ? "تەواو بوو ✓" : "خوێندمەوە ✓";
+  btn.disabled = finished;
+
+  btn.addEventListener("click",()=>{
+   current[i] = count + 1;
+   save();
+   render();
+  });
+
+  bottom.append(repeat,btn);
+  card.append(head,arabic,meaning,reference,bottom);
+  cards.appendChild(card);
+ });
+
+ document.getElementById("finished").style.display =
+  done === total ? "block" : "none";
+}
+
+document.querySelectorAll(".tab").forEach(tab=>{
+ tab.addEventListener("click",()=>{
+  period = tab.dataset.period;
+
+  document.querySelectorAll(".tab").forEach(t=>
+   t.classList.remove("active")
+  );
+
+  tab.classList.add("active");
+  render();
+ });
+});
+
+document.getElementById("reset").addEventListener("click",()=>{
+ if(!confirm("دڵنیایت دەتەوێت پێشکەوتنی ئەم بەشە بسڕیتەوە؟")) return;
+
+ progress[period] = {};
+ save();
+ render();
+});
+
+render();
+</script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

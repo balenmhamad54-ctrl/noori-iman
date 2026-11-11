@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فێربوونی نوێژ | نوری ئیمان</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#071720;
+  --panel:#102a35;
+  --panel2:#163b42;
+  --gold:#e4bd65;
+  --gold-light:#f5dfa0;
+  --text:#f5f0df;
+  --muted:#c5d0d0;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:"Noto Sans Arabic",Tahoma,sans-serif;
+  background:radial-gradient(ellipse at top,#173a42,var(--bg) 65%);
+  color:var(--text);
+  line-height:2;
+}
+header {
+  text-align:center;
+  padding:35px 15px;
+  background:linear-gradient(140deg,#164b43,#071720);
+  border-bottom:2px solid var(--gold);
+}
+.logo { color:var(--gold);font-size:30px; }
+h1 { color:var(--gold-light);font-size:clamp(26px,5vw,40px);margin:4px 0; }
+header p { color:var(--muted);margin:5px 0 15px; }
+.container { width:min(100% - 28px,1000px);margin:auto; }
+.back {
+  display:inline-block;text-decoration:none;color:var(--gold-light);
+  border:1px solid #a88b4d;border-radius:30px;padding:5px 18px;
+}
+main { padding:25px 0 40px; }
+.intro {
+  padding:18px;text-align:center;border:1px solid #927b45;
+  border-radius:18px;background:#102a35;margin-bottom:22px;
+}
+.intro h2 { color:var(--gold);margin:0 0 5px;font-size:21px; }
+.intro p { margin:0;color:var(--muted); }
+.section {
+  margin:18px 0;background:linear-gradient(145deg,#153740,#0d2731);
+  border:1px solid #9b8249;border-radius:18px;overflow:hidden;
+}
+.section-title {
+  display:flex;align-items:center;gap:12px;
+  background:linear-gradient(100deg,#0c473a,#071f1b);
+  padding:12px 17px;border-bottom:1px solid #9b8249;
+}
+.num {
+  flex-shrink:0;display:grid;place-items:center;width:42px;height:42px;
+  border:2px solid var(--gold);border-radius:50%;color:var(--gold);
+  font-weight:800;font-size:20px;
+}
+.section-title h2 { color:var(--gold-light);font-size:19px;margin:0; }
+.section-body { padding:17px; }
+.item {
+  background:#071f29;border:1px solid #294750;border-radius:13px;
+  padding:14px;margin:12px 0;
+}
+.item h3 { color:var(--gold);font-size:16px;margin:0 0 8px; }
+.arabic {
+  direction:rtl;text-align:center;color:#f5dfa0;
+  font-size:clamp(20px,3vw,26px);line-height:2.15;
+  margin:8px 0;
+}
+.meaning {
+  color:var(--muted);font-size:14px;
+  border-top:1px solid #294750;padding-top:9px;margin-top:8px;
+}
+.note { color:var(--muted);font-size:14px; }
+footer {
+  text-align:center;padding:20px;background:#041b19;
+  border-top:2px solid var(--gold);color:var(--gold);
+}
+footer small { display:block;color:var(--muted); }
+@media(max-width:600px) {
+  .section-title h2 { font-size:16px; }
+  .section-body { padding:11px; }
+  .item { padding:11px; }
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+<body>
+<header>
+  <div class="logo">☾ ✦ نوری ئیمان ✦</div>
+  <h1>فێربوونی نوێژ</h1>
+  <p>زیکر و دوعاکانی نوێژ، لە دەستپێکەوە تا سەلامدانەوە</p>
+  <a class="back" href="index.html">↩ گەڕانەوە بۆ سەرەکی</a>
+</header>
+
+<main class="container">
+  <div class="intro">
+    <h2>ڕێنمایی نوێژ</h2>
+    <p>ئەم پەڕەیە زیکر و دوعاکانی نوێژ بە زمانی عەرەبی و واتای کوردی پیشان دەدات.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-title">
+      <span class="num">١</span>
+      <h2>دەستپێکردنی نوێژ</h2>
+    </div>
+    <div class="section-body">
+      <article class="item">
+        <h3>تەکبیرەی ئیحرام</h3>
+        <div class="arabic">اللَّهُ أَكْبَرُ</div>
+        <div class="meaning">واتا: خودا لە هەموو شتێک گەورەتر و مەزنترە.</div>
+      </article>
+
+      <article class="item">
+        <h3>دوعای دەستپێکردن</h3>
+        <div class="arabic">سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلا إِلَهَ غَيْرُكَ</div>
+        <div class="meaning">واتا: پاکی و بێگەردی و سوپاس بۆ تۆیە خودایە، ناوت پیرۆزە و گەورەییت بڵندە، و هیچ پەرستراوێک نییە جگە لە تۆ.</div>
+      </article>
+
+      <article class="item">
+        <h3>پەناگرتن و بەسمەلە</h3>
+        <div class="arabic">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div>
+        <div class="meaning">واتا: پەنا دەگرم بە خودا لە شەیتانی دەرکراو لە ڕەحمەت.</div>
+        <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+        <div class="meaning">واتا: بە ناوی خودای بەخشندەی میهرەبان.</div>
+      </article>
+
+      <article class="item">
+        <h3>سوورەتی فاتیحە</h3>
+        <div class="arabic">
+          الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلا الضَّالِّينَ ۝ آمِين
+        </div>
+        <div class="meaning">واتا: سوپاس و ستایش بۆ پەروەردگاری جیهانییان، بەخشندەی میهرەبان، خاوەنی ڕۆژی پاداشت و سزا. تەنها تۆ دەپەرستین و تەنها لە تۆ داوای یارمەتی دەکەین. ڕێنموونیمان بکە بۆ ڕێگای ڕاست؛ ڕێگای ئەوانەی نیعمەتت بەسەردا ڕژاندوون، نەک ئەوانەی تووڕەییت لێ گرتوون و نە گومڕاکان. خوایە لێمان وەربگرە.</div>
+        <p class="note">پاشان سوورەتێکی تر لە قورئان دەخوێندرێت.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <span class="num">٢</span>
+      <h2>ڕکوع و هەستانەوە</h2>
+    </div>
+    <div class="section-body">
+      <article class="item">
+        <h3>تەکبیر بۆ ڕکوع</h3>
+        <div class="arabic">اللَّهُ أَكْبَرُ</div>
+      </article>
+      <article class="item">
+        <h3>زیکری ناو ڕکوع ـ سێ جار</h3>
+        <div class="arabic">سُبْحَانَ رَبِّيَ الْعَظِيمِ</div>
+        <div class="meaning">واتا: پاکی و بێگەردی بۆ پەروەردگاری مەزنم.</div>
+      </article>
+      <article class="item">
+        <h3>کاتی هەستانەوە لە ڕکوع</h3>
+        <div class="arabic">سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ</div>
+        <div class="meaning">واتا: خودا دەبیستێت لەو کەسەی سوپاسی دەکات.</div>
+      </article>
+      <article class="item">
+        <h3>دوای ڕێکوەستان</h3>
+        <div class="arabic">رَبَّنَا وَلَكَ الْحَمْدُ، حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ</div>
+        <div class="meaning">واتا: ئەی پەروەردگارمان، سوپاس و ستایش تەنها شایستەی تۆیە؛ سوپاسێکی زۆر و پاک و پیرۆزکراو.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <span class="num">٣</span>
+      <h2>سوجدە و دانیشتن لە نێوان دوو سوجدە</h2>
+    </div>
+    <div class="section-body">
+      <article class="item">
+        <h3>تەکبیر بۆ سوجدە</h3>
+        <div class="arabic">اللَّهُ أَكْبَرُ</div>
+      </article>
+      <article class="item">
+        <h3>زیکری ناو سوجدە ـ سێ جار</h3>
+        <div class="arabic">سُبْحَانَ رَبِّيَ الأَعْلَى</div>
+        <div class="meaning">واتا: پاکی و بێگەردی بۆ پەروەردگاری هەرە بەرز و بڵندم.</div>
+      </article>
+      <article class="item">
+        <h3>دوعای نێوان دوو سوجدە</h3>
+        <div class="arabic">رَبِّ اغْفِرْ لِي، وَارْحَمْنِي، وَاهْدِنِي، وَعَافِنِي، وَارْزُقْنِي</div>
+        <div class="meaning">واتا: پەروەردگارم، لێم خۆش ببە، بەزەییت پێمدا بێتەوە، ڕێنموونیم بکە، لەشساغیم پێ ببەخشە و ڕۆزیم بدە.</div>
+      </article>
+      <article class="item">
+        <h3>سوجدەی دووەم</h3>
+        <div class="arabic">اللَّهُ أَكْبَرُ</div>
+        <div class="arabic">سُبْحَانَ رَبِّيَ الأَعْلَى</div>
+        <div class="meaning">زیکری سوجدە سێ جار دەخوێندرێت.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <span class="num">٤</span>
+      <h2>تەحیات و سڵاواتی ئیبراهیمی</h2>
+    </div>
+    <div class="section-body">
+      <article class="item">
+        <h3>تەشەهود</h3>
+        <div class="arabic">
+          التَّحِيَّاتُ لِلَّهِ، وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ، السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ، أَشْهَدُ أَنْ لا إِلَهَ إِلاَّ اللَّهُ، وَأَشْهَدُ أَنَّ مُحَمَّداً عَبْدُهُ وَرَسُولُهُ
+        </div>
+        <div class="meaning">واتا: هەموو سڵاو و ڕێز و سوپاس، و هەموو نوێژەکان و وشە و کردەوە پاکەکان بۆ خودان. سڵاو و ڕەحمەت و بەرەکەتی خودات لێ بێت ئەی پێغەمبەر. سڵاو لەسەر ئێمە و بەندە چاکەکانی خودا بێت. شایەتی دەدەم هیچ پەرستراوێک نییە جگە لە ئەڵڵا، و شایەتی دەدەم موحەممەد بەندە و نێردراوی ئەوە.</div>
+      </article>
+      <article class="item">
+        <h3>سڵاواتی ئیبراهیمی</h3>
+        <div class="arabic">
+          اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ، وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ.
+          اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ، وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ
+        </div>
+        <div class="meaning">واتا: خودایە، ڕەحمەت و دروود بڕژێنە بەسەر موحەممەد و بنەماڵەی موحەممەد، هەر وەک دروودت ڕژاند بەسەر ئیبراهیم و بنەماڵەی ئیبراهیم. بەڕاستی تۆ سوپاسکراو و مەزنی. خودایە بەرەکەت بڕژێنە بەسەر موحەممەد و بنەماڵەی موحەممەد، هەر وەک بەرەکەتت ڕژاند بەسەر ئیبراهیم و بنەماڵەی ئیبراهیم.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <span class="num">٥</span>
+      <h2>دوعاکانی کۆتایی پێش سەلامدانەوە</h2>
+    </div>
+    <div class="section-body">
+      <article class="item">
+        <h3>پەناگرتن لە سزای دۆزەخ و تاقیکردنەوەکان</h3>
+        <div class="arabic">
+          اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ جَهَنَّمَ، وَمِنْ عَذَابِ الْقَبْرِ، وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ، وَمِنْ شَرِّ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْمَأْثَمِ وَالْمَغْرَمِ
+        </div>
+        <div class="meaning">واتا: خودایە، پەنات پێ دەگرم لە سزای دۆزەخ، سزای گۆڕ، تاقیکردنەوەی ژیان و مردن، شەڕی فیتنەی دەججال، تاوان و قەرز.</div>
+      </article>
+      <article class="item">
+        <h3>دوعای لێخۆشبوون</h3>
+        <div class="arabic">
+          اللَّهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْماً كَثِيراً، وَلا يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ، فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ وَارْحَمْنِي، إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ
+        </div>
+        <div class="meaning">واتا: خودایە، من زۆر ستەمم لە خۆم کردووە و کەس لە تاوانەکان خۆش نابێت جگە لە تۆ؛ کەواتە لێم خۆش ببە و بەزەییت پێمدا بێتەوە. بەڕاستی تۆ لێخۆشبووی میهرەبانی.</div>
+      </article>
+      <article class="item">
+        <h3>دوعای چاکەی دونیا و دواڕۆژ</h3>
+        <div class="arabic">
+          رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ
+        </div>
+        <div class="meaning">واتا: پەروەردگارمان، لە دونیا و دواڕۆژدا چاکەمان پێ ببەخشە و لە سزای ئاگری دۆزەخ بمانپارێزە.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <span class="num">٦</span>
+      <h2>سەلامدانەوە</h2>
+    </div>
+    <div class="section-body">
+      <article class="item">
+        <h3>بۆ لای ڕاست</h3>
+        <div class="arabic">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ</div>
+        <div class="meaning">واتا: سڵاو و ڕەحمەتی خوداتان لێ بێت.</div>
+      </article>
+      <article class="item">
+        <h3>بۆ لای چەپ</h3>
+        <div class="arabic">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ</div>
+        <div class="meaning">واتا: سڵاو و ڕەحمەتی خوداتان لێ بێت.</div>
+      </article>
+    </div>
+  </section>
+
+  <p class="note">تێبینی: هەندێک وردەکاریی نوێژ لە نێوان مەزهەبە فقهییەکاندا جیاوازە؛ بۆ فێربوونی کردارەکان لە مامۆستایەکی متمانەپێکراوی ئایینی بپرسە.</p>
+</main>
+
+<footer>
+  نوری ئیمان
+  <small>ڕووناکی بۆ دڵ و گیان</small>
+</footer>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,931 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دوعا و زیکر | نوری ئیمان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f8f7f1;
+  --card: #fffefa;
+  --text: #102d2d;
+  --muted: #617572;
+  --green: #075c55;
+  --deep: #032c2e;
+  --gold: #e6bd68;
+  --border: #e9e1d0;
+  --soft: #e5efe8;
+}
+
+body.dark {
+  --bg: #07191b;
+  --card: #102729;
+  --text: #f4f2e8;
+  --muted: #bdcbc5;
+  --green: #3bc2a4;
+  --deep: #021314;
+  --gold: #edc978;
+  --border: #294545;
+  --soft: #193a38;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans Arabic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.9;
+  transition: background .3s, color .3s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.navbar {
+  background: var(--deep);
+  color: white;
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.nav-inner {
+  max-width: 1250px;
+  min-height: 73px;
+  padding: 12px 25px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 23px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.logo-symbol {
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-links a {
+  padding: 8px 11px;
+  border-radius: 22px;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+  background: #ffffff12;
+  border: 1px solid #b9964c88;
+}
+
+.theme-btn {
+  background: #ffffff12;
+  color: white;
+  border: 1px solid #ffffff40;
+  padding: 8px 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse at 15% 20%, #d5b06433, transparent 30%),
+    radial-gradient(ellipse at 80% 90%, #218d7c55, transparent 40%),
+    linear-gradient(115deg, #031d25, #07554f 65%, #092e30);
+  color: white;
+  border-bottom: 5px solid var(--gold);
+}
+
+.hero::before {
+  content: "☾";
+  position: absolute;
+  left: 8%;
+  top: -55px;
+  font-size: 180px;
+  color: #f2d58b;
+  opacity: .14;
+}
+
+.hero::after {
+  content: "۞";
+  position: absolute;
+  right: 3%;
+  bottom: -105px;
+  font-size: 240px;
+  color: var(--gold);
+  opacity: .10;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 45px 25px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.bismillah {
+  color: var(--gold);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 65px);
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+.hero p {
+  font-size: 17px;
+  color: #e2ebe4;
+  margin: 5px auto 0;
+  max-width: 700px;
+}
+
+.hero-decoration {
+  color: var(--gold);
+  margin-top: 15px;
+  letter-spacing: 8px;
+}
+
+/* Main content */
+
+.container {
+  max-width: 1200px;
+  margin: 35px auto;
+  padding: 0 22px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 38px 0 25px;
+}
+
+.section-heading::before,
+.section-heading::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  max-width: 180px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.section-heading::after {
+  background: linear-gradient(270deg, transparent, var(--gold));
+}
+
+.heading-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--deep);
+  color: white;
+  padding: 9px 24px;
+  border: 2px solid var(--gold);
+  border-radius: 13px;
+  box-shadow: var(--shadow, 0 5px 15px #00000012);
+  white-space: nowrap;
+}
+
+.heading-label span {
+  color: var(--gold);
+  font-size: 23px;
+}
+
+.heading-label h2 {
+  font-size: 19px;
+  margin: 0;
+}
+
+.section-description {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  margin: -12px 0 23px;
+}
+
+.dua-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dua-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 27px;
+  padding: 25px 22px;
+  text-align: center;
+  box-shadow: 0 7px 22px #173d3010;
+  transition: transform .25s, border-color .25s;
+}
+
+.dua-card::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  pointer-events: none;
+  opacity: .65;
+}
+
+.dua-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.card-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: -43px auto 12px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--deep);
+  border: 4px solid var(--bg);
+  outline: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 25px;
+}
+
+.card-number {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.dua-card h3 {
+  font-size: 17px;
+  margin: 5px 0 14px;
+}
+
+.arabic {
+  background: var(--soft);
+  border-radius: 18px;
+  color: var(--green);
+  padding: 13px 10px;
+  margin: 0 0 14px;
+  font-family: "Noto Sans Arabic", serif;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 2;
+}
+
+.meaning-label {
+  display: inline-block;
+  background: var(--gold);
+  color: #26352b;
+  border-radius: 25px;
+  padding: 2px 13px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.meaning {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 9px 0 15px;
+  min-height: 52px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.action-btn {
+  cursor: pointer;
+  background: var(--green);
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  padding: 8px 14px;
+  font-size: 12px;
+  transition: .2s;
+}
+
+.action-btn:hover {
+  background: var(--deep);
+  border-color: var(--gold);
+}
+
+.action-btn.secondary {
+  background: transparent;
+  color: var(--green);
+  border-color: var(--border);
+}
+
+/* Note banner */
+
+.notice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 45px 0 25px;
+  padding: 23px 27px;
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 5% 100%, #22836f66, transparent 38%),
+    linear-gradient(100deg, #032e30, #07544e);
+  color: white;
+  overflow: hidden;
+}
+
+.notice-icon {
+  font-size: 40px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.notice h3 {
+  margin: 0 0 5px;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.notice p {
+  margin: 0;
+  font-size: 13px;
+  color: #e2ebe4;
+}
+
+/* Footer */
+
+footer {
+  background: var(--deep);
+  color: white;
+  border-top: 3px solid var(--gold);
+  padding: 25px 20px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.footer-text {
+  color: #d4e1da;
+  font-size: 13px;
+}
+
+.back-top {
+  color: var(--gold);
+  border: 1px solid #d6ad5c88;
+  border-radius: 10px;
+  padding: 5px 12px;
+  font-size: 13px;
+}
+
+@media (max-width: 950px) {
+  .nav-inner {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dua-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-inner {
+    padding: 12px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .nav-links {
+    gap: 3px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  .hero {
+    min-height: 260px;
+  }
+
+  .hero-inner {
+    padding: 35px 18px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 16px;
+    margin: 25px auto;
+  }
+
+  .dua-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .section-heading {
+    gap: 8px;
+  }
+
+  .heading-label {
+    padding: 8px 12px;
+    gap: 7px;
+  }
+
+  .heading-label h2 {
+    font-size: 15px;
+  }
+
+  .heading-label span {
+    font-size: 18px;
+  }
+
+  .section-heading::before,
+  .section-heading::after {
+    max-width: 30px;
+  }
+
+  .dua-card {
+    padding: 25px 20px;
+  }
+
+  .notice {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body id="top">
+
+<header class="navbar">
+  <nav class="nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-symbol">☪</span>
+      <span>نوری ئیمان</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">⌂ سەرەکی</a>
+      <a href="namaz.html">نوێژ</a>
+      <a href="prayer-types.html">جۆرەکانی نوێژ</a>
+      <a class="active" href="dua.html">دوعا و زیکر</a>
+      <a href="index.html#zakat">زەکات</a>
+      <a href="index.html#names">ناوەکان</a>
+      <a href="index.html#society">زمان و کۆمەڵگا</a>
+    </div>
+
+    <button class="theme-btn" id="themeToggle" type="button">
+      ☾ / ☀
+    </button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="bismillah">✦ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ✦</div>
+    <h1>دوعا و زیکر</h1>
+    <p>بە زیکری خوای گەورە دڵەکان ئارام دەگرن.</p>
+    <p>دوعاکان بخوێنەوە و بە ماناکانیانەوە زیاتر بیانناسە.</p>
+    <div class="hero-decoration">۞ ━━━━━ ✧ ━━━━━ ۞</div>
+  </div>
+</section>
+
+<main class="container">
+
+  <section>
+    <div class="section-heading">
+      <div class="heading-label">
+        <span>☀</span>
+        <h2>زیکری بەیانی و ئێواران</h2>
+      </div>
+    </div>
+
+    <p class="section-description">
+      دڵ بە یادکردنەوەی خوای گەورە ئارام دەگرێت.
+    </p>
+
+    <div class="dua-grid">
+
+      <article class="dua-card">
+        <div class="card-icon">♡</div>
+        <div class="card-number">٠١</div>
+        <h3>داوای لێخۆشبوون</h3>
+        <p class="arabic" lang="ar">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</p>
+        <span class="meaning-label">مانا بە کوردی</span>
+        <p class="meaning">داوای لێخۆشبوون لە خوای گەورە دەکەم و تەوبەی بۆ دەکەم.</p>
+        <div class="card-actions">
+          <button class="action-btn speak" type="button">🔊 بیخوێنەوە</button>
+          <button class="action-btn secondary copy" type="button">کۆپیکردن</button>
+        </div>
+      </article>
+
+      <article class="dua-card">
+        <div class="card-icon">★</div>
+        <div class="card-number">٠٢</div>
+        <h3>زیکری سوپاسگوزاری</h3>
+        <p class="arabic" lang="ar">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</p>
+        <span class="meaning-label">مانا بە کوردی</span>
+        <p class="meaning">خوای گەورە پاک و بێگەردە و ستایش و سوپاسی بۆ ئەنجام دەدەم.</p>
+        <div class="card-actions">
+          <button class="action-btn speak" type="button">🔊 بیخوێنەوە</button>
+          <button class="action-btn secondary copy" type="button">کۆپیکردن</button>
+        </div>
+      </article>
+
+      <article class="dua-card">
+        <div class="card-icon">🛡</div>
+        <div class="card-number">٠٣</div>
+        <h3>پشتبەستن بە خوا</h3>
+        <p class="arabic" lang="ar">حَسْبِيَ اللَّهُ وَنِعْمَ الْوَكِيلُ</p>
+        <span class="meaning-label">مانا بە کوردی</span>
+        <p class="meaning">خوا بۆ من بەسە و ئەو باشترین پشت و پەنا و کارسازە.</p>
+        <div class="card-actions">
+          <button class="action-btn speak" type="button">🔊 بیخوێنەوە</button>
+          <button class="action-btn secondary copy" type="button">کۆپیکردن</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-heading">
+      <div class="heading-label">
+        <span>☾</span>
+        <h2>دوعاکانی ڕۆژانە</h2>
+      </div>
+    </div>
+
+    <p class="section-description">
+      دوعاکانی ڕۆژانە بە مانای کوردی بخوێنەوە.
+    </p>
+
+    <div class="dua-grid">
+
+      <article class="dua-card">
+        <div class="card-icon">🌿</div>
+        <div class="card-number">٠٤</div>
+        <h3>دوعا بۆ زیادبوونی زانست</h3>
+        <p class="arabic" lang="ar">رَبِّ زِدْنِي عِلْمًا</p>
+        
+        <span class="meaning-label">مانا بە کوردی</span>
+        <p class="meaning">پەروەردگارم، زانستم بۆ زیاد بکە.</p>
+        <div class="card-actions">
+          <button class="action-btn speak" type="button">🔊 بیخوێنەوە</button>
+          <button class="action-btn secondary copy" type="button">کۆپیکردن</button>
+        </div>
+      </article>
+
+      <article class="dua-card">
+        <div class="card-icon">🕌</div>
+        <div class="card-number">٠٥</div>
+        <h3>دوعا بۆ چاکی دنیا و قیامەت</h3>
+        <p class="arabic" lang="ar">
+          رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً
+          وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ
+        </p>
+        <span class="meaning-label">مانا بە کوردی</span>
+        <p class="meaning">پەروەردگارمان، لە دنیا و قیامەت چاکیمان پێ ببەخشە و لە سزای ئاگر بمانپارێزە.</p>
+        <div class="card-actions">
+          <button class="action-btn speak" type="button">🔊 بیخوێنەوە</button>
+          <button class="action-btn secondary copy" type="button">کۆپیکردن</button>
+        </div>
+      </article>
+
+      <article class="dua-card">
+
+
+
+
+        
+        
+        <div class="card-icon">♡</div>
+        <div class="card-number">٠٦</div>
+        <h3>زیکری پشتبەستن بە خوا</h3>
+        <p class="arabic" lang="ar">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</p>
+        <span class="meaning-label">مانا بە کوردی</span>
+        <p class="meaning">هیچ توان و هێزێک نییە مەگەر بە یارمەتی خوای گەورە.</p>
+        <div class="card-actions">
+          <button class="action-btn speak" type="button">🔊 بیخوێنەوە</button>
+          <button class="action-btn secondary copy" type="button">کۆپیکردن</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <aside class="notice">
+    <div class="notice-icon"> نوری ئیمان☪</div>
+    <div>
+      <h3>تێبینی</h3>
+      <p>
+        ئەم پەڕەیە بۆ فێربوون و خوێندنەوەی دوعا و زیکرە.
+        بۆ ژمارە و فەزیلەتە تایبەتەکانی زیکرەکان، سەرچاوەیەکی
+        متمانەپێکراوی ئیسلامی بپشکنەوە.
+      </p>
+    </div>
+  </aside>
+
+</main>
+
+
+
+
+
+<style>
+.home-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 25px;
+  margin: 25px 0;
+  border: 1px solid #e8c675;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #064e48, #032c2e);
+  color: #fffdf5;
+  font-family: "Noto Sans Arabic", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 7px 20px #003b3026;
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-back-btn:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #087568, #06433e);
+  box-shadow: 0 12px 25px #003b3040;
+  color: #ffe4a0;
+}
+
+.home-back-btn .home-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #e8c675;
+  background: #ffffff12;
+  color: #f5d17c;
+  font-size: 21px;
+}
+
+.home-back-btn .home-arrow {
+  color: #f5d17c;
+  font-size: 20px;
+  transition: transform .3s ease;
+}
+
+.home-back-btn:hover .home-arrow {
+  transform: translateX(5px);
+}
+
+.home-back-wrap {
+  text-align: center;
+  padding: 10px 15px 30px;
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<div class="home-back-wrap">
+  <a href="index.html" class="home-back-btn">
+    <span class="home-icon">🕌</span>
+    <span>گەڕانەوە بۆ پەڕەی سەرەکی</span>
+    <span class="home-arrow">←</span>
+  </a>
+</div>
+
+
+
+
+
+
+
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">☪ نوری ئیمان</a>
+    <span class="footer-text">زیکری خوا، ئارامی دڵ</span>
+    <a class="back-top" href="#top">گەڕانەوە بۆ سەرەوە ↑</a>
+    <span class="footer-text">© <span id="year"></span> نوری ئیمان</span>
+  </div>
+</footer>
+
+<script>
+  // پاراستنی شێوازی ڕووناک یان تاریک
+  const themeToggle = document.getElementById("themeToggle");
+
+  if (localStorage.getItem("nour-theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+
+  themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+      "nour-theme",
+      document.body.classList.contains("dark") ? "dark" : "light"
+    );
+  });
+
+  // نیشاندانی ساڵی ئێستا
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // کۆپیکردنی دەقی دوعا
+  document.querySelectorAll(".copy").forEach(function (button) {
+    button.addEventListener("click", async function () {
+      const card = button.closest(".dua-card");
+      const arabic = card.querySelector(".arabic").innerText.trim();
+      const meaning = card.querySelector(".meaning").innerText.trim();
+
+      try {
+        await navigator.clipboard.writeText(arabic + "\n" + meaning);
+        button.textContent = "✓ کۆپی کرا";
+      } catch (error) {
+        window.prompt("دەقی دوعاکە کۆپی بکە:", arabic + "\n" + meaning);
+      }
+
+      setTimeout(function () {
+        button.textContent = "کۆپیکردن";
+      }, 1800);
+    });
+  });
+
+  // خوێندنەوەی دوعا بە دەنگی بەردەستی وەبگەڕ
+  document.querySelectorAll(".speak").forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (!("speechSynthesis" in window)) {
+        alert("وەبگەڕەکەت پشتگیری خوێندنەوەی دەنگی ناکات.");
+        return;
+      }
+
+      const card = button.closest(".dua-card");
+      const arabic = card.querySelector(".arabic").innerText.trim();
+
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(arabic);
+      utterance.lang = "ar";
+      utterance.rate = 0.8;
+
+      window.speechSynthesis.speak(utterance);
+    });
+  });
+</script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

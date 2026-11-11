@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حەدیسی پیرۆز | نوری ئیمان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    background: #071a1b;
+    color: #f5f1df;
+    min-height: 100vh;
+}
+
+header {
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #c5a45b30;
+}
+
+.logo {
+    color: #d9b96e;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.home {
+    text-decoration: none;
+    color: #d9b96e;
+    border: 1px solid #c5a45b70;
+    padding: 9px 20px;
+    border-radius: 12px;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 15px 35px;
+}
+
+.icon {
+    font-size: 48px;
+    color: #d9b96e;
+}
+
+.hero h1 {
+    font-size: 34px;
+    color: #e4c77e;
+    margin: 15px 0;
+}
+
+.hero p {
+    color: #b9c5bb;
+    line-height: 2;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 20px;
+}
+
+.search {
+    width: 100%;
+    padding: 16px;
+    background: #102b2a;
+    border: 1px solid #c5a45b50;
+    border-radius: 14px;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    margin-bottom: 25px;
+    outline: none;
+}
+
+.hadith-card {
+    background: linear-gradient(145deg,#12312e,#0b2222);
+    border: 1px solid #c5a45b55;
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 22px;
+    box-shadow: 0 12px 35px #0004;
+    transition: .3s;
+}
+
+.hadith-card:hover {
+    transform: translateY(-4px);
+    border-color: #d9b96e;
+}
+
+.category {
+    color: #d9b96e;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.arabic {
+    font-size: 25px;
+    line-height: 2.2;
+    text-align: center;
+    color: #f6e6b7;
+    margin: 15px 0 25px;
+}
+
+.translation {
+    font-size: 16px;
+    line-height: 2.2;
+    color: #e4e8df;
+    border-top: 1px solid #c5a45b40;
+    padding-top: 20px;
+}
+
+.source {
+    color: #d9b96e;
+    font-size: 13px;
+    margin-top: 18px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: inherit;
+    background: #d9b96e;
+    color: #102321;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+button:hover {
+    background: #f1d994;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    color: #a8b5a8;
+    border-top: 1px solid #c5a45b30;
+    margin-top: 40px;
+}
+
+@media(max-width:600px) {
+    .hero h1 {font-size:26px}
+    .arabic {font-size:21px}
+    .hadith-card {padding:20px}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header>
+    <div class="logo">✦ نوری ئیمان</div>
+    <a href="index.html" class="home">گەڕانەوە ⌂</a>
+</header>
+
+<section class="hero">
+    <div class="icon">﷽</div>
+    <h1>حەدیسی پێغەمبەری خوا ﷺ</h1>
+    <p>لە فەرموودە پیرۆزەکانی پێغەمبەرمانەوە ﷺ
+    ژیانی خۆمان بە ڕووناکی ئیمان ڕووناک بکەینەوە.</p>
+</section>
+
+<main class="container">
+
+<input
+    type="text"
+    class="search"
+    id="search"
+    placeholder="گەڕان لە حەدیثەکان..."
+    oninput="searchHadith()"
+>
+
+<div id="hadithList">
+
+<div class="hadith-card">
+    <div class="category">🌿 پۆلێن: نیەت و کردار</div>
+    <div class="arabic" dir="rtl">
+        إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى
+    </div>
+    <div class="translation">
+        بەڕاستی کردارەکان بە نیەتەکانە، و بێگومان بۆ هەر کەسێک ئەوەیە کە نیەتی کردووە.
+    </div>
+    <div class="source">سەرچاوە: صحیحی بوخاری، حەدیسی ١</div>
+    <div class="actions">
+        <button onclick="copyHadith(this)">کۆپیکردن</button>
+    </div>
+</div>
+
+<div class="hadith-card">
+    <div class="category">🌿 پۆلێن: میهرەبانی</div>
+    <div class="arabic">
+        مَنْ لَا يَرْحَمْ لَا يُرْحَمْ
+    </div>
+    <div class="translation">
+        ئەوەی بەزەیی بە کەسانی تر نەدا، بەزەییشی پێدا نایەت.
+    </div>
+    <div class="source">سەرچاوە: صحیحی بوخاری، حەدیسی ٦٠١٣</div>
+    <div class="actions">
+        <button onclick="copyHadith(this)">کۆپیکردن</button>
+    </div>
+</div>
+
+<div class="hadith-card">
+    <div class="category">🌿 پۆلێن: ڕەوشتی باش</div>
+    <div class="arabic">
+        الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ
+    </div>
+    <div class="translation">
+        وشەی پاک و جوانیش خێرکردن و سەدەقەیە.
+    </div>
+    <div class="source">سەرچاوە: صحیحی بوخاری، حەدیسی ٢٩٨٩</div>
+    <div class="actions">
+        <button onclick="copyHadith(this)">کۆپیکردن</button>
+    </div>
+</div>
+
+<div class="hadith-card">
+    <div class="category">🌿 پۆلێن: خۆشەویستی</div>
+    <div class="arabic">
+        لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ
+    </div>
+    <div class="translation">
+        هیچ کامتان ئیمانی تەواوی نییە تا ئەوەی بۆ خۆی خۆشی دەوێت بۆ براکەشی خۆشی نەوێت.
+    </div>
+    <div class="source">سەرچاوە: صحیحی بوخاری، حەدیسی ١٣</div>
+    <div class="actions">
+        <button onclick="copyHadith(this)">کۆپیکردن</button>
+    </div>
+</div>
+
+<div class="hadith-card">
+    <div class="category">🌿 پۆلێن: قسەکردن</div>
+    <div class="arabic">
+        فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ
+    </div>
+    <div class="translation">
+        با قسەی چاک بکات، یان بێدەنگ بێت.
+    </div>
+    <div class="source">سەرچاوە: صحیحی بوخاری، حەدیسی ٦٠١٨</div>
+    <div class="actions">
+        <button onclick="copyHadith(this)">کۆپیکردن</button>
+    </div>
+</div>
+
+</div>
+</main>
+
+<footer>
+    <p>✦ نوری ئیمان ✦</p>
+    <p>بە ڕووناکی قورئان و سوننەت، ڕێگای ڕاست بدۆزەرەوە.</p>
+    <p style="margin-top:12px;font-size:12px">
+        © 2026 نوری ئیمان - هەموو مافەکان پارێزراون
+    </p>
+</footer>
+
+<script>
+function searchHadith() {
+    let value = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".hadith-card");
+
+    cards.forEach(card => {
+        card.style.display =
+            card.innerText.toLowerCase().includes(value)
+            ? "block" : "none";
+    });
+}
+
+function copyHadith(button) {
+    let card = button.closest(".hadith-card");
+    let text = card.querySelector(".arabic").innerText +
+        "\n\n" + card.querySelector(".translation").innerText +
+        "\n" + card.querySelector(".source").innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+        button.innerText = "کۆپی کرا ✓";
+        setTimeout(() => button.innerText = "کۆپیکردن", 1800);
+    }).catch(() => alert("کۆپیکردن سەرکەوتوو نەبوو"));
+}
+</script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

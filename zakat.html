@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نوری ئیمان | زەکات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#061d18; --panel:#0b2b23; --card:#10382d;
+      --gold:#e9c777; --text:#f7f3e8; --muted:#c0d0c4;
+      --border:rgba(233,199,119,.22); --green:#174b3c;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:radial-gradient(ellipse at 12% 8%,rgba(35,105,76,.22),transparent 32%),
+      radial-gradient(ellipse at 90% 55%,rgba(194,151,67,.08),transparent 28%),var(--bg);
+      color:var(--text);font-family:"Noto Sans Arabic",sans-serif;line-height:1.9
+    }
+    a{color:inherit;text-decoration:none} button{font:inherit;cursor:pointer}
+    .navbar{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 6%;border-bottom:1px solid var(--border);background:rgba(4,25,20,.94);position:sticky;top:0;z-index:10;backdrop-filter:blur(18px);box-shadow:0 8px 30px #00000018}
+    .logo{font-size:27px;font-weight:800;white-space:nowrap}.logo span{color:var(--gold);text-shadow:0 0 18px #e9c77766}
+    .nav-links{display:flex;align-items:center;gap:12px}
+    .nav-links a{color:#d0ddd2;font-size:13px;padding:8px 12px;border-radius:30px;border:1px solid transparent;transition:.25s}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);border-color:#e9c77755;background:#e9c7770d}
+    .menu-btn{display:none;border:1px solid var(--border);border-radius:12px;color:var(--gold);background:var(--panel);padding:7px 13px}
+    .hero{padding:46px 8% 35px;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:28px;position:relative;background:radial-gradient(ellipse at 15% 50%,#1b5944 0%,transparent 48%),linear-gradient(135deg,#061d18,#0b3026 58%,#102d24);border-bottom:1px solid var(--border)}
+    .hero::before{content:"";position:absolute;inset:12px;border:1px solid #e9c77720;border-radius:25px;pointer-events:none}
+    .hero-art{width:130px;height:130px;display:grid;place-items:center;border:1px solid #e9c77770;border-radius:30px;transform:rotate(45deg);box-shadow:0 0 70px #e9c77713,inset 0 0 35px #e9c7770c}
+    .hero-symbol{transform:rotate(-45deg);font-size:65px;color:var(--gold);text-shadow:0 0 40px #e9c77755}
+    .eyebrow{color:var(--gold);font-size:14px;font-weight:700}
+    h1{font-size:clamp(36px,5vw,60px);line-height:1.5;margin:5px 0;font-weight:800}
+    .hero p{color:var(--muted);max-width:720px;font-size:15px}
+    .section{padding:42px 8% 75px;background:radial-gradient(ellipse at 90% 0%,#17443266,transparent 45%)}
+    .panel{max-width:1050px;margin:auto;border:1px solid #e9c77755;border-radius:28px;padding:clamp(22px,4vw,42px);background:linear-gradient(145deg,#0d3428,#071f19);box-shadow:0 22px 60px #00000030;position:relative;overflow:hidden}
+    .panel::before{content:"۞";position:absolute;left:18px;top:-45px;font-size:170px;color:#e9c7770d;pointer-events:none}
+    .panel-top{display:flex;align-items:center;gap:20px;margin-bottom:22px;position:relative}
+    .emblem{width:78px;height:78px;display:grid;place-items:center;flex-shrink:0;border:1px solid #e9c77766;border-radius:24px;color:var(--gold);background:#e9c77710;font-size:39px}
+    .panel-top h2{font-size:clamp(27px,4vw,40px);color:var(--gold);line-height:1.5}
+    .panel-top p{color:var(--muted);font-size:14px}
+    .intro{border-right:3px solid var(--gold);padding:17px 20px;border-radius:12px;background:#e9c7770c;margin:20px 0 25px;color:#f2eddd}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:22px 0}
+    .item{border:1px solid #e9c77725;border-radius:17px;padding:18px;background:#ffffff05;transition:.25s}
+    .item:hover{border-color:#e9c77780;transform:translateY(-3px)}
+    .item h3{color:var(--gold);font-size:16px;margin-bottom:7px}
+    .item p,.item li{color:var(--muted);font-size:13px}
+    .item ul{padding-right:20px}
+    .note{margin-top:20px;color:#aebfb3;font-size:12px}
+    .back-link{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:10px 18px;border:1px solid #e9c77766;border-radius:13px;color:#071f19;background:var(--gold);font-weight:800;transition:.2s}
+    .back-link:hover{transform:translateY(-2px);box-shadow:0 8px 22px #e9c77722}
+    .footer{border-top:1px solid var(--border);padding:25px 8%;display:flex;justify-content:space-between;align-items:center;gap:15px;color:var(--muted);font-size:12px;background:#041812}
+    .footer strong{color:var(--gold)}
+    @media(max-width:1050px){.navbar{padding-left:4%;padding-right:4%}.nav-links{gap:4px}.nav-links a{font-size:11px;padding:7px 9px}.hero,.section{padding-left:5%;padding-right:5%}}
+    @media(max-width:720px){.navbar{min-height:70px;padding:10px 5%}.logo{font-size:22px}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:calc(100% + 1px);right:4%;left:4%;padding:14px;border:1px solid var(--border);border-radius:18px;background:#08271f;box-shadow:0 18px 35px #00000045;flex-direction:column;align-items:stretch;gap:5px}.nav-links.open{display:flex}.nav-links a{font-size:13px;padding:10px 14px}.hero{grid-template-columns:1fr;text-align:center;justify-items:center;padding-top:35px}.hero-art{width:100px;height:100px}.hero-symbol{font-size:50px}.section{padding-top:30px}.grid{grid-template-columns:1fr}.panel-top{align-items:flex-start;gap:13px}.emblem{width:62px;height:62px;border-radius:18px;font-size:30px}.footer{flex-direction:column;text-align:center}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="index.html">نوری ئیمان <span>✦</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="کردنەوەی مێنیو" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">سەرەکی</a>
+      <a href="nwezh.html">نوێژ</a>
+      <a href="jorakanynwezh.html">جۆرەکانی نوێژ</a>
+      <a href="dua.html">دوعا و زیکر</a>
+      <a class="active" href="zakat.html">زەکات</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-art" aria-hidden="true"><div class="hero-symbol">🤲</div></div>
+      <div>
+        <span class="eyebrow">یەکێک لە پێنج پایەکەی ئیسلام</span>
+        <h1>زەکات <span style="color:var(--gold)">✦</span></h1>
+        <p>ڕێنماییەکی کورت و ئاسان دەربارەی زەکات، مەرجەکانی و کەسانی شایستەی وەرگرتنی.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="panel">
+        <div class="panel-top">
+          <div class="emblem" aria-hidden="true">🌙</div>
+          <div>
+            <span class="eyebrow">پاکی سامان و یارمەتی پێویستداران</span>
+            <h2>زەکات چییە؟</h2>
+            <p>تێگەیشتن لە بنەما و گرنگیی زەکات</p>
+          </div>
+        </div>
+        <div class="intro">
+          زەکات یەکێکە لە پێنج پایەکەی ئیسلام. زەکات بریتییە لە دەرکردنی بەشێکی دیاریکراو لە سامان، کاتێک مەرجەکانی شەریعەت تێدا جێبەجێ ببن، و پێدانی بە کەسانی شایستە. زەکات یارمەتی پێویستداران دەدات و فێرمان دەکات لە سامانماندا مافی کەسانی تریش هەیە.
+        </div>
+        <div class="grid">
+          <article class="item">
+            <h3>✦ کەی زەکات واجب دەبێت؟</h3>
+            <p>بە پێی جۆری سامان و مەرجەکانی وەک گەیشتن بە نیساب و تێپەڕبوونی ساڵی زەکاتی لەو سامانانەی ئەم مەرجەیان بۆ دانراوە. وردەکارییەکان لە هەموو جۆرێکدا یەکسان نین.</p>
+          </article>
+          <article class="item">
+            <h3>✦ زەکات بە کێ دەدرێت؟</h3>
+            <p>زەکات بۆ ئەو گرووپانەیە کە لە شەریعەتدا دیاریکراون؛ لەوانە هەژاران و پێویستداران. پێش بڕیاردان باشە دڵنیایی لە شایستەبوونی وەرگر بکرێتەوە.</p>
+          </article>
+          <article class="item">
+            <h3>✦ بڕی زەکات چەندە؟</h3>
+            <p>لە زۆر حاڵەتی پارە و بازرگانی، ڕێژەی ٢.٥٪ بەکاردێت، بەڵام ئەمە بۆ هەموو جۆرە سامانێک نییە. جۆری سامان، نیساب و مەرجەکانی دەبێت لەبەرچاو بگیرێن.</p>
+          </article>
+          <article class="item">
+            <h3>✦ جیاوازی زەکات و سەدەقە</h3>
+            <p>زەکات فەرزێکە کە مەرج و کات و وەرگری دیاریکراوی هەیە؛ سەدەقەی نافەرزیش دەتوانرێت بە ئارەزوو و لە کاتە جیاوازەکاندا بدرێت.</p>
+          </article>
+        </div>
+        <p class="note">تێبینی: ئەم بابەتە بۆ زانیاریی گشتییە. بۆ حیسابکردنی بڕی زەکات یان دۆخی تایبەت، لە مامۆستایەکی باوەڕپێکراوی ئایینی بپرسە.</p>
+        <a class="back-link" href="index.html">← گەڕانەوە بۆ پەڕەی سەرەکی</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="logo">نوری ئیمان <span>✦</span></div>
+    <p>بە زانیاری و ڕێنمایی، بەرەو ژیانێکی باشتر.</p>
+    <p>© <span id="year"></span> نوری ئیمان</p>
+  </footer>
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

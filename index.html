@@ -1,0 +1,1018 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#061d18">
+<title>نوری ئیمان | پەڕەی سەرەکی</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#061d18;
+  --panel:#0b2b23;
+  --card:#10382d;
+  --gold:#e9c777;
+  --text:#f7f3e8;
+  --muted:#c0d0c4;
+  --border:rgba(233,199,119,.22);
+  --green:#174b3c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(ellipse at 12% 8%,rgba(35,105,76,.22),transparent 32%),
+    radial-gradient(ellipse at 90% 55%,rgba(194,151,67,.08),transparent 28%),
+    var(--bg);
+  color:var(--text);
+  font-family:"Noto Sans Arabic",sans-serif;
+  line-height:1.9;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+
+/* Navigation */
+.navbar{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:12px 6%;
+  border-bottom:1px solid var(--border);
+  background:rgba(4,25,20,.94);
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(18px);
+  box-shadow:0 8px 30px #00000018;
+}
+.logo{
+  font-size:27px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:12px}
+.nav-links a{
+  color:#d0ddd2;
+  font-size:13px;
+  padding:8px 12px;
+  border-radius:30px;
+  border:1px solid transparent;
+  transition:.25s;
+}
+.nav-links a:hover,.nav-links a.active{
+  color:var(--gold);
+  border-color:#e9c77755;
+  background:#e9c7770d;
+}
+.menu-btn{
+  display:none;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--gold);
+  background:var(--panel);
+  padding:7px 13px;
+}
+
+/* Hero */
+.hero{
+  min-height:420px;
+  padding:65px 8%;
+  display:grid;
+  grid-template-columns:.85fr 1.2fr;
+  align-items:center;
+  gap:55px;
+  overflow:hidden;
+  position:relative;
+  background:
+    radial-gradient(ellipse at 15% 50%,#1b5944 0%,transparent 48%),
+    linear-gradient(135deg,#061d18,#0b3026 58%,#102d24);
+  border-bottom:1px solid var(--border);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:16px;
+  border:1px solid #e9c77720;
+  border-radius:28px;
+  pointer-events:none;
+}
+.hero-art{
+  min-height:260px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+.hero-art::before,.hero-art::after{
+  content:"";
+  position:absolute;
+  border:1px solid #e9c77770;
+  transform:rotate(45deg);
+  border-radius:28px;
+}
+.hero-art::before{
+  width:170px;height:170px;
+  box-shadow:0 0 70px #e9c77713,inset 0 0 35px #e9c7770c;
+}
+.hero-art::after{width:112px;height:112px;border-radius:22px}
+.hero-symbol{
+  position:relative;
+  z-index:1;
+  font-size:105px;
+  color:var(--gold);
+  text-shadow:0 0 40px #e9c77755;
+}
+.eyebrow{color:var(--gold);font-size:14px;font-weight:700}
+h1{font-size:clamp(44px,6vw,76px);line-height:1.5;margin:8px 0 12px;font-weight:800}
+.hero p{color:var(--muted);max-width:650px;font-size:15px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.tag{
+  border:1px solid #d7bd7650;
+  border-radius:30px;
+  padding:7px 16px;
+  color:#e5e5d8;
+  font-size:12px;
+  background:#ffffff05;
+  transition:.25s;
+}
+.tag:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* Quran Section */
+.quran-section{
+  position:relative;
+  overflow:hidden;
+  margin:45px 8%;
+  padding:65px 25px;
+  border:1px solid #e9c77755;
+  border-radius:30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 45%,#23604455,transparent 55%),
+    linear-gradient(135deg,#0b3025,#061b17 65%,#123b2d);
+  box-shadow:0 20px 55px #00000030;
+}
+.quran-section::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid #e9c77730;
+  border-radius:23px;
+  pointer-events:none;
+}
+.quran-decoration{
+  position:absolute;
+  font-size:260px;
+  color:#e9c77708;
+  top:5px;
+  left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.quran-content{
+  position:relative;
+  z-index:1;
+  max-width:760px;
+  margin:auto;
+}
+.quran-label{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.quran-content h2{
+  font-size:clamp(35px,5vw,52px);
+  margin-bottom:12px;
+}
+.quran-content h2 span{color:var(--gold)}
+.quran-description{
+  max-width:600px;
+  margin:auto;
+  color:var(--muted);
+  font-size:14px;
+  line-height:2.2;
+}
+.quran-verse{
+  margin:35px auto 25px;
+  padding:25px 15px;
+  border-top:1px solid #e9c77735;
+  border-bottom:1px solid #e9c77735;
+  background:#e9c77708;
+  border-radius:18px;
+}
+.verse-mark{color:var(--gold);font-size:25px}
+.quran-verse p{
+  font-family:"Amiri",serif;
+  font-size:clamp(25px,4vw,37px);
+  color:#f7e5b6;
+  margin:8px 0;
+}
+.quran-verse small{color:var(--muted);font-size:12px}
+.quran-features{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin:30px 0;
+}
+.quran-feature{
+  min-width:110px;
+  padding:13px;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  border:1px solid #e9c77730;
+  border-radius:15px;
+  background:#ffffff08;
+}
+.quran-feature span{font-size:20px}
+.quran-feature strong{color:var(--gold);font-size:23px}
+.quran-feature small{color:var(--muted);font-size:12px}
+.quran-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  padding:13px 30px;
+  border-radius:35px;
+  background:linear-gradient(135deg,#f1d48d,#c69b4d);
+  color:#10271d;
+  font-weight:800;
+  font-size:14px;
+  box-shadow:0 8px 25px #d6b46a25;
+  transition:.3s;
+}
+.quran-button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px #d6b46a40;
+}
+.quran-button span{font-size:20px}
+.quran-bottom{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+  margin-top:30px;
+  color:#d4bd81;
+  font-size:11px;
+}
+
+/* Main Section */
+.section{
+  padding:58px 8% 78px;
+  background:radial-gradient(ellipse at 90% 0%,#17443266,transparent 45%);
+}
+.section-head{margin-bottom:32px}
+.section-head h2{font-size:clamp(27px,4vw,42px);margin-bottom:8px}
+.section-head h2 span{color:var(--gold);margin-left:10px}
+.section-head p{color:var(--muted);font-size:14px;max-width:780px}
+.quote{
+  margin:30px 0;
+  padding:20px 25px;
+  border-right:3px solid var(--gold);
+  color:#e1e7d9;
+  background:linear-gradient(90deg,#e9c77706,#e9c77712);
+  border-radius:14px;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.card{
+  --accent:#e9c777;
+  min-height:160px;
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  gap:17px;
+  border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);
+  border-radius:22px;
+  background:
+    radial-gradient(ellipse at 10% 90%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 65%),
+    linear-gradient(145deg,#123a2d,#0a281f);
+  box-shadow:0 12px 30px #00000012;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+}
+.card-icon{
+  flex-shrink:0;
+  width:65px;
+  height:65px;
+  display:grid;
+  place-items:center;
+  font-size:34px;
+  border-radius:20px;
+  border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
+  background:color-mix(in srgb,var(--accent) 10%,transparent);
+}
+.card-content{flex:1}
+.card-number{
+  display:inline-block;
+  color:var(--accent);
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+.card h3{font-size:16px;margin-bottom:5px}
+.card p{color:var(--muted);font-size:12px}
+.card-arrow{
+  align-self:flex-end;
+  color:var(--accent);
+  font-size:22px;
+  transition:.25s;
+}
+.card:hover .card-arrow{transform:translateX(-4px)}
+
+/* Footer */
+.footer{
+  border-top:1px solid var(--border);
+  padding:25px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  color:var(--muted);
+  font-size:12px;
+  background:#041812;
+}
+.footer strong{color:var(--gold)}
+
+/* Responsive */
+@media(max-width:1050px){
+  .navbar{padding-left:4%;padding-right:4%}
+  .nav-links{gap:4px}
+  .nav-links a{font-size:11px;padding:7px 9px}
+  .hero,.section{padding-left:5%;padding-right:5%}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:720px){
+  .navbar{min-height:70px;padding:10px 5%}
+  .logo{font-size:22px}
+  .menu-btn{display:block}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:calc(100% + 1px);
+    right:4%;left:4%;
+    padding:14px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:#08271f;
+    box-shadow:0 18px 35px #00000045;
+    flex-direction:column;
+    align-items:stretch;
+    gap:5px;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:13px;padding:10px 14px}
+  .hero{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding-top:38px;
+    text-align:center;
+  }
+  .hero-art{min-height:180px;grid-row:2}
+  .hero-symbol{font-size:78px}
+  .hero-tags{justify-content:center}
+  .section{padding-top:40px}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:135px}
+  .quran-section{margin:25px 5%;padding:45px 18px}
+  .quran-features{gap:8px}
+  .quran-feature{min-width:85px;padding:10px 7px}
+  .quran-feature strong{font-size:19px}
+  .footer{flex-direction:column;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header class="navbar">
+  <a class="logo" href="#home">نوری ئیمان <span>✦</span></a>
+
+  <button class="menu-btn" id="menuBtn"
+    aria-label="کردنەوەی مێنیو"
+    aria-expanded="false">☰</button>
+
+  <nav class="nav-links" id="navLinks">
+    <a class="active" href="#home">سەرەکی</a>
+    <a href="nwezh.html">نوێژ</a>
+    <a href="jorakanynwezh.html">جۆرەکانی نوێژ</a>
+    <a href="dua.html">دوعا و زیکر</a>
+    <a href="zakat.html">زەکات</a>
+    <a href="naw.html">ناوەکانی خوای گەورە</a>
+    <a href="talaq.html">تەلاق</a>
+    
+    <a href="katakanyBang.html">کاتەکانی بانگ</a>
+    <a href="about.html">  دەربارە</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-art" aria-hidden="true">
+      <div class="hero-symbol">✦</div>
+    </div>
+
+    <div class="hero-content">
+      <span class="eyebrow">ستونێکی ئیسلام</span>
+      <h1>نوێژ <span style="color:var(--gold)">✦</span></h1>
+      <p>
+        گرنگی نوێژ، ئادابی نوێژ، ڕێنمایی نوێژ و
+        زانیارییە بەسوودەکان بۆ ژیانی ڕۆژانەی ئێمە.
+      </p>
+
+      <div class="hero-tags">
+        <a class="tag" href="payekaniBawar.html">📖 پایەکانی باوەڕ</a>
+        <a class="tag" href="duayDastpek.html">🤲 دوعای دەستپێک</a>
+        <a class="tag" href="dastnwezh.html">⭐ شێوازی دەست نوێژگرتن</a>
+        <a class="tag" href="#categories">⭐ گرنگی نوێژ</a>
+        <a class="tag" href="qiblanma.html">قیبلە نما</a>
+        <a class="tag" href="quiz.html">تاقیکردنەوە ئیسلامییەکان</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quran Section -->
+  <section class="quran-section" id="quran">
+    <div class="quran-decoration">۞</div>
+
+    <div class="quran-content">
+      <div class="quran-label">✦ کتێبی پیرۆزی خوای گەورە ✦</div>
+
+      <h2>قورئانی <span>پیرۆز</span></h2>
+
+      <p class="quran-description">
+        ڕووناکییەک بۆ دڵ، ئارامییەک بۆ ڕۆح.
+        بە خوێندنەوەی قورئانی پیرۆز دڵەکانت ڕووناک بکەرەوە
+        و نزیکتر ببەوە لە خوای گەورە.
+      </p>
+
+      <div class="quran-verse">
+        <div class="verse-mark">۞</div>
+        <p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <small>بە ناوی خوای بەخشندە و میهرەبان</small>
+      </div>
+
+      <div class="quran-features">
+        <div class="quran-feature">
+          <span>📖</span>
+          <strong>١١٤</strong>
+          <small>سوورەت</small>
+        </div>
+
+        <div class="quran-feature">
+          <span>✨</span>
+          <strong>٦٢٣٦</strong>
+          <small>ئایەت</small>
+        </div>
+
+        <div class="quran-feature">
+          <span>🕌</span>
+          <strong>٣٠</strong>
+          <small>جوزء</small>
+        </div>
+      </div>
+
+      <a href="quran.html" class="quran-button">
+        دەستپێکردنی خوێندنەوە
+        <span>←</span>
+      </a>
+
+      <div class="quran-bottom">
+        <span>۞</span>
+        <span>بەشی تایبەتی قورئانی پیرۆز</span>
+        <span>۞</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prayer Categories -->
+  <section class="section" id="categories">
+    <div class="section-head">
+      <h2><span>✦</span> ڕێنمایی نوێژ بە کوردی</h2>
+      <p>
+        هەنگاوە سەرەکییەکان و ڕێنماییە بەسوودەکان بۆ
+        فێربوونی نوێژ و تێگەیشتن لە بابەتە ئایینییەکان.
+      </p>
+    </div>
+
+    <div class="quote">
+      «هەنگاوێکی بچووک بۆ فێربوون،
+      دەکرێت ببێتە دەستپێکی گۆڕانێکی گەورە.»
+    </div>
+
+    <div class="cards">
+
+      <a class="card" href="nyatwDastnwezh.html" style="--accent:#c18aff">
+        <div class="card-icon">💡</div>
+        <div class="card-content">
+          <span class="card-number">١ — بابەتی یەکەم</span>
+          <h3>نیەت و دەستنوێژ</h3>
+          <p>فێربوونی بنەما سەرەکییەکان</p>
+        </div>
+        <span class="card-arrow">←</span>
+      </a>
+
+      <a class="card" href="takbirwDastpekrdnyNwezh.html" style="--accent:#00d9aa">
+        <div class="card-icon">🧠</div>
+        <div class="card-content">
+          <span class="card-number">٢ — بابەتی دووەم</span>
+          <h3>تکبیر و دەستپێکردنی نوێژ</h3>
+          <p>فێربوونی هەنگاوەکانی نوێژ</p>
+        </div>
+        <span class="card-arrow">←</span>
+      </a>
+
+      <a class="card" href="nawPexambaran.html" style="--accent:#35aaff">
+        <div class="card-icon">📚</div>
+        <div class="card-content">
+          <span class="card-number">٣ — بابەتی سێیەم</span>
+          <h3>پێغەمبەران</h3>
+          <p>دوعاکان و فێربوونی زیاتر</p>
+        </div>
+        <span class="card-arrow">←</span>
+      </a>
+
+      <a class="card" href="tasbih.html" style="--accent:#ffad42">
+        <div class="card-icon">🎯</div>
+        <div class="card-content">
+          <span class="card-number">٤ — بابەتی چوارەم</span>
+          <h3>زیکر و تەسبیحات</h3>
+          <p>زانیاری و ئامۆژگاری بەسوود</p>
+        </div>
+        <span class="card-arrow">←</span>
+      </a>
+
+      <a class="card" href="zikrBaynyan.html" style="--accent:#18caff">
+        <div class="card-icon">⚙️</div>
+        <div class="card-content">
+          <span class="card-number">٥ — بابەتی پێنجەم</span>
+          <h3>زیکر و دوعاکانی بەیانی و ئێواران</h3>
+        </div>
+        <span class="card-arrow">←</span>
+      </a>
+
+      <a class="card" href="farmuda.html" style="--accent:#00d9d0">
+        <div class="card-icon">📖</div>
+        <div class="card-content">
+          <span class="card-number">٦ — بابەتی شەشەم</span>
+          <h3>فەرمودەکانی پێغەمبەر ﷺ</h3>
+          
+        </div>
+        <span class="card-arrow">←</span>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="logo">نوری ئیمان <span>✦</span></div>
+  <p>
+    ✨ نوری ئیمان؛ ڕووناکییەک بۆ دڵ،
+    ئارامییەک بۆ ڕۆح، و ڕێگایەک بۆ نزیکبوونەوە لە خوای گەورە. 🤍
+  </p>
+  <p>© <span id="year"></span> نوری ئیمان</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(isOpen));
+  menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- NOORI IMAN GLASS TASKBAR -->
+<nav class="ni-taskbar" aria-label="مینۆی سەرەکی">
+  <a href="index.html" class="ni-item active">
+    <span class="ni-icon">⌂</span>
+    <span>سەرەکی</span>
+  </a>
+
+  <a href="quran.html" class="ni-item">
+    <span class="ni-icon">۞</span>
+    <span>قورئان</span>
+  </a>
+
+  <a href="qiblanma.html" class="ni-item">
+    <span class="ni-icon">◈</span>
+    <span>قیبلە</span>
+  </a>
+
+  <a href="katakanyBang.html" class="ni-item">
+    <span class="ni-icon">◷</span>
+    <span>بانگ</span>
+  </a>
+  
+ <a href="quiz.html" class="ni-item"> 
+    <span class="ni-icon">؟</span>
+    <span>تاقیکردنەوە</span>
+</span>
+</a>
+
+
+
+  <button class="ni-item" id="niMoreBtn" type="button">
+    <span class="ni-icon">☰</span>
+    <span>زیاتر</span>
+  </button>
+</nav>
+
+<!-- MORE MENU -->
+<div class="ni-more-overlay" id="niOverlay"></div>
+
+<div class="ni-more-panel" id="niMorePanel">
+  <div class="ni-panel-head">
+    <span>☾ بەشەکانی نوری ئیمان</span>
+    <button id="niCloseBtn" type="button">✕</button>
+  </div>
+
+  <div class="ni-more-grid">
+    <a href="dua.html">🤲 دوعا و زیکر</a>
+    <a href="hadith.html">📜 فەرموودە</a>
+    <a href="nwezh.html">🕌 فێربوونی نوێژ</a>
+    <a href="dastnwezh.html">💧 دەستنوێژ</a>
+    <a href="naw.html">✨ ناوەکانی خودا</a>
+    <a href="zakat.html">🌙 زەکات</a>
+    <a href="quiz.html">🧠 تاقیکردنەوەی ئیسلامی</a>
+    <a href="quiz.html">
+  🕌 تاقیکردنەوەی ئیسلامی
+</a>
+    <a href="about.html">ℹ️ دەربارەی ئێمە</a>
+  </div>
+</div>
+
+<style>
+:root {
+  --ni-gold: #d6b46a;
+  --ni-dark: #071c1b;
+  --ni-glass: rgba(8, 31, 29, .88);
+}
+
+/* Bottom Taskbar */
+.ni-taskbar {
+  position: fixed;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(94%, 590px);
+  min-height: 76px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 4px;
+  z-index: 9999;
+
+  background: var(--ni-glass);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(214,180,106,.27);
+  border-radius: 25px;
+
+  box-shadow:
+    0 12px 40px rgba(0,0,0,.35),
+    inset 0 1px 1px rgba(255,255,255,.12);
+}
+
+/* Items */
+.ni-item {
+  flex: 1;
+  min-width: 0;
+  min-height: 56px;
+  padding: 6px 2px;
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  border-radius: 17px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.ni-icon {
+  font-size: 25px;
+  line-height: 1.2;
+  transition: .3s ease;
+}
+
+.ni-item.active {
+  color: var(--ni-gold);
+  background: rgba(214,180,106,.12);
+}
+
+.ni-item.active .ni-icon {
+  transform: translateY(-2px);
+  text-shadow: 0 0 15px rgba(214,180,106,.5);
+}
+
+.ni-item:active {
+  transform: scale(.92);
+}
+
+/* More overlay */
+.ni-more-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(3px);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.ni-more-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* More panel */
+.ni-more-panel {
+  position: fixed;
+  z-index: 10001;
+  bottom: 105px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  width: min(92%, 520px);
+  padding: 20px;
+  border-radius: 25px;
+
+  background: rgba(8,31,29,.97);
+  border: 1px solid rgba(214,180,106,.3);
+  box-shadow: 0 15px 45px rgba(0,0,0,.4);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s ease;
+}
+
+.ni-more-panel.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.ni-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--ni-gold);
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.ni-panel-head button {
+  border: 0;
+  background: rgba(255,255,255,.08);
+  color: white;
+  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.ni-more-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.ni-more-grid a {
+  color: #eee9dc;
+  text-decoration: none;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 13px;
+  transition: .25s;
+}
+
+.ni-more-grid a:hover {
+  background: rgba(214,180,106,.15);
+  border-color: var(--ni-gold);
+  color: var(--ni-gold);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .ni-taskbar {
+    width: 570px;
+    bottom: 22px;
+  }
+
+  .ni-item {
+    font-size: 13px;
+  }
+
+  .ni-icon {
+    font-size: 27px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .ni-taskbar {
+    width: 96%;
+    padding: 7px 5px;
+  }
+
+  .ni-item {
+    font-size: 10px;
+  }
+
+  .ni-icon {
+    font-size: 22px;
+  }
+}
+
+/* Keep page content above taskbar */
+body {
+  padding-bottom: 115px;
+}
+</style>
+
+<script>
+(() => {
+  const moreBtn = document.getElementById("niMoreBtn");
+  const panel = document.getElementById("niMorePanel");
+  const overlay = document.getElementById("niOverlay");
+  const closeBtn = document.getElementById("niCloseBtn");
+
+  function openMore() {
+    panel.classList.add("show");
+    overlay.classList.add("show");
+  }
+
+  function closeMore() {
+    panel.classList.remove("show");
+    overlay.classList.remove("show");
+  }
+
+  moreBtn.addEventListener("click", openMore);
+  closeBtn.addEventListener("click", closeMore);
+  overlay.addEventListener("click", closeMore);
+
+  // Automatic active page detection
+  const currentPage = location.pathname.split("/").pop() || "index.html";
+
+  document.querySelectorAll(".ni-taskbar a").forEach(link => {
+    const page = link.getAttribute("href");
+
+    if (page === currentPage) {
+      document.querySelectorAll(".ni-item").forEach(item => {
+        item.classList.remove("active");
+      });
+      link.classList.add("active");
+    }
+  });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

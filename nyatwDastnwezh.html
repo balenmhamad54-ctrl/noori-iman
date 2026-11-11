@@ -1,0 +1,956 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl" data-theme="emerald">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="فێربوونی نیەتی دەستنوێژگرتن و هەنگاوەکانی دەستنوێژ">
+  <title>نیەتی دەستنوێژگرتن | نوری ئیمان</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071914;
+      --surface: #102820;
+      --surface-2: #18392e;
+      --accent: #d9b76b;
+      --accent-soft: rgba(217,183,107,.12);
+      --text: #f5f6ee;
+      --muted: #b6c8bf;
+      --border: rgba(217,183,107,.24);
+      --hero-glow: #214b38;
+      --shadow: rgba(0,0,0,.22);
+    }
+
+    html[data-theme="blue"] {
+      color-scheme: dark;
+      --bg: #091522;
+      --surface: #122438;
+      --surface-2: #1a334b;
+      --accent: #79c8ed;
+      --accent-soft: rgba(121,200,237,.12);
+      --text: #eff7ff;
+      --muted: #b6c9da;
+      --border: rgba(121,200,237,.25);
+      --hero-glow: #204665;
+      --shadow: rgba(0,0,0,.24);
+    }
+
+    html[data-theme="purple"] {
+      color-scheme: dark;
+      --bg: #171020;
+      --surface: #271b34;
+      --surface-2: #362545;
+      --accent: #d4a5ff;
+      --accent-soft: rgba(212,165,255,.12);
+      --text: #faf3ff;
+      --muted: #d0bfdc;
+      --border: rgba(212,165,255,.25);
+      --hero-glow: #4a2d60;
+      --shadow: rgba(0,0,0,.24);
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f5f5ef;
+      --surface: #ffffff;
+      --surface-2: #f0f3ec;
+      --accent: #947027;
+      --accent-soft: rgba(148,112,39,.10);
+      --text: #24352d;
+      --muted: #65756b;
+      --border: rgba(148,112,39,.25);
+      --hero-glow: #dbe9d9;
+      --shadow: rgba(35,50,40,.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans Arabic", sans-serif;
+      background:
+        radial-gradient(ellipse at 50% 0%, var(--hero-glow), transparent 48%),
+        var(--bg);
+      color: var(--text);
+      line-height: 2;
+      transition: background .3s, color .3s;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 13px 6%;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 5px 25px var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .brand span {
+      margin-left: 5px;
+    }
+
+    .back {
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    .back:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .theme-panel {
+      width: min(92%, 720px);
+      margin: 24px auto 0;
+      padding: 17px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 35px var(--shadow);
+    }
+
+    .theme-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .theme-heading h2 {
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .theme-heading span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .theme-options {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .theme-btn {
+      min-width: 0;
+      padding: 11px 5px;
+      border-radius: 13px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .theme-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .theme-btn[aria-pressed="true"] {
+      border: 2px solid var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .swatches {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 5px;
+    }
+
+    .swatch {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 1px solid rgba(128,128,128,.3);
+    }
+
+    .theme-name {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 55px 20px 42px;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      color: var(--accent);
+      opacity: .23;
+      font-size: 70px;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      top: 22px;
+      right: 10%;
+    }
+
+    .hero::after {
+      bottom: 10px;
+      left: 10%;
+    }
+
+    .ornament {
+      color: var(--accent);
+      letter-spacing: 8px;
+      margin-bottom: 12px;
+      font-size: 19px;
+    }
+
+    .symbol {
+      display: grid;
+      place-items: center;
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 17px;
+      border: 1px solid var(--border);
+      border-radius: 27px;
+      background: var(--accent-soft);
+      font-size: 39px;
+      box-shadow: 0 0 35px var(--shadow);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: clamp(27px, 5vw, 40px);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      margin-top: 19px;
+      padding: 6px 15px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 12px;
+    }
+
+    main {
+      width: min(900px, 100%);
+      margin: auto;
+      padding: 20px 18px 55px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 21px;
+      padding: 25px;
+      margin-bottom: 22px;
+      box-shadow: 0 12px 35px var(--shadow);
+      animation: appear .55s ease both;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .section-icon {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 39px;
+      height: 39px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      font-size: 19px;
+    }
+
+    .intro {
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .highlight {
+      margin-top: 18px;
+      padding: 17px;
+      border-right: 4px solid var(--accent);
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .point {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 16px;
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--surface-2);
+    }
+
+    .point-icon {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      font-size: 20px;
+    }
+
+    .point h3 {
+      color: var(--accent);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .point p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .steps {
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .steps li:last-child {
+      border-bottom: 0;
+    }
+
+    .steps li::before {
+      content: counter(step, arabic-indic);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 39px;
+      height: 39px;
+      border-radius: 13px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      font-weight: 800;
+    }
+
+    .steps strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .steps span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .video-box {
+      text-align: center;
+      padding: 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+    }
+
+    .video-box h3 {
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .video-box p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #000;
+      border: 1px solid var(--border);
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-link {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 18px;
+      border-radius: 11px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 800;
+      transition: opacity .2s;
+    }
+
+    .video-link:hover {
+      opacity: .85;
+    }
+
+    .sources a {
+      display: block;
+      padding: 12px 14px;
+      margin-top: 9px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      color: var(--accent);
+      background: var(--surface-2);
+      font-size: 13px;
+      transition: background .2s;
+    }
+
+    .sources a:hover {
+      background: var(--accent-soft);
+    }
+
+    .closing {
+      text-align: center;
+      padding: 24px;
+      color: var(--accent);
+      font-size: 19px;
+    }
+
+    .closing p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 25px 15px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--accent);
+      font-size: 17px;
+    }
+
+    footer p {
+      margin-top: 5px;
+    }
+
+    .back-top {
+      position: fixed;
+      bottom: 18px;
+      left: 18px;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--accent);
+      box-shadow: 0 5px 20px var(--shadow);
+      font-size: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        padding: 12px 15px;
+      }
+
+      .brand {
+        font-size: 18px;
+      }
+
+      .back {
+        font-size: 11px;
+        padding: 6px 9px;
+      }
+
+      .theme-panel {
+        padding: 13px;
+        margin-top: 15px;
+      }
+
+      .theme-options {
+        gap: 6px;
+      }
+
+      .theme-btn {
+        padding: 9px 2px;
+      }
+
+      .theme-name {
+        font-size: 10px;
+      }
+
+      .swatch {
+        width: 14px;
+        height: 14px;
+      }
+
+      .hero {
+        padding: 38px 18px 28px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 17px;
+      }
+
+      .card h2 {
+        font-size: 17px;
+      }
+
+      .point {
+        padding: 12px;
+      }
+
+      .video-box {
+        padding: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+  <header class="topbar" id="top">
+    <a href="index.html" class="brand"><span>☾</span> نوری ئیمان</a>
+    <a href="index.html" class="back">→ گەڕانەوە بۆ پەڕەی سەرەکی </a>
+  </header>
+
+  <section class="theme-panel" aria-label="گۆڕینی ڕەنگی پەڕە">
+    <div class="theme-heading">
+      <h2>🎨 ڕەنگی پەڕە بگۆڕە</h2>
+      <span>Theme</span>
+    </div>
+
+    <div class="theme-options">
+      <button class="theme-btn" type="button" data-set-theme="emerald" aria-pressed="true">
+        <span class="swatches">
+          <i class="swatch" style="background:#071914"></i>
+          <i class="swatch" style="background:#214b38"></i>
+          <i class="swatch" style="background:#d9b76b"></i>
+        </span>
+        <span class="theme-name">سەوز و زێڕین</span>
+      </button>
+
+      <button class="theme-btn" type="button" data-set-theme="blue" aria-pressed="false">
+        <span class="swatches">
+          <i class="swatch" style="background:#091522"></i>
+          <i class="swatch" style="background:#204665"></i>
+          <i class="swatch" style="background:#79c8ed"></i>
+        </span>
+        <span class="theme-name">شین</span>
+      </button>
+
+      <button class="theme-btn" type="button" data-set-theme="purple" aria-pressed="false">
+        <span class="swatches">
+          <i class="swatch" style="background:#171020"></i>
+          <i class="swatch" style="background:#4a2d60"></i>
+          <i class="swatch" style="background:#d4a5ff"></i>
+        </span>
+        <span class="theme-name">مۆر</span>
+      </button>
+
+      <button class="theme-btn" type="button" data-set-theme="light" aria-pressed="false">
+        <span class="swatches">
+          <i class="swatch" style="background:#f5f5ef"></i>
+          <i class="swatch" style="background:#dbe9d9"></i>
+          <i class="swatch" style="background:#947027"></i>
+        </span>
+        <span class="theme-name">ڕووناک</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="ornament">۞ ﷽ ۞</div>
+    <div class="symbol">💧</div>
+    <div class="eyebrow">فێربوونی ئایینی</div>
+    <h1>نیەتی دەستنوێژگرتن</h1>
+    <p>
+      فێری شوێنی نیەت، کاتی نیەت و هەنگاوەکانی
+      دەستنوێژگرتن ببە بە شێوەیەکی ئاسان و ڕوون.
+    </p>
+    <span class="hero-badge">☪ زانست · پاکی · عیبادەت</span>
+  </section>
+
+  <main>
+
+
+
+
+
+
+    <section class="card">
+      <h2><span class="section-icon">📖</span> نیەتی دەستنوێژ چییە؟</h2>
+
+      <p class="intro">
+        نیەت لە کاتی دەستنوێژگرتندا
+        <strong>لە دڵدایە و پێویست بە وتنی بە زمان ناکات</strong>.
+        واتە مرۆڤ لە دڵیدا مەبەستی ئەوەی هەبێت کە بۆ پاکبوونەوە
+        و ئەنجامدانی عیبادەت دەستنوێژ دەگرێت.
+      </p>
+
+      <div class="highlight">
+        🌿 پێویست ناکات دەقێکی تایبەت بە زمان بڵێیت؛
+        گرنگ ئەوەیە مەبەستی دەستنوێژگرتن لە دڵتدا هەبێت.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="section-icon">✨</span> خاڵە سەرەکییەکانی نیەت</h2>
+
+      <div class="point">
+        <div class="point-icon">❤️</div>
+        <div>
+          <h3>١. شوێنی نیەت</h3>
+          <p>شوێنی نیەت دڵە؛ واتە مەبەست و بڕیارت بۆ دەستنوێژگرتن لە دڵدا هەبێت.</p>
+        </div>
+      </div>
+
+      <div class="point">
+        <div class="point-icon">⏳</div>
+        <div>
+          <h3>٢. کاتی نیەت</h3>
+          <p>نیەت پەیوەندی بە دەستپێکردنی دەستنوێژەوە هەیە. زانایان لە وردەکارییەکانی کاتی نیەتدا جیاوازیی ڕا هەیە.</p>
+        </div>
+      </div>
+
+      <div class="point">
+        <div class="point-icon">🗣️</div>
+        <div>
+          <h3>٣. ئایا دەبێت بە زمان بگوترێت؟</h3>
+          <p>وتنی «نیتم کرد دەستنوێژ بگرم» مەرجی دروستی دەستنوێژ نییە؛ نیەت لە دڵدایە.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="section-icon">🕌</span> هەنگاوەکانی دەستنوێژگرتن</h2>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <strong>گوتنی بِسْمِ اللَّهِ</strong>
+            <span>لە سەرەتای دەستنوێژدا ناوی خوای گەورە بهێنە.</span>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <strong>شۆردنی دەستەکان</strong>
+            <span>هەردوو دەستت تا مچەکان بشۆرە؛ سێ جار شۆردن سوننەتە.</span>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <strong>مەزمەزە و ئیستنیشاق</strong>
+            <span>ئاو بخەرە دەم و لووت و دەریبهێنە؛ لە شێوازی باودا سێ جار.</span>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <strong>شۆردنی ڕوخسار</strong>
+            <span>ڕوخسارت بە تەواوی بشۆرە، لە سنووری ڕوخساردا.</span>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <strong>شۆردنی دەستەکان تا ئانیشک</strong>
+            <span>هەردوو دەست تا ئانیشک بشۆرە، لەگەڵ ئەنجامدانی شۆردن بە تەواوی.</span>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <strong>مەسحی سەر</strong>
+            <span>بە تەڕی دەستەکان سەرت مەسح بکە؛ مەسحی گوێکانیش لە شێوازی باوی دەستنوێژدایە.</span>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <strong>شۆردنی پێکان</strong>
+            <span>هەردوو پێ تا قولەپێکان بشۆرە و ئاگاداری پەنجەکان و شوێنەکانی نێوانیان بە.</span>
+          </div>
+        </li>
+      </ol>
+
+      <div class="highlight">
+        📌 تێبینی: شۆردنی ئەندامە پێویستەکان سێ جار سوننەتە،
+        بەڵام یەک جار شۆردنی تەواوی ئەندامە پێویستەکانیش
+        بە مەرجەکانی خۆی دروستە. وردەکارییە فقهییەکان
+        لە مەزهەبەکاندا هەندێک جیاوازییان هەیە.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="section-icon">🎥</span> فێربوونی دەستنوێژ بە ڤیدیۆ</h2>
+
+      <div class="video-box">
+        <h3>ڤیدیۆی فێرکاری دەستنوێژ</h3>
+        <p>بە ڤیدیۆ فێری چۆنیەتی دەستنوێژگرتن ببە.</p>
+
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/Tqj1esdb0Q4"
+            title="فێرکاری چۆنیەتی دەستنوێژگرتن"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <a class="video-link"
+           href="https://www.youtube.com/watch?v=Tqj1esdb0Q4"
+           target="_blank"
+           rel="noopener noreferrer">
+          ▶ بینینی ڤیدیۆ لە یوتیوب
+        </a>
+      </div>
+    </section>
+
+    <section class="card sources">
+      <h2><span class="section-icon">📚</span> سەرچاوەکان</h2>
+
+      <a href="https://walamakan.com/3404"
+         target="_blank" rel="noopener noreferrer">
+        ١. وەلامەکان — زانیاری دەربارەی نیەت ↗
+      </a>
+
+      <a href="https://zaniary.com/blog/6033f53f533c9"
+         target="_blank" rel="noopener noreferrer">
+        ٢. زانیاری — نیەتی دەستنوێژ ↗
+      </a>
+
+      <a href="https://zaniary.com/blog/6057d69ca7973"
+         target="_blank" rel="noopener noreferrer">
+        ٣. زانیاری — باسکردنی نیەت بە زمان ↗
+      </a>
+    </section>
+
+    <div class="closing">
+      ﴿ إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ ﴾
+      <p>سورەتی بەقەرە، ئایەتی ٢٢٢</p>
+    </div>
+
+  </main>
+
+  <a class="back-top" href="#top" aria-label="گەڕانەوە بۆ سەرەوە">↑</a>
+
+  <footer>
+    <strong>☾ نوری ئیمان</strong>
+    <p>بە زانست، دڵ ڕووناک بکەوە</p>
+    <p>© نوری ئیمان — هەموو مافەکان پارێزراون</p>
+  </footer>
+
+  <script>
+    const themeButtons = document.querySelectorAll("[data-set-theme]");
+    const allowedThemes = ["emerald", "blue", "purple", "light"];
+
+    function applyTheme(theme) {
+      if (!allowedThemes.includes(theme)) {
+        theme = "emerald";
+      }
+
+      document.documentElement.dataset.theme = theme;
+
+      themeButtons.forEach((button) => {
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.setTheme === theme)
+        );
+      });
+
+      try {
+        localStorage.setItem("nouri-iman-theme", theme);
+      } catch (error) {
+        // ئەگەر پاشەکەوتکردن بەردەست نەبوو، Theme هەر کار دەکات.
+      }
+    }
+
+    themeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyTheme(button.dataset.setTheme);
+      });
+    });
+
+    try {
+      const savedTheme = localStorage.getItem("nouri-iman-theme");
+      if (savedTheme && allowedThemes.includes(savedTheme)) {
+        applyTheme(savedTheme);
+      }
+    } catch (error) {
+      // بەبێ localStorage، ڕەنگی بنەڕەتی بەکاردێت.
+    }
+  </script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

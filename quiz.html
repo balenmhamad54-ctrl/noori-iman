@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081c20">
+<title>تاقیکردنەوەی ئیسلامی | نوری ئیمان</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+
+
+<style>
+
+
+:root {
+  --bg: #061817;
+  --card: #102c29;
+  --card2: #163934;
+  --gold: #e2c47e;
+  --gold-light: #f4dfaa;
+  --text: #fffaf0;
+  --muted: #a9bbb3;
+  --green: #35b987;
+  --red: #e47777;
+  --border: rgba(226,196,126,.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 25px 15px 45px;
+  color: var(--text);
+  font-family: 'Noto Sans Arabic', sans-serif;
+  background:
+    radial-gradient(ellipse at top, rgba(42,112,86,.35), transparent 55%),
+    radial-gradient(circle at bottom left, rgba(226,196,126,.08), transparent 35%),
+    linear-gradient(145deg,#061817,#0a2421,#071a19);
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 780px;
+  margin: auto;
+}
+
+/* HEADER */
+
+.header {
+  text-align: center;
+  padding: 20px 10px 30px;
+}
+
+.logo {
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 17px;
+  border-radius: 27px;
+  background: linear-gradient(145deg,rgba(226,196,126,.2),rgba(226,196,126,.04));
+  border: 1px solid rgba(226,196,126,.45);
+  color: var(--gold);
+  font-size: 42px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.3);
+}
+
+.header h1 {
+  color: var(--gold);
+  font-size: clamp(23px,5vw,31px);
+  margin: 8px 0;
+  font-weight: 800;
+}
+
+.header p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+
+/* MAIN CARD */
+
+.main-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 30px;
+  background: linear-gradient(145deg,rgba(20,55,50,.96),rgba(9,32,30,.97));
+  border: 1px solid var(--border);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.35),
+    inset 0 1px rgba(255,255,255,.06);
+  backdrop-filter: blur(20px);
+}
+
+.main-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+/* INTRO */
+
+.intro {
+  text-align: center;
+  padding: 20px 5px 5px;
+}
+
+.intro-icon {
+  font-size: 65px;
+  width: 115px;
+  height: 115px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border-radius: 35px;
+  background: radial-gradient(circle,rgba(226,196,126,.2),rgba(226,196,126,.035));
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 10px rgba(226,196,126,.025);
+}
+
+.intro h2 {
+  font-size: 23px;
+  color: var(--gold);
+  margin: 0 0 12px;
+}
+
+.intro p {
+  max-width: 520px;
+  margin: auto;
+  color: var(--muted);
+  line-height: 2.2;
+  font-size: 14px;
+}
+
+/* INFORMATION CARDS */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 13px;
+  margin: 30px 0;
+}
+
+.info-box {
+  padding: 20px 8px;
+  text-align: center;
+  border-radius: 20px;
+  background: linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+  border: 1px solid rgba(255,255,255,.09);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  transition: .25s;
+}
+
+.info-box:hover {
+  transform: translateY(-4px);
+  border-color: var(--border);
+}
+
+.info-box strong {
+  display: block;
+  color: var(--gold);
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.info-box span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* BUTTONS */
+
+.primary-btn {
+  width: 100%;
+  min-height: 58px;
+  padding: 15px 20px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 18px;
+  background: linear-gradient(120deg,#f0d99e,#c4a35c);
+  color: #172c23;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(196,163,92,.18);
+  transition: .25s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 32px rgba(196,163,92,.27);
+  filter: brightness(1.05);
+}
+
+.primary-btn:active {
+  transform: scale(.98);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* QUIZ HEADER */
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.quiz-top strong {
+  color: var(--gold);
+  font-size: 19px;
+}
+
+.progress-bg {
+  height: 9px;
+  background: rgba(255,255,255,.09);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#b08b43,#f1d998);
+  border-radius: 20px;
+  transition: width .4s ease;
+}
+
+/* CATEGORY */
+
+.category {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: rgba(226,196,126,.11);
+  border: 1px solid rgba(226,196,126,.22);
+  color: var(--gold);
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+/* QUESTION */
+
+.question {
+  color: #fffaf0;
+  font-size: clamp(19px,4vw,24px);
+  line-height: 2;
+  font-weight: 800;
+  margin: 0 0 25px;
+}
+
+/* ANSWER CARDS */
+
+.options {
+  display: grid;
+  gap: 13px;
+}
+
+.option {
+  width: 100%;
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 19px;
+  background: linear-gradient(110deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  border: 1px solid rgba(255,255,255,.1);
+  color: var(--text);
+  font-size: 14px;
+  text-align: right;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.option:hover:not(:disabled) {
+  background: rgba(226,196,126,.09);
+  border-color: var(--gold);
+  transform: translateX(-4px);
+}
+
+.option .letter {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: rgba(226,196,126,.12);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.option.correct {
+  border-color: var(--green);
+  background: rgba(53,185,135,.15);
+}
+
+.option.correct .letter {
+  color: #8be6bd;
+  background: rgba(53,185,135,.22);
+}
+
+.option.wrong {
+  border-color: var(--red);
+  background: rgba(228,119,119,.14);
+}
+
+.option.wrong .letter {
+  color: #ffb0b0;
+  background: rgba(228,119,119,.2);
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+/* ANSWER EXPLANATION */
+
+.feedback {
+  display: none;
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 19px;
+  line-height: 2.1;
+  font-size: 13px;
+}
+
+.feedback.show {
+  display: block;
+  animation: appear .3s ease;
+}
+
+.feedback.good {
+  background: rgba(53,185,135,.12);
+  border: 1px solid rgba(53,185,135,.4);
+}
+
+.feedback.bad {
+  background: rgba(228,119,119,.11);
+  border: 1px solid rgba(228,119,119,.4);
+}
+
+.feedback strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.feedback .explanation {
+  color: #d8e5dc;
+}
+
+.next-btn {
+  display: none;
+  margin-top: 20px;
+}
+
+.next-btn.show {
+  display: block;
+}
+
+/* RESULT CARD */
+
+.result {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.result-icon {
+  width: 110px;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  margin: 10px auto 20px;
+  border-radius: 35px;
+  font-size: 58px;
+  background: rgba(226,196,126,.12);
+  border: 1px solid var(--border);
+}
+
+.result h2 {
+  color: var(--gold);
+  font-size: 25px;
+}
+
+.score-circle {
+  width: 175px;
+  height: 175px;
+  margin: 30px auto;
+  border-radius: 50%;
+  border: 7px solid rgba(226,196,126,.3);
+  outline: 1px solid rgba(226,196,126,.2);
+  outline-offset: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle,rgba(226,196,126,.12),transparent);
+  box-shadow: 0 0 45px rgba(226,196,126,.12);
+}
+
+.score-circle strong {
+  color: var(--gold);
+  font-size: 42px;
+}
+
+.score-circle span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.result-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin: 28px 0;
+}
+
+.result-stat {
+  padding: 20px;
+  border-radius: 19px;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.result-stat strong {
+  display: block;
+  color: var(--gold);
+  font-size: 29px;
+}
+
+.result-stat span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.result-message {
+  color: #d8e5dc;
+  line-height: 2.2;
+  font-size: 14px;
+  margin: 22px 0;
+}
+
+/* FOOTER */
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 27px 0 10px;
+  line-height: 2;
+}
+
+/* ANIMATION */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:520px) {
+  body {
+    padding: 12px 10px 35px;
+  }
+
+  .header {
+    padding: 12px 5px 22px;
+  }
+
+  .logo {
+    width: 68px;
+    height: 68px;
+    font-size: 34px;
+    border-radius: 23px;
+  }
+
+  .main-card {
+    padding: 20px 14px;
+    border-radius: 25px;
+  }
+
+  .intro-icon {
+    width: 95px;
+    height: 95px;
+    font-size: 48px;
+    border-radius: 29px;
+  }
+
+  .intro h2 {
+    font-size: 20px;
+  }
+
+  .info-grid {
+    gap: 8px;
+    margin: 23px 0;
+  }
+
+  .info-box {
+    padding: 15px 4px;
+    border-radius: 16px;
+  }
+
+  .info-box strong {
+    font-size: 21px;
+  }
+
+  .info-box span {
+    font-size: 10px;
+  }
+
+  .question {
+    font-size: 18px;
+  }
+
+  .option {
+    min-height: 58px;
+    padding: 11px;
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .option .letter {
+    width: 33px;
+    height: 33px;
+    border-radius: 11px;
+  }
+
+  .feedback {
+    padding: 15px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+<body>
+<div class="container">
+
+  <header class="header">
+    <div class="logo">☾</div>
+    <h1>تاقیکردنەوەی ئیسلامی</h1>
+    <p>زانیارییە ئاینییەکانت بپشکنە و شتی نوێ فێربە</p>
+  </header>
+
+  <main class="main-card">
+
+    <!-- INTRO -->
+    <section id="intro">
+      <div class="intro">
+        <div class="intro-icon">🕌</div>
+        <h2>بەخێربێیت بۆ تاقیکردنەوە</h2>
+        <p>
+          ئامادەیت زانیارییە ئیسلامییەکانت تاقی بکەیتەوە؟
+          هەڵبژاردەی ڕاست هەڵبژێرە و دوای هەر پرسیارێک
+          فێری وەڵامی ڕاست و ڕوونکردنەوەکە ببە.
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <strong>١٠</strong>
+          <span>پرسیار</span>
+        </div>
+        <div class="info-box">
+          <strong>٤</strong>
+          <span>هەڵبژاردە</span>
+        </div>
+        <div class="info-box">
+          <strong>١٠</strong>
+          <span>خاڵی تەواو</span>
+        </div>
+      </div>
+
+      <button class="primary-btn" onclick="startQuiz()">
+        دەستپێکردنی تاقیکردنەوە ←
+      </button>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="hidden">
+
+      <div class="quiz-top">
+        <span id="questionNumber">پرسیاری ١ لە ١٠</span>
+        <span>خاڵ: <strong id="score">٠</strong></span>
+      </div>
+
+      <div class="progress-bg">
+        <div class="progress" id="progress"></div>
+      </div>
+
+      <span class="category" id="category">بنەماکانی ئیسلام</span>
+
+      <h2 class="question" id="question"></h2>
+
+      <div class="options" id="options"></div>
+
+      <div class="feedback" id="feedback">
+        <strong id="feedbackTitle"></strong>
+        <div class="explanation" id="explanation"></div>
+      </div>
+
+      <button class="primary-btn next-btn" id="nextBtn"
+        onclick="nextQuestion()">
+        پرسیاری داهاتوو ←
+      </button>
+
+    </section>
+
+    <!-- RESULTS -->
+    <section id="result" class="hidden">
+
+      <div class="result">
+        <div class="result-icon" id="resultIcon">🏆</div>
+        <h2>تاقیکردنەوەکەت تەواو بوو!</h2>
+
+        <div class="score-circle">
+          <strong id="percentage">٠٪</strong>
+          <span>ڕێژەی سەرکەوتن</span>
+        </div>
+
+        <div class="result-stats">
+          <div class="result-stat">
+            <strong id="correctCount">٠</strong>
+            <span>وەڵامی ڕاست</span>
+          </div>
+          <div class="result-stat">
+            <strong id="wrongCount">٠</strong>
+            <span>وەڵامی هەڵە</span>
+          </div>
+        </div>
+
+        <p class="result-message" id="resultMessage"></p>
+
+        <button class="primary-btn" onclick="restartQuiz()">
+          ↻ دووبارە تاقیکردنەوە
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    ☾ نوری ئیمان | بە زانست، دڵ ڕووناک بکەوە
+  </footer>
+
+</div>
+
+<script>
+const questions = [
+{
+ category:"بنەماکانی ئیسلام",
+ q:"چەند پایەی ئیسلام هەیە؟",
+ a:["سێ پایە","چوار پایە","پێنج پایە","شەش پایە"],
+ correct:2,
+ explanation:"پێنج پایەی ئیسلام بریتین لە شایەتمانی، نوێژ، زەکات، ڕۆژوو و حەج بۆ ئەوانەی توانایان هەیە."
+},
+{
+ category:"قورئانی پیرۆز",
+ q:"قورئانی پیرۆز لە کام مانگدا دەستی بە دابەزین کرد؟",
+ a:["محەڕەم","ڕەمەزان","شەعبان","شەوال"],
+ correct:1,
+ explanation:"قورئانی پیرۆز لە مانگی پیرۆزی ڕەمەزاندا دەستی بە دابەزین کرد."
+},
+{
+ category:"قورئانی پیرۆز",
+ q:"یەکەم ئایەتەکانی قورئان کە دابەزین، لە کام سوورە بوون؟",
+ a:["سوورەتی الفاتحە","سوورەتی البقرە","سوورەتی العلق","سوورەتی الإخلاص"],
+ correct:2,
+ explanation:"یەکەم ئایەتە دابەزێنراوەکان لە سوورەتی العلق بوون، بە دەستپێکی «اقرأ باسم ربك»."
+},
+{
+ category:"نوێژ",
+ q:"چەند نوێژی فەرزی لە شەو و ڕۆژێکدا هەیە؟",
+ a:["سێ نوێژ","چوار نوێژ","پێنج نوێژ","شەش نوێژ"],
+ correct:2,
+ explanation:"پێنج نوێژی فەرز بریتین لە بەیانی، نیوەڕۆ، عەسر، مەغریب و عیشا."
+},
+{
+ category:"قیبلە",
+ q:"موسڵمانان لە کاتی نوێژدا ڕوو لە کوێ دەکەن؟",
+ a:["مزگەوتی نەبەوی","کەعبە","مزگەوتی ئەقسا","کۆهی عەرەفات"],
+ correct:1,
+ explanation:"قیبلەی موسڵمانان کەعبەی پیرۆزە لە مەککەی پیرۆز."
+},
+{
+ category:"فەرشتەکان",
+ q:"کام فەرشتە قورئانی پیرۆزی بۆ پێغەمبەر ﷺ دەهێنا؟",
+ a:["میکائیل","ئیسرەفیل","عەزرائیل","جبرائیل"],
+ correct:3,
+ explanation:"فەرشتەی جبرائیل (علیه السلام) پەیامی خودای گەورەی بۆ پێغەمبەر محەممەد ﷺ دەهێنا."
+},
+{
+ category:"پێغەمبەران",
+ q:"پێغەمبەر محەممەد ﷺ لە کام شار لەدایک بوو؟",
+ a:["مەدینە","مەککە","قودس","تائیف"],
+ correct:1,
+ explanation:"پێغەمبەر محەممەد ﷺ لە شاری مەککە لەدایک بوو."
+},
+{
+ category:"ڕۆژوو",
+ q:"ڕۆژووگرتنی مانگی ڕەمەزان بۆ کام کەسانە فەرزە؟",
+ a:["هەموو منداڵان","تەنها پیران","موسڵمانی بالغ و عاقل کە عوزریان نییە","تەنها پیاوان"],
+ correct:2,
+ explanation:"ڕۆژوو بۆ موسڵمانی بالغ و عاقل فەرزە، بە مەرجەکانی شەریعەت و لەگەڵ ڕەچاوی عوزرە ڕەواکان."
+},
+{
+ category:"کۆچی پێغەمبەر ﷺ",
+ q:"پێغەمبەر ﷺ لە مەککەوە بۆ کام شار کۆچی کرد؟",
+ a:["شام","بەغدا","مەدینە","تەبووک"],
+ correct:2,
+ explanation:"پێغەمبەر ﷺ لە مەککەوە بۆ مەدینە کۆچی کرد؛ ئەو ڕووداوە بە هیجرە ناسراوە."
+},
+{
+ category:"نوێژی بەیانی",
+ q:"چەند ڕەکعەتی فەرز لە نوێژی بەیانی (فەجر)دا هەیە؟",
+ a:["دوو ڕەکعەت","سێ ڕەکعەت","چوار ڕەکعەت","پێنج ڕەکعەت"],
+ correct:0,
+ explanation:"نوێژی فەجر دوو ڕەکعەتی فەرزی هەیە، جیاواز لە دوو ڕەکعەتی سوننەتی پێشی."
+}
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function startQuiz() {
+  current = 0;
+  score = 0;
+
+  document.getElementById("intro").classList.add("hidden");
+  document.getElementById("result").classList.add("hidden");
+  document.getElementById("quiz").classList.remove("hidden");
+
+  showQuestion();
+}
+
+function showQuestion() {
+  answered = false;
+
+  const q = questions[current];
+
+  document.getElementById("questionNumber").textContent =
+    `پرسیاری ${current + 1} لە ${questions.length}`;
+
+  document.getElementById("score").textContent = score;
+
+  document.getElementById("progress").style.width =
+    `${(current / questions.length) * 100}%`;
+
+  document.getElementById("category").textContent = q.category;
+  document.getElementById("question").textContent = q.q;
+
+  document.getElementById("feedback").className = "feedback";
+  document.getElementById("nextBtn").classList.remove("show");
+
+  const letters = ["ئەلف","باء","جیم","دال"];
+  const options = document.getElementById("options");
+
+  options.innerHTML = "";
+
+  q.a.forEach((answer,index) => {
+    const btn = document.createElement("button");
+    btn.className = "option";
+    btn.type = "button";
+
+    const letter = document.createElement("span");
+    letter.className = "letter";
+    letter.textContent = letters[index];
+
+    const text = document.createElement("span");
+    text.textContent = answer;
+
+    btn.append(letter,text);
+
+    btn.addEventListener("click",() => checkAnswer(index));
+
+    options.appendChild(btn);
+  });
+
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.textContent =
+    current === questions.length - 1
+    ? "بینینی ئەنجام ←"
+    : "پرسیاری داهاتوو ←";
+}
+
+function checkAnswer(selected) {
+  if (answered) return;
+  answered = true;
+
+  const q = questions[current];
+  const buttons = document.querySelectorAll(".option");
+
+  buttons.forEach((btn,index) => {
+    btn.disabled = true;
+
+    if(index === q.correct) {
+      btn.classList.add("correct");
+    }
+
+    if(index === selected && selected !== q.correct) {
+      btn.classList.add("wrong");
+    }
+  });
+
+  const feedback = document.getElementById("feedback");
+
+  if(selected === q.correct) {
+    score++;
+    feedback.className = "feedback show good";
+    document.getElementById("feedbackTitle").textContent =
+      "✓ ئافەرین! وەڵامەکەت ڕاستە";
+  } else {
+    feedback.className = "feedback show bad";
+    document.getElementById("feedbackTitle").textContent =
+      "✕ وەڵامەکەت هەڵەیە";
+  }
+
+  document.getElementById("explanation").textContent =
+    "وەڵامی ڕاست: " + q.a[q.correct] + ". " + q.explanation;
+
+  document.getElementById("score").textContent = score;
+
+  document.getElementById("nextBtn").classList.add("show");
+}
+
+function nextQuestion() {
+  if (!answered) return;
+
+  current++;
+
+  if(current < questions.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById("quiz").classList.add("hidden");
+  document.getElementById("result").classList.remove("hidden");
+
+  const percentage = Math.round(score / questions.length * 100);
+  const wrong = questions.length - score;
+
+  document.getElementById("percentage").textContent =
+    percentage + "٪";
+
+  document.getElementById("correctCount").textContent = score;
+  document.getElementById("wrongCount").textContent = wrong;
+
+  let message;
+  let icon;
+
+  if(percentage === 100) {
+    message = "ماشاءالله! هەموو وەڵامەکانت ڕاست بوون. زۆر نایابە!";
+    icon = "🏆";
+  } else if(percentage >= 80) {
+    message = "ئاستێکی زۆر باشە! بەردەوام بە لە فێربوونی زانستی ئیسلامی.";
+    icon = "🌟";
+  } else if(percentage >= 50) {
+    message = "باشە! هەندێک پرسیارت بە ڕاستی وەڵام داوەتەوە. زیاتر فێربە.";
+    icon = "📚";
+  } else {
+    message = "هەوڵدان گرنگە. وەڵامەکان بخوێنەوە و جارێکی تر تاقی بکەوە.";
+    icon = "🌱";
+  }
+
+  document.getElementById("resultMessage").textContent = message;
+  document.getElementById("resultIcon").textContent = icon;
+  document.getElementById("progress").style.width = "100%";
+}
+
+function restartQuiz() {
+  startQuiz();
+}
+
+</script>
+</body>
+</html> 

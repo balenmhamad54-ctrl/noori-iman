@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071d19">
+
+<title>سەبەحەی ئەلیکترۆنی | نووری ئیمان</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#071d19;
+  --card:#102a24;
+  --gold:#d8b66b;
+  --gold2:#f2dca2;
+  --text:#f5f1e7;
+  --muted:#a7b8ad;
+  --border:rgba(216,182,107,.19);
+}
+
+* {box-sizing:border-box}
+
+body {
+  margin:0;
+  min-height:100vh;
+  font-family:'Noto Sans Arabic',sans-serif;
+  color:var(--text);
+  background:
+  radial-gradient(ellipse at top, #183c30 0%, transparent 55%),
+  var(--bg);
+}
+
+header {
+  padding:22px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+}
+
+.logo {
+  color:var(--gold2);
+  font-size:23px;
+  font-weight:800;
+}
+
+.logo small {
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:400;
+}
+
+.back {
+  color:var(--gold2);
+  text-decoration:none;
+  border:1px solid var(--border);
+  padding:9px 16px;
+  border-radius:12px;
+  font-size:13px;
+}
+
+main {
+  width:min(1050px,92%);
+  margin:35px auto;
+}
+
+.heading {
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.heading .symbol {
+  font-size:34px;
+  color:var(--gold);
+}
+
+.heading h1 {
+  margin:8px 0;
+  font-size:27px;
+  color:var(--gold2);
+}
+
+.heading p {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.layout {
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:20px;
+}
+
+.card {
+  background:linear-gradient(145deg,#15372e,#0c241e);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:25px;
+  box-shadow:0 15px 40px #0003;
+}
+
+.card h2 {
+  font-size:18px;
+  color:var(--gold2);
+  margin:0 0 20px;
+}
+
+select,input {
+  width:100%;
+  padding:13px;
+  border-radius:12px;
+  background:#071d19;
+  color:var(--text);
+  border:1px solid var(--border);
+  font-family:inherit;
+  outline:none;
+  margin-bottom:12px;
+}
+
+select:focus,input:focus {
+  border-color:var(--gold);
+}
+
+.zikr-arabic {
+  text-align:center;
+  font-size:27px;
+  line-height:2;
+  color:var(--gold2);
+  margin:20px 0 8px;
+  min-height:70px;
+}
+
+.zikr-meaning {
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  min-height:25px;
+}
+
+.counter-area {
+  text-align:center;
+  padding:20px 0;
+}
+
+.counter {
+  width:220px;
+  height:220px;
+  margin:15px auto;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  border:5px solid var(--gold);
+  background:
+    radial-gradient(circle,#234639,#0b241d 75%);
+  box-shadow:
+    0 0 0 9px #d8b66b15,
+    0 0 40px #d8b66b20;
+  cursor:pointer;
+  transition:.15s;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.counter:active {
+  transform:scale(.96);
+}
+
+.counter span:first-child {
+  font-size:57px;
+  font-weight:800;
+  color:var(--gold2);
+  direction:ltr;
+}
+
+.counter small {
+  color:var(--muted);
+  font-size:12px;
+}
+
+.progress-text {
+  color:var(--muted);
+  font-size:13px;
+  margin:10px 0;
+}
+
+.progress {
+  height:8px;
+  background:#ffffff15;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress div {
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#b18a3c,#f4d88f);
+  transition:.3s;
+}
+
+.targets {
+  display:flex;
+  gap:9px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:18px 0;
+}
+
+button {
+  font-family:inherit;
+  cursor:pointer;
+  border:none;
+}
+
+.target {
+  padding:9px 17px;
+  background:#ffffff0c;
+  border:1px solid var(--border);
+  color:var(--text);
+  border-radius:10px;
+}
+
+.target.active {
+  background:var(--gold);
+  color:#17271c;
+  font-weight:700;
+}
+
+.actions {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.action {
+  padding:12px 22px;
+  border-radius:12px;
+  background:var(--gold);
+  color:#17271c;
+  font-weight:700;
+}
+
+.action.secondary {
+  background:#ffffff0b;
+  color:var(--text);
+  border:1px solid var(--border);
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+
+.stat {
+  background:#ffffff08;
+  border:1px solid var(--border);
+  border-radius:14px;
+  text-align:center;
+  padding:17px 5px;
+}
+
+.stat strong {
+  display:block;
+  color:var(--gold2);
+  font-size:24px;
+}
+
+.stat small {
+  color:var(--muted);
+  font-size:11px;
+}
+
+.add-box {
+  margin-top:20px;
+  padding-top:20px;
+  border-top:1px solid var(--border);
+}
+
+.add-box button {
+  width:100%;
+}
+
+.notice {
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  margin:30px 0;
+  line-height:2;
+}
+
+footer {
+  text-align:center;
+  padding:25px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:12px;
+}
+
+@media(max-width:700px) {
+  header {padding:17px 5%}
+  .layout {grid-template-columns:1fr}
+  main {margin:25px auto}
+  .card {padding:20px}
+  .heading h1 {font-size:23px}
+  .counter {width:195px;height:195px}
+}
+
+/* ===== Responsive mobile refinement: نوری ئیمان ===== */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video,iframe,canvas,svg{max-width:100%}
+img,video{height:auto}
+input,select,textarea,button{max-width:100%}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere}
+table{max-width:100%}
+@media(max-width:760px){
+ body{font-size:14px}
+ header,nav,main,footer,section{max-width:100%}
+ .container,.content,.main-content,.page-container,.wrapper{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}
+ .navbar,.nav-inner,.header-top{gap:10px!important}
+ .nav-links{max-width:100%}
+ .hero{min-height:0!important;padding-top:34px!important;padding-bottom:34px!important}
+ .hero h1,header h1,h1{overflow-wrap:anywhere;font-size:clamp(26px,7vw,42px)!important;line-height:1.55!important}
+ h2{font-size:clamp(21px,5.5vw,30px)!important;line-height:1.6!important}
+ h3,p,li,a,button,label{overflow-wrap:anywhere}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .stat{padding:12px 6px!important}.stat strong{font-size:clamp(17px,5vw,24px)!important}
+ .controls,.search-box,.form-row{flex-wrap:wrap!important}
+ .controls>*,.search-box>*{min-width:0}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .card,.dua-card,.prayer-card,.stat{min-width:0!important}
+}
+@media(max-width:520px){
+ .navbar,.nav-inner{flex-wrap:wrap!important}
+ .logo{font-size:20px!important;white-space:normal!important}
+ .hero{padding-left:14px!important;padding-right:14px!important}
+ .hero p,header p{font-size:13px!important}
+ .hero-buttons,.actions,.button-group{gap:8px!important}
+ .hero-buttons>*,.actions>*,.button-group>*{max-width:100%}
+ .grid,.cards,.dua-grid,.prayer-grid,.names-grid,.features-grid,.content-grid,.cards-grid{grid-template-columns:minmax(0,1fr)!important}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .card,.dua-card,.prayer-card{padding:17px 14px!important}
+ .quran-section,.quote,.intro-card{margin-left:10px!important;margin-right:10px!important;padding:22px 14px!important}
+ .theme-area{gap:8px!important}
+ .main-btn,button,.btn{min-height:42px}
+ input,select,textarea{min-width:0!important;width:100%}
+}
+@media(max-width:360px){.stats{grid-template-columns:minmax(0,1fr)!important}.logo{font-size:18px!important}}
+
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#081c20">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    ☾ نوری ئیمان
+    <small>ڕووناکییەک بۆ ڕۆح و دڵ</small>
+  </div>
+  <a href="index.html" class="back">↩ گەڕانەوە</a>
+</header>
+
+<main>
+
+  <section class="heading">
+    <div class="symbol">۞</div>
+    <h1>سەبەحەی ئەلیکترۆنی</h1>
+    <p>بە یادکردنی خوای گەورە دڵەکان ئارام دەگرن</p>
+  </section>
+
+  <div class="layout">
+
+    <!-- زیکرەکان -->
+    <section class="card">
+      <h2>📿 هەڵبژاردنی زیکر</h2>
+
+      <select id="zikrSelect">
+        <option value="subhan">سُبْحَانَ اللَّهِ</option>
+        <option value="hamd">الْحَمْدُ لِلَّهِ</option>
+        <option value="akbar">اللَّهُ أَكْبَرُ</option>
+        <option value="istighfar">أَسْتَغْفِرُ اللَّهَ</option>
+        <option value="salawat">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ</option>
+        <option value="tahlil">لَا إِلَهَ إِلَّا اللَّهُ</option>
+      </select>
+
+      <div class="zikr-arabic" id="zikrText">
+        سُبْحَانَ اللَّهِ
+      </div>
+
+      <div class="zikr-meaning" id="zikrMeaning">
+        پاک و بێگەردە خوای گەورە
+      </div>
+
+      <div class="add-box">
+        <h2>✨ زیکری تایبەتی</h2>
+        <input id="customZikr"
+          type="text"
+          placeholder="ناوی زیکر یان دەقی زیکر بنووسە">
+
+        <button class="action" id="addCustom">
+          + زیادکردنی زیکر
+        </button>
+      </div>
+    </section>
+
+    <!-- ژمێرەر -->
+    <section class="card">
+      <h2>ژمێرەری زیکر</h2>
+
+      <div class="counter-area">
+
+        <div class="counter" id="counterButton"
+          role="button" tabindex="0"
+          aria-label="زیادکردنی ژمارەی زیکر">
+          <span id="count">0</span>
+          <small>کرتە بکە بۆ زیکر</small>
+        </div>
+
+        <div class="progress-text">
+          <span id="currentCount">0</span>
+          لە
+          <span id="targetCount">33</span>
+        </div>
+
+        <div class="progress">
+          <div id="progressBar"></div>
+        </div>
+
+      </div>
+
+      <div class="targets">
+        <button class="target active" data-target="33">٣٣</button>
+        <button class="target" data-target="99">٩٩</button>
+        <button class="target" data-target="100">١٠٠</button>
+      </div>
+
+      <div class="actions">
+        <button class="action" id="resetButton">
+          ↻ سفرکردنەوە
+        </button>
+        <button class="action secondary" id="undoButton">
+          ↶ یەک هەنگاو دواوە
+        </button>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong id="todayCount">0</strong>
+          <small>زیکری ئەمڕۆ</small>
+        </div>
+        <div class="stat">
+          <strong id="sessionCount">0</strong>
+          <small>ئەم دانیشتنە</small>
+        </div>
+        <div class="stat">
+          <strong id="completedCount">0</strong>
+          <small>ئامانجی تەواو</small>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <p class="notice">
+    هەموو ژمارەکان بە شێوەی خۆکار لەسەر ئامێرەکەت پاشەکەوت دەکرێن.
+    <br>
+    نووری ئیمان – یادکردنی خوای گەورە
+  </p>
+
+</main>
+
+<footer>
+  © 2026 نووری ئیمان | هەموو مافەکان پارێزراون
+</footer>
+
+<script>
+const zikrs = {
+  subhan: {
+    text: "سُبْحَانَ اللَّهِ",
+    meaning: "پاک و بێگەردە خوای گەورە"
+  },
+  hamd: {
+    text: "الْحَمْدُ لِلَّهِ",
+    meaning: "هەموو ستایش و سوپاس بۆ خوای گەورەیە"
+  },
+  akbar: {
+    text: "اللَّهُ أَكْبَرُ",
+    meaning: "خوای گەورە لە هەموو شتێک گەورەترە"
+  },
+  istighfar: {
+    text: "أَسْتَغْفِرُ اللَّهَ",
+    meaning: "داوای لێخۆشبوون لە خوای گەورە دەکەم"
+  },
+  salawat: {
+    text: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ",
+    meaning: "خوایە سەڵاوات لەسەر محەممەد بنێرە"
+  },
+  tahlil: {
+    text: "لَا إِلَهَ إِلَّا اللَّهُ",
+    meaning: "هیچ پەرستراوێکی بەحق نییە جگە لە خوا"
+  }
+};
+
+const $ = id => document.getElementById(id);
+
+let data = {};
+
+try {
+  data = JSON.parse(localStorage.getItem("nooriTasbih")) || {};
+} catch {
+  data = {};
+}
+
+const today = new Date().toLocaleDateString("en-CA");
+
+let count = data.count || 0;
+let target = data.target || 33;
+let session = data.session || 0;
+let completed = data.completed || 0;
+let todayCount = data.date === today ? (data.todayCount || 0) : 0;
+let undoStack = [];
+let customItems = data.customItems || [];
+
+function save() {
+  localStorage.setItem("nooriTasbih", JSON.stringify({
+    count,
+    target,
+    session,
+    completed,
+    todayCount,
+    date: today,
+    customItems
+  }));
+}
+
+function render() {
+  $("count").textContent = count;
+  $("currentCount").textContent = count;
+  $("targetCount").textContent = target;
+  $("todayCount").textContent = todayCount;
+  $("sessionCount").textContent = session;
+  $("completedCount").textContent = completed;
+
+  const percent = Math.min((count / target) * 100, 100);
+  $("progressBar").style.width = percent + "%";
+
+  save();
+}
+
+function increment() {
+  if (count >= target) return;
+
+  undoStack.push({
+    count,
+    todayCount,
+    session,
+    completed
+  });
+
+  count++;
+  todayCount++;
+  session++;
+
+  if (count === target) {
+    completed++;
+    setTimeout(() => {
+      alert("🌙 پیرۆزە! ئامانجی زیکرەکەت تەواو بوو.");
+    }, 100);
+  }
+
+  render();
+}
+
+$("counterButton").addEventListener("click", increment);
+
+$("counterButton").addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    increment();
+  }
+});
+
+document.querySelectorAll(".target").forEach(btn => {
+  btn.addEventListener("click", () => {
+    target = Number(btn.dataset.target);
+
+    document.querySelectorAll(".target").forEach(b =>
+      b.classList.remove("active")
+    );
+
+    btn.classList.add("active");
+
+    if (count > target) count = target;
+
+    undoStack = [];
+    render();
+  });
+});
+
+$("resetButton").addEventListener("click", () => {
+  if (!confirm("دڵنیایت دەتەوێت ژمارەی ئەم زیکرە سفر بکەیتەوە؟")) return;
+
+  count = 0;
+  undoStack = [];
+  render();
+});
+
+$("undoButton").addEventListener("click", () => {
+  const previous = undoStack.pop();
+  if (!previous) return;
+
+  count = previous.count;
+  todayCount = previous.todayCount;
+  session = previous.session;
+  completed = previous.completed;
+
+  render();
+});
+
+$("zikrSelect").addEventListener("change", e => {
+  const item = zikrs[e.target.value];
+
+  $("zikrText").textContent = item.text;
+  $("zikrMeaning").textContent = item.meaning;
+
+  count = 0;
+  undoStack = [];
+  render();
+});
+
+function addCustomOption(item, index) {
+  const option = document.createElement("option");
+  option.value = "custom-" + index;
+  option.textContent = item.text;
+  $("zikrSelect").appendChild(option);
+}
+
+function loadCustom() {
+  customItems.forEach(addCustomOption);
+}
+
+$("addCustom").addEventListener("click", () => {
+  const value = $("customZikr").value.trim();
+
+  if (!value) {
+    alert("تکایە دەقی زیکر بنووسە.");
+    return;
+  }
+
+  customItems.push({
+    text: value,
+    meaning: "زیکری تایبەتی بەکارهێنەر"
+  });
+
+  loadCustom();
+
+  const index = customItems.length - 1;
+  $("zikrSelect").value = "custom-" + index;
+
+  $("zikrText").textContent = value;
+  $("zikrMeaning").textContent = "زیکری تایبەتی بەکارهێنەر";
+
+  $("customZikr").value = "";
+
+  count = 0;
+  undoStack = [];
+  render();
+});
+
+$("zikrSelect").addEventListener("change", e => {
+  if (!e.target.value.startsWith("custom-")) return;
+
+  const index = Number(e.target.value.split("-")[1]);
+  const item = customItems[index];
+
+  if (!item) return;
+
+  $("zikrText").textContent = item.text;
+  $("zikrMeaning").textContent = item.meaning;
+  count = 0;
+  undoStack = [];
+  render();
+});
+
+loadCustom();
+render();
+</script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>
